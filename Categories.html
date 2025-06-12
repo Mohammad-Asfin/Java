@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Phone Categories | ShopCart</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .category-card {
+            transition: transform 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .badge-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+        }
+        .bg-premium {
+            background: linear-gradient(45deg, #ff9966, #ff5e62);
+        }
+        .bg-flagship {
+            background: linear-gradient(45deg, #4776E6, #8E54E9);
+        }
+        .bg-gaming {
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+        }
+        .bg-camera {
+            background: linear-gradient(45deg, #f46b45, #eea849);
+        }
+        .bg-budget {
+            background: linear-gradient(45deg, #a8ff78, #78ffd6);
+        }
+        .bg-foldable {
+            background: linear-gradient(45deg, #8E2DE2, #4A00E0);
+        }
+        .bg-rugged {
+            background: linear-gradient(45deg, #f12711, #f5af19);
+        }
+        .bg-business {
+            background: linear-gradient(45deg, #1a2980, #26d0ce);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .breadcrumb {
+            background-color: transparent;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar (same as other pages for consistency) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="Per Home.html"><i class="fas fa-mobile-alt me-2"></i>ShopCart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="Per Home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="smartphones.html">Smartphones</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="categories.html">Categories</a></li>
+                </ul>
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="Search mobiles...">
+                    <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Cart (0)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user"></i> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-5 mb-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-3">Mobile Phone Categories</h1>
+                    <p class="lead mb-4">Browse smartphones by category to find the perfect device for your needs</p>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="Per Home.html" class="text-white">Home</a></li>
+                            <li class="breadcrumb-item active text-white-50" aria-current="page">Categories</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="girl.webp" alt="Mobile Categories" class="img-fluid rounded-3 shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Categories Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-5 text-center">Browse by Category</h2>
+            <div class="row g-4">
+                <!-- Premium Flagships -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="Premium Flagships.webp" class="card-img-top" alt="Premium Flagships">
+                            <span class="badge bg-premium badge-category">BESTSELLERS</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="h4">Premium Flagships</h3>
+                            <p class="text-muted">The latest and greatest smartphones with cutting-edge technology and premium materials.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Latest processors</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Premium build quality</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Best cameras</li>
+                            </ul>
+                            <a href="smartphones.html#premium" class="btn btn-primary mt-3">View Phones (12)</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mid-Range Phones -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="Mid Range Phones.jpg" class="card-img-top" alt="Mid-Range Phones">
+                            <span class="badge bg-flagship badge-category">BEST VALUE</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="h4">Mid-Range Phones</h3>
+                            <p class="text-muted">Excellent performance and features at more affordable prices.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Great performance</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Quality cameras</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Premium features</li>
+                            </ul>
+                            <a href="smartphones.html" class="btn btn-primary mt-3">View Phones (18)</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Budget Phones -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="Budget Phones.jpg" class="card-img-top" alt="Budget Phones">
+                            <span class="badge bg-budget badge-category">AFFORDABLE</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="h4">Budget Phones</h3>
+                            <p class="text-muted">Quality smartphones that won't break the bank.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Great value</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Decent performance</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Long battery life</li>
+                            </ul>
+                            <a href="smartphones.html#budget" class="btn btn-primary mt-3">View Phones (15)</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gaming Phones -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="Gaming Phones.webp" class="card-img-top" alt="Gaming Phones">
+                            <span class="badge bg-gaming badge-category">HIGH PERFORMANCE</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="h4">Gaming Phones</h3>
+                            <p class="text-muted">Phones built specifically for mobile gaming enthusiasts.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> High refresh rate displays</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Powerful processors</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Advanced cooling systems</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary mt-3">View Phones (8)</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Camera Phones -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="Camera Phones.webp" class="card-img-top" alt="Camera Phones">
+                            <span class="badge bg-camera badge-category">BEST CAMERAS</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="h4">Camera Phones</h3>
+                            <p class="text-muted">Smartphones with exceptional camera capabilities.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> High-resolution sensors</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Advanced zoom capabilities</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Professional-grade video</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary mt-3">View Phones (10)</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Foldable Phones -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="category-card card h-100 border-0">
+                        <div class="position-relative">
+                            <img src="Foldable Phones.webp" class="card-img-top" alt="Foldable Phones">
+                            <span class="badge bg-foldable badge-category">INNOVATIVE</span>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="h4">Foldable Phones</h3>
+                            <p class="text-muted">The future of smartphones with flexible displays.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Innovative designs</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Large flexible displays</li>
+                                <li><i class="fas fa-check-circle text-primary me-2"></i> Multi-tasking capabilities</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary mt-3">View Phones (6)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="fw-bold mb-5 text-center">Shop by Brand</h2>
+            <div class="row g-4">
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="Apple logo.png" alt="Apple" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Apple</h5>
+                            <p class="small text-muted mb-0">12 models</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="Samsung logo.png" alt="Samsung" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Samsung</h5>
+                            <p class="small text-muted mb-0">18 models</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="OnePlus.png" alt="OnePlus" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">OnePlus</h5>
+                            <p class="small text-muted mb-0">8 models</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="Google.jpeg" alt="Google" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Google</h5>
+                            <p class="small text-muted mb-0">5 models</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="Xiaomi.png" alt="Xiaomi" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Xiaomi</h5>
+                            <p class="small text-muted mb-0">15 models</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="Realme.png" alt="Realme" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Realme</h5>
+                            <p class="small text-muted mb-0">12 models</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="Oppo.png" alt="Oppo" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Oppo</h5>
+                            <p class="small text-muted mb-0">10 models</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="Vivo.png" alt="Vivo" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Vivo</h5>
+                            <p class="small text-muted mb-0">9 models</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="Nothing.png" alt="Nothing" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Nothing</h5>
+                            <p class="small text-muted mb-0">3 models</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="Asus.png" alt="Asus" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Asus</h5>
+                            <p class="small text-muted mb-0">7 models</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="IQOO.png" alt="IQOO" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">IQOO</h5>
+                            <p class="small text-muted mb-0">6 models</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <a href="#" class="card brand-card h-100 text-center border-0 p-3">
+                        <img src="Motorola.png" alt="Motorola" class="img-fluid">
+                        <div class="card-body">
+                            <h5 class="card-title mb-0">Motorola</h5>
+                            <p class="small text-muted mb-0">11 models</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Categories -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="fw-bold mb-5 text-center">Special Categories</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-rugged text-white rounded-circle p-3 mb-3 mx-auto" style="width: 70px; height: 70px;">
+                                <i class="fas fa-shield-alt fa-2x"></i>
+                            </div>
+                            <h3 class="h5">Rugged Phones</h3>
+                            <p class="text-muted">Built to withstand tough conditions with military-grade durability.</p>
+                            <a href="#" class="btn btn-outline-primary">Explore (5)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-business text-white rounded-circle p-3 mb-3 mx-auto" style="width: 70px; height: 70px;">
+                                <i class="fas fa-briefcase fa-2x"></i>
+                            </div>
+                            <h3 class="h5">Business Phones</h3>
+                            <p class="text-muted">Enhanced security and productivity features for professionals.</p>
+                            <a href="#" class="btn btn-outline-primary">Explore (7)</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="bg-primary text-white rounded-circle p-3 mb-3 mx-auto" style="width: 70px; height: 70px;">
+                                <i class="fas fa-battery-full fa-2x"></i>
+                            </div>
+                            <h3 class="h5">Long Battery Life</h3>
+                            <p class="text-muted">Phones that last days on a single charge.</p>
+                            <a href="#" class="btn btn-outline-primary">Explore (9)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-3">Get Category-Specific Deals</h2>
+            <p class="mb-4">Subscribe to get personalized recommendations based on your favorite categories</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-dark" type="button">Subscribe</button>
+                    </div>
+                    <p class="small mt-2">We'll never spam you. Unsubscribe anytime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as other pages for consistency) -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-mobile-alt me-2"></i>ShopCart</h5>
+                    <p>Your one-stop destination for the latest smartphones and gadgets.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Shop</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Smartphones</a></li>
+                        <li><a href="#" class="text-white-50">Accessories</a></li>
+                        <li><a href="#" class="text-white-50">Deals</a></li>
+                        <li><a href="#" class="text-white-50">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Help</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">FAQs</a></li>
+                        <li><a href="#" class="text-white-50">Shipping</a></li>
+                        <li><a href="#" class="text-white-50">Returns</a></li>
+                        <li><a href="#" class="text-white-50">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Payment Methods</h5>
+                    <div class="payment-methods mb-3">
+                        <img src="https://via.placeholder.com/40x25?text=Visa" alt="Visa" class="me-2">
+                        <img src="https://via.placeholder.com/40x25?text=MC" alt="Mastercard" class="me-2">
+                        <img src="https://via.placeholder.com/40x25?text=PayPal" alt="PayPal" class="me-2">
+                        <img src="https://via.placeholder.com/40x25?text=UPI" alt="UPI" class="me-2">
+                    </div>
+                    <h5>Download App</h5>
+                    <div class="app-download">
+                        <img src="https://via.placeholder.com/120x40?text=App+Store" alt="App Store" class="me-2 mb-2">
+                        <img src="https://via.placeholder.com/120x40?text=Play+Store" alt="Play Store">
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 ShopCart. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white-50 me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50 me-3">Terms of Service</a>
+                    <a href="#" class="text-white-50">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple cart counter (same as other pages)
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.btn-dark');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const cartCount = document.querySelector('.nav-link[href="#"]');
+                    let count = parseInt(cartCount.textContent.match(/\d+/)[0]) || 0;
+                    cartCount.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart (${count + 1})`;
+                    
+                    // Show toast notification
+                    const toast = document.createElement('div');
+                    toast.className = 'position-fixed bottom-0 end-0 p-3';
+                    toast.style.zIndex = '11';
+                    toast.innerHTML = `
+                        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header bg-success text-white">
+                                <strong class="me-auto">Success</strong>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                Item added to cart!
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(toast);
+                    
+                    // Remove toast after 3 seconds
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 3000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

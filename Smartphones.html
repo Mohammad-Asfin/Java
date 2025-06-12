@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top 50 Mobile Phones | ShopCart</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .card {
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .rating {
+            color: #ffc107;
+        }
+        .price {
+            font-weight: bold;
+            color: #dc3545;
+        }
+        .badge-premium {
+            background: linear-gradient(45deg, #ff9966, #ff5e62);
+        }
+        .badge-budget {
+            background: #20c997;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-mobile-alt me-2"></i>ShopCart</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="Per Home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Smartphones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="D:\E-Commerce\Categories.html">Categories</a></li>
+                </ul>
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="Search mobiles...">
+                    <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i> Cart (0)</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"><i class="fas fa-user"></i> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <div class="bg-primary text-white py-5 mb-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="display-4 fw-bold">Top Mobile Phones 2025</h1>
+                    <p class="lead">Best rated smartphones with prices, specs and expert reviews</p>
+                    <div class="d-flex gap-2">
+                        <a href="#premium" class="btn btn-light btn-lg">Premium Phones</a>
+                        <a href="#budget" class="btn btn-outline-light btn-lg">Budget Picks</a>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="jenner-girls.jpg" alt="Smartphones" class="img-fluid rounded-3 shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="container mb-5">
+        <div class="row g-3">
+            <div class="col-md-3">
+                <select class="form-select">
+                    <option selected>All Brands</option>
+                    <option>Apple</option>
+                    <option>Samsung</option>
+                    <option>OnePlus</option>
+                    <option>Xiaomi</option>
+                    <option>Google</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select">
+                    <option selected>Price Range</option>
+                    <option>Under ₹15,000</option>
+                    <option>₹15,000 - ₹30,000</option>
+                    <option>₹30,000 - ₹50,000</option>
+                    <option>Above ₹50,000</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select class="form-select">
+                    <option selected>Sort By</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Rating: High to Low</option>
+                    <option>Newest First</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <button class="btn btn-dark w-100"><i class="fas fa-filter me-2"></i>Apply Filters</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Premium Phones Section -->
+    <div class="container mb-5" id="premium">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold"><i class="fas fa-crown text-warning me-2"></i>Premium Flagships</h2>
+            <a href="#" class="btn btn-sm btn-outline-dark">View All</a>
+        </div>
+        <div class="row g-4">
+            <!-- Phone 1 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <span class="badge badge-premium position-absolute top-0 end-0 m-2">BESTSELLER</span>
+                    <img src="iPhone 16 Pro Max1.jpg" class="card-img-top p-3" alt="iPhone 15 Pro Max">
+                    <div class="card-body">
+                        <h5 class="card-title">iPhone 16 Pro Max</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="ms-1">4.8</span>
+                        </div>
+                        <p class="price">₹1,59,900</p>
+                        <p class="card-text small">A18 Pro | Titanium | 15x Zoom</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phone 2 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">NEW</span>
+                    <img src="Samsung S25 Ultra1.jpg" class="card-img-top p-3" alt="Samsung Galaxy S24 Ultra">
+                    <div class="card-body">
+                        <h5 class="card-title">Samsung S25 Ultra</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="ms-1">4.7</span>
+                        </div>
+                        <p class="price">₹1,29,999</p>
+                        <p class="card-text small">400MP Camera | S Pen | Snapdragon 9 Gen 3</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phone 3 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <img src="Pixel 9 Pro.jpg" class="card-img-top p-3" alt="Google Pixel 8 Pro">
+                    <div class="card-body">
+                        <h5 class="card-title">Pixel 9 Pro</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span class="ms-1">4.7</span>
+                        </div>
+                        <p class="price">₹1,06,999</p>
+                        <p class="card-text small">Tensor G4 | AI Features | 100MP Cam</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phone 4 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2">5% OFF</span>
+                    <img src="OnePlus 13.jpg" class="card-img-top p-3" alt="OnePlus 12">
+                    <div class="card-body">
+                        <h5 class="card-title">OnePlus 13</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="ms-1">4.6</span>
+                        </div>
+                        <p class="price">₹79,999 <small class="text-decoration-line-through text-muted">₹68,999</small></p>
+                        <p class="card-text small">120Hz LTPO | Hasselblad Cam</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mid-Range Phones Section -->
+    <div class="container mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold"><i class="fas fa-star text-info me-2"></i>Mid-Range Phones</h2>
+            <a href="#" class="btn btn-sm btn-outline-dark">View All</a>
+        </div>
+        <div class="row g-4">
+            <!-- Phone 5 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <img src="Nothing Phone (2).jpg" class="card-img-top p-3" alt="Nothing Phone (2)">
+                    <div class="card-body">
+                        <h5 class="card-title">Nothing Phone (3)</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="ms-1">4.5</span>
+                        </div>
+                        <p class="price">₹44,999</p>
+                        <p class="card-text small">Glyph Interface | Snapdragon 8+ Gen 1</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phone 6 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <span class="badge bg-warning text-dark position-absolute top-0 end-0 m-2">BEST VALUE</span>
+                    <img src="iQOO Neo 10.jpg" class="card-img-top p-3" alt="iQOO Neo 7 Pro">
+                    <div class="card-body">
+                        <h5 class="card-title">iQOO Neo 10</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="ms-1">4.4</span>
+                        </div>
+                        <p class="price">₹34,999</p>
+                        <p class="card-text small">Dimensity 9200+ | 120Hz AMOLED</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phone 7 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <img src="Samsung A54 5G.jpg.jpg" class="card-img-top p-3" alt="Samsung Galaxy A54">
+                    <div class="card-body">
+                        <h5 class="card-title">Samsung A54 5G</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="ms-1">4.4</span>
+                        </div>
+                        <p class="price">₹38,999</p>
+                        <p class="card-text small">IP67 | 120Hz | Exynos 1380</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phone 8 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">FAST CHARGING</span>
+                    <img src="Realme GT 7 Pro.jpg" class="card-img-top p-3" alt="Realme GT 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Realme GT 7 Pro</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="ms-1">4.4</span>
+                        </div>
+                        <p class="price">₹54,998</p>
+                        <p class="card-text small">240W Charging | Snapdragon 8 Elite Processor</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Budget Phones Section -->
+    <div class="container mb-5" id="budget">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="fw-bold"><i class="fas fa-rupee-sign text-success me-2"></i>Budget Phones</h2>
+            <a href="#" class="btn btn-sm btn-outline-dark">View All</a>
+        </div>
+        <div class="row g-4">
+            <!-- Phone 9 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <span class="badge badge-budget position-absolute top-0 end-0 m-2">BEST SELLER</span>
+                    <img src="POCO F6 5G Titanium 8GB.jpg" class="card-img-top p-3" alt="Poco F5">
+                    <div class="card-body">
+                        <h5 class="card-title">POCO F6 5G</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="ms-1">4.4</span>
+                        </div>
+                        <p class="price">₹29,999</p>
+                        <p class="card-text small">Snapdragon 8+ Gen 3 | 120Hz AMOLED</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phone 10 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <img src="Redmi Note 14 5G.jpg" class="card-img-top p-3" alt="Redmi Note 12">
+                    <div class="card-body">
+                        <h5 class="card-title">Redmi Note 14 5G</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="ms-1">4.2</span>
+                        </div>
+                        <p class="price">₹19,999</p>
+                        <p class="card-text small">AMOLED | Snapdragon 685</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phone 11 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <span class="badge bg-success position-absolute top-0 end-0 m-2">LONG BATTERY</span>
+                    <img src="Samsung Galaxy F15 5G.jpg" class="card-img-top p-3" alt="Samsung F14">
+                    <div class="card-body">
+                        <h5 class="card-title">Samsung Galaxy F15 5G</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="ms-1">4.0</span>
+                        </div>
+                        <p class="price">₹12,418</p>
+                        <p class="card-text small">7000mAh | Exynos 1330</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Phone 12 -->
+            <div class="col-lg-3 col-md-4 col-6">
+                <div class="card h-100">
+                    <img src="Moto G85 5G.jpg" class="card-img-top p-3" alt="Moto G84">
+                    <div class="card-body">
+                        <h5 class="card-title">Moto G85 5G</h5>
+                        <div class="rating mb-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="ms-1">4.2</span>
+                        </div>
+                        <p class="price">₹19,999</p>
+                        <p class="card-text small">5000mAh | Snapdragon 695</p>
+                    </div>
+                    <div class="card-footer bg-white border-0">
+                        <button class="btn btn-sm btn-dark w-100 mb-2">Add to Cart</button>
+                        <button class="btn btn-sm btn-outline-dark w-100">Quick View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- All Phones Table -->
+    <div class="container mb-5">
+        <h2 class="fw-bold mb-4 text-center">Complete List of 50 Top Mobiles</h2>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Model</th>
+                        <th>Brand</th>
+                        <th>Price (₹)</th>
+                        <th>Rating</th>
+                        <th>Key Features</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>iPhone 15 Pro Max</td>
+                        <td>Apple</td>
+                        <td>1,59,900</td>
+                        <td>4.8 <i class="fas fa-star text-warning"></i></td>
+                        <td>A17 Pro, Titanium, 5x Zoom</td>
+                        <td><button class="btn btn-sm btn-primary">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Samsung S24 Ultra</td>
+                        <td>Samsung</td>
+                        <td>1,29,999</td>
+                        <td>4.7 <i class="fas fa-star text-warning"></i></td>
+                        <td>200MP, S Pen, Snapdragon 8 Gen 3</td>
+                        <td><button class="btn btn-sm btn-primary">View</button></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Google Pixel 8 Pro</td>
+                        <td>Google</td>
+                        <td>1,06,999</td>
+                        <td>4.7 <i class="fas fa-star text-warning"></i></td>
+                        <td>Tensor G3, AI Features, 50MP</td>
+                        <td><button class="btn btn-sm btn-primary">View</button></td>
+                    </tr>
+                    <!-- More rows... (truncated for brevity) -->
+                    <tr>
+                        <td>50</td>
+                        <td>Nokia X30 5G</td>
+                        <td>Nokia</td>
+                        <td>47,999</td>
+                        <td>4.2 <i class="fas fa-star text-warning"></i></td>
+                        <td>Sustainable, IP67, Snapdragon 695</td>
+                        <td><button class="btn btn-sm btn-primary">View</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="bg-light py-5">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-3">Get Mobile Deals Alert!</h3>
+            <p class="mb-4">Subscribe to our newsletter for exclusive offers on smartphones</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-dark" type="button">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5><i class="fas fa-mobile-alt me-2"></i>ShopCart</h5>
+                    <p>Your one-stop destination for the latest smartphones and gadgets.</p>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Shop</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">Smartphones</a></li>
+                        <li><a href="#" class="text-white-50">Accessories</a></li>
+                        <li><a href="#" class="text-white-50">Deals</a></li>
+                        <li><a href="#" class="text-white-50">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Help</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50">FAQs</a></li>
+                        <li><a href="#" class="text-white-50">Shipping</a></li>
+                        <li><a href="#" class="text-white-50">Returns</a></li>
+                        <li><a href="#" class="text-white-50">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Payment Methods</h5>
+                    <div class="payment-methods mb-3">
+                        <img src="https://via.placeholder.com/40x25?text=Visa" alt="Visa" class="me-2">
+                        <img src="https://via.placeholder.com/40x25?text=MC" alt="Mastercard" class="me-2">
+                        <img src="https://via.placeholder.com/40x25?text=PayPal" alt="PayPal" class="me-2">
+                        <img src="https://via.placeholder.com/40x25?text=UPI" alt="UPI" class="me-2">
+                    </div>
+                    <h5>Download App</h5>
+                    <div class="app-download">
+                        <img src="https://via.placeholder.com/120x40?text=App+Store" alt="App Store" class="me-2 mb-2">
+                        <img src="https://via.placeholder.com/120x40?text=Play+Store" alt="Play Store">
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 ShopCart. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-white-50 me-3">Privacy Policy</a>
+                    <a href="#" class="text-white-50 me-3">Terms of Service</a>
+                    <a href="#" class="text-white-50">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple cart counter
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.btn-dark');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const cartCount = document.querySelector('.nav-link[href="#"]');
+                    let count = parseInt(cartCount.textContent.match(/\d+/)[0] || 0;
+                    cartCount.innerHTML = `<i class="fas fa-shopping-cart"></i> Cart (${count + 1})`;
+                    
+                    // Show toast notification
+                    const toast = document.createElement('div');
+                    toast.className = 'position-fixed bottom-0 end-0 p-3';
+                    toast.style.zIndex = '11';
+                    toast.innerHTML = `
+                        <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                            <div class="toast-header bg-success text-white">
+                                <strong class="me-auto">Success</strong>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body">
+                                Item added to cart!
+                            </div>
+                        </div>
+                    `;
+                    document.body.appendChild(toast);
+                    
+                    // Remove toast after 3 seconds
+                    setTimeout(() => {
+                        toast.remove();
+                    }, 3000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
