@@ -160,26 +160,8 @@ javac 21.0.x
 
 ### 🏗️ JDK · JRE · JVM Architecture
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                          JDK                                  │
-│  (Java Development Kit — for developers)                     │
-│  ┌────────────────────────────────────────────────────────┐  │
-│  │                       JRE                              │  │
-│  │  (Java Runtime Environment — to run Java programs)     │  │
-│  │  ┌──────────────────────────────────────────────────┐  │  │
-│  │  │                    JVM                           │  │  │
-│  │  │  (Java Virtual Machine — executes bytecode)      │  │  │
-│  │  │  ┌────────────┐  ┌──────────┐  ┌─────────────┐  │  │  │
-│  │  │  │ Class      │  │ Bytecode │  │ Execution   │  │  │  │
-│  │  │  │ Loader     │→ │ Verifier │→ │ Engine(JIT) │  │  │  │
-│  │  │  └────────────┘  └──────────┘  └─────────────┘  │  │  │
-│  │  └──────────────────────────────────────────────────┘  │  │
-│  │  + Java Class Libraries (java.lang, java.util, ...)    │  │
-│  └────────────────────────────────────────────────────────┘  │
-│  + Compiler (javac), Debugger (jdb), Tools (javadoc...)      │
-└──────────────────────────────────────────────────────────────┘
-```
+![JDK JRE JVM Architecture Diagram](./assets/jdk_jre_jvm_architecture.png)
+
 
 | Component | Full Form | Role |
 |-----------|-----------|------|
@@ -191,13 +173,8 @@ javac 21.0.x
 
 ### 🔄 How Java Works
 
-```
-┌──────────────┐    javac      ┌──────────────┐    JVM/JIT    ┌──────────────┐
-│  Source Code │  ──────────►  │   Bytecode   │  ──────────►  │  Machine     │
-│  Hello.java  │  (Compiler)   │  Hello.class │  (Execution)  │  Code (Run)  │
-└──────────────┘               └──────────────┘               └──────────────┘
-  Human-readable                Platform-neutral               Platform-specific
-```
+![Java Compilation and Execution Process Flow](./assets/java_compilation_execution_flow.png)
+
 
 **Compile and Run a Java Program:**
 
@@ -372,6 +349,8 @@ INVALID Examples:
 
 Java has **8 primitive datatypes**:
 
+![Java Primitive Datatypes Hierarchy](./assets/java_primitive_datatypes_hierarchy.png)
+
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────┐
 │                        JAVA PRIMITIVE DATA TYPES                                     │
@@ -388,6 +367,7 @@ Java has **8 primitive datatypes**:
 │ boolean  │ 1 bit        │ false          │ true or false only                         │
 └──────────┴──────────────┴────────────────┴────────────────────────────────────────── ┘
 ```
+
 
 ```
 Memory Hierarchy (smallest to largest):
@@ -1088,6 +1068,8 @@ sb2.setCharAt(0, 'j');         // Replace char at index 0
 ## 🏛️ OOP — Object Oriented Programming
 
 ### 🔄 OOP vs POP
+
+![OOP vs POP Programming Paradigm](./assets/oop_vs_pop_paradigm.png)
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────┐
@@ -2105,22 +2087,8 @@ Single-Threaded:               Multi-Threaded:
 
 ### Thread Lifecycle (States)
 
-```
-Thread Life Cycle:
+![Java Thread Lifecycle State Transition Diagram](./assets/thread_lifecycle_states.png)
 
-   new Thread()     start()
-   ┌───────┐  ──► ┌──────────┐  ──────────────────►  ┌─────────────┐
-   │  NEW  │       │ RUNNABLE │                        │  RUNNING   │
-   └───────┘       └──────────┘  ◄──────────────────   └──────┬──────┘
-                                                               │
-                                     sleep()/wait()/I/O        │
-                                    ┌──────────────────────┐   │  run() ends
-                                    │  BLOCKED / WAITING  │   │
-                                    │  TIMED_WAITING       │   ▼
-                                    └──────────────────────┘ ┌──────┐
-                                                             │DEAD  │
-                                                             └──────┘
-```
 
 **Thread States:**
 | State | Description |
