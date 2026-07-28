@@ -1,0 +1,17 @@
+class TestSb1
+{
+	public static void main(String[] args) 
+	{
+		String s1 = "Abcdefgh";  //Immutable Object
+		System.out.println("String : " + s1);
+		System.out.println("Hash Code of String : " + s1.hashCode() );
+
+		StringBuffer s2 = new StringBuffer("Abcdefgh");
+		System.out.println("String : " + s2);
+		System.out.println("Hash Code of String : " + s2.hashCode() );
+
+		StringBuilder s3 = new StringBuilder("Abcdefgh");
+		System.out.println("String : " + s3);
+		System.out.println("Hash Code of String : " + s3.hashCode() );
+	}
+}

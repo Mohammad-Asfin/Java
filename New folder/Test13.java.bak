@@ -1,0 +1,9 @@
+class Test13 
+{
+	public static void main(String[] args) 
+	{
+		boolean x;
+		x = False;
+		System.out.println("The given boolean value:"+x);
+	}
+}

@@ -1,0 +1,23 @@
+class TestSbb5
+{
+	public static void main(String[] args) 
+	{
+		StringBuilder sb = new StringBuilder("abcdefgh");
+		System.out.println("String Capacity :" + sb.capacity());
+		System.out.println("String Length :" + sb.length());
+		System.out.println("String :" + sb);
+		System.out.println("Hash Code of String :" + sb.hashCode());
+		System.out.println();
+		
+		// a b c d e f g h
+		// 0 1 2 3 4 5 6 7
+		sb.insert(4 , "NAC");
+		System.out.println("String :" + sb);
+		System.out.println();
+
+		// a b c d N A C e f g h
+		// 0 1 2 3 4 5 6 7 8 9 10
+		sb.insert(5 , 234);
+		System.out.println("String :" + sb);
+	}
+}

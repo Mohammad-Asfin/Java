@@ -1,0 +1,15 @@
+class Test51 
+{
+	public static void main(String[] args) 
+	{
+		int a;
+		a = 1;
+
+		do
+		{
+			System.out.println("Hello World!");
+			a = a ++;
+		}
+		while(a <= 5);
+	}
+}

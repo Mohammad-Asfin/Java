@@ -1,0 +1,19 @@
+class TestArray5
+{
+	public static void main(String[] args) 
+	{
+		float []A = { 1.2F, 2.0F, 3.980F, 4.890F };
+		System.out.println("Array Elements are:");
+		for (int i = 0;i < 4;i++)
+		{
+			System.out.print(A[i]+ " ");
+		}
+		System.out.println();
+		System.out.println("The given Numbers are:");
+		for (float t : A)
+		{
+			System.out.println(t + " ");
+		}
+
+	}
+}

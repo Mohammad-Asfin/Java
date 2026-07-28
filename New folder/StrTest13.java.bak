@@ -1,0 +1,20 @@
+class StrTest13
+{
+	public static void main(String[] args) throws Exception
+	{
+		String str = "abcdefgh";
+		System.out.println("String : " + str);
+		
+		String s1 = str.substring(3);  // from index 3 to end
+		System.out.println("Sub String - 1 :" + s1);  // Output: defgh
+
+		String s2 = str.substring(3,6);  // index 3 to 5 (6 is exclusive means N-1)
+		System.out.println("Sub String - 2 :" + s2);  // Output: def
+
+		String s3 = str.substring(1,4);  // index 1 to 3
+		System.out.println("Sub String - 3 :" + s3);  // Output: bcd
+
+		String s4 = str.substring(5);  // from index 5 to end
+		System.out.println("Sub String - 4 :" + s4);  // Output: fgh
+	}
+}

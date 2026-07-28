@@ -1,0 +1,22 @@
+import java.io.*;
+class Test32 
+{
+	public static void main(String[] args) throws IOException
+	{
+		DataInputStream dis = DataInputStream(System.in);
+		
+		System.out.print("Enter Person ID		:");
+		int pid = Integer.parseInt(dis.readLine());
+
+		System.out.print("Enter Person Name	:");
+		String pname = dis.readLine();
+
+		System.out.print("Enter Person Age	:");
+		int age = Integer.parseInt(dis.readLine());
+
+		System.out.println("Person Details:------------");
+		System.out.println("Person ID	:"+pid);
+		System.out.println("Person Name	:"+pname);
+		System.out.println("Person Age	:"+age);
+	}
+}

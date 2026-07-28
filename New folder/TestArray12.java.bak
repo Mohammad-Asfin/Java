@@ -1,0 +1,43 @@
+import java.util.*;
+class TestArray12
+{
+	public static void main(String[ ]args)
+	{
+		Scanner sc = new Scanner(System.in);
+
+		int n;
+		System.out.print("How many Numbers?:");
+		n = sc.nextInt();
+		int[] A = new int[n];
+		int i;
+		for (i = 0;i < n;i++)
+		{
+			System.out.print("Enter the Number:");
+			A[i] = sc.nextInt();
+		}
+		System.out.println("The given numbers are:");
+		
+		for (i = 0;i < n;i++)
+		{
+			System.out.print(A[i] + " ");
+		}
+
+		System.out.println("\n\nThe given Even numbers are:");
+		for (i = 0;i < A.length;i++)
+		{
+			if (A[i] % 2 == 0)
+			{
+				System.out.print(A[i] + " ");
+			}
+		}
+		System.out.println("\n\nThe given Odd numbers are:");
+
+		for (int t : A)
+		{
+			if (t % 2 != 0)
+			{
+				System.out.print(t + " ");
+			}
+		}
+	}
+}

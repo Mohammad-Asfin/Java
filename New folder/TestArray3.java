@@ -1,0 +1,14 @@
+class TestArray3
+{
+	public static void main(String[] args) 
+	{
+		int []A = { 10, 20, 30, 40 };
+		System.out.println("The given Numbers are :(Using Loop)");
+		int i;
+		for (i = 0;i < 4;i++)
+		{
+			System.out.print(A[i]+ " ");
+		}
+		System.out.println("\nThe given Numbers are:");
+	}
+}

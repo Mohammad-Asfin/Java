@@ -1,0 +1,33 @@
+class TestSb3
+{
+	public static void main(String[] args) 
+	{
+		StringBuffer sb = new StringBuffer();
+		System.out.println("String : " + sb);
+		System.out.println("String Length : " + sb.length());
+		System.out.println("String Buffer Capacity : " + sb.capacity()); //16
+
+		StringBuffer s1 = new StringBuffer("xyz");
+		System.out.println("String : " + s1);
+		System.out.println("String Length : " + s1.length());
+		System.out.println("String Buffer Capacity : " + s1.capacity()); //16 + 3 = 19
+
+		
+		StringBuffer s2 = new StringBuffer();
+		System.out.println("String : " + s2);
+		System.out.println("String Length : " + s2.length());
+		System.out.println("String Buffer Capacity : " + s2.capacity()); //16
+
+		s2.append ("abcdefghlmno");
+		System.out.println("After Append -------------------");
+		System.out.println("String : " + s2);
+		System.out.println("String Length : " + s2.length());
+		System.out.println("String Buffer Capacity : " + s2.capacity()); //16
+
+		s2.append ("xyz");
+		System.out.println("After Append -------------------");
+		System.out.println("String : " + s2);
+		System.out.println("String Length : " + s2.length());
+		System.out.println("String Buffer Capacity : " + s2.capacity());
+	}
+}

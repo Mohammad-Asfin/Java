@@ -1,0 +1,96 @@
+import java.util.*;
+class MatrixSum 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner (System.in);
+
+		int m1,n1;
+		System.out.print("How many Rows for 1st ? :");
+		m1 = sc.nextInt();
+		System.out.print("How many columns for 1nd ? :");
+		n1 = sc.nextInt();
+
+		int m2,n2;
+		System.out.print("How many Rows for 2st ? :");
+		m2 = sc.nextInt();
+		System.out.print("How many columns for 2nd ? :");
+		n2 = sc.nextInt();
+
+		if (m1 != m2 || n1 != n2)
+		{
+			System.out.println("Matrix Addition is Not Possible ! ");
+			System.exit(1);
+		}
+
+		int [ ][ ]A = new int[m1][n1];
+		int [ ][ ]B = new int[m2][n2];
+		int [ ][ ]C = new int[m1][n1];
+
+		int i,j;
+
+		// Input for Matrix A
+		System.out.println("Enter the 1st "+ m1 + "X" + n1 + "Matrix:");
+		for ( i = 0 ; i < m1 ; i++ )
+		{
+			for ( j = 0 ; j < n1 ; j++ )
+			{
+				System.out.print("Enter the number(" + i + "," + j + "):");
+				A[i][j] = sc.nextInt();
+			}
+		}
+
+		// Input for Matrix B
+		System.out.println("Enter the 2st "+ m2 + "X" + n2 + "Matrix:");
+		for ( i = 0 ; i < m2 ; i++ )
+		{
+			for ( j = 0 ; j < n2 ; j++ )
+			{
+				System.out.print("Enter the number(" + i + "," + j + "):");
+				B[i][j] = sc.nextInt();
+			}
+		}
+
+		// Matrix Subraction
+        for (i = 0; i < m1; i++)
+		{
+            for (j = 0; j < n1; j++)
+			{
+                C[i][j] = A[i][j] + B[i][j];
+            }
+        }
+		
+		// Display Matrix A
+		System.out.println("The given 1st "+ m1 + "X" + n1 + "Matrix");
+		for ( i = 0 ; i < m1 ; i++ )
+		{
+			for ( j = 0 ; j < n1 ; j++ )
+			{
+				System.out.print(A[i][j] + " ");
+			}
+			System.out.println();
+		}
+
+		// Display Matrix B
+		System.out.println("The given 2st "+ m2 + "X" + n2 + "Matrix");
+		for ( i = 0 ; i < m2 ; i++ )
+		{
+			for ( j = 0 ; j < n2 ; j++ )
+			{
+				System.out.print(B[i][j] + " ");
+			}
+			System.out.println();
+		}
+
+		// Display Result Matrix C
+		System.out.println("The given Result Matrix is");
+		for ( i = 0 ; i < m1 ; i++ )
+		{
+			for ( j = 0 ; j < n1 ; j++ )
+			{
+				System.out.print(C[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+}

@@ -1,0 +1,37 @@
+import java.util.*;
+class JaggedArray3
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+
+		// Ask user to enter number of rows and columns
+		System.out.print("Enter number of rows: ");
+		int rows = sc.nextInt();
+
+		System.out.print("Enter number of columns: ");
+		int cols = sc.nextInt();
+
+		int[][] A = new int[rows][cols];
+
+		System.out.println("\nEnter " + (rows * cols) + " numbers (use 0 for missing values):");
+
+		// Input all values without displaying row/col numbers
+		System.out.println("\nIrregular Array is:");
+			for (int i = 0; i < rows; i++) 
+			{
+				 System.out.println();
+				 for (int j = 0; j < cols; j++)
+					 {
+					 if (A[i][j] == 0)
+						 {
+						 System.out.print("*\t");
+						 }
+					else
+					{
+						System.out.print(A[i][j] + "\t");
+					}
+			}
+		}
+	}
+}

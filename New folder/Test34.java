@@ -1,0 +1,12 @@
+import java.util.*;
+class Test34
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter the two Numbers:");
+		
+		System.out.println("result	:"+ (sc.nextInt() / sc.nextInt()));
+	}
+}

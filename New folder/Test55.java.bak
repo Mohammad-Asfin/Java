@@ -1,0 +1,21 @@
+class Test55
+{
+	public static void main(String[] args) 
+	{
+		int a = 1;
+		System.out.println("Loop Begins ................");
+		while (a <= 10)
+		{
+			System.out.println("Inside Loop ...................");
+			a ++;
+			if (a == 5 || a == 7)
+			{
+				System.out.println("Continue the Loop from beginning .........."+a);
+				continue;
+			}
+			System.out.println(a);
+			a++;
+		}
+		System.out.println("Loop End .........................");
+	}
+}

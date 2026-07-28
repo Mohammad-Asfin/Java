@@ -1,0 +1,57 @@
+import java.util.*;
+class Person //Plan of Person Object
+{
+	//Member
+	//Properties (Data Members)
+
+	int pid;
+	String pname;
+	int age;
+
+	//Actions (Methods)
+	void accept()
+	{
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter the Person ID	:");
+		pid = sc.nextInt();
+
+		System.out.print("Enter the Person Name	:");
+		pname = sc.next();
+
+		System.out.print("Enter the Person Age	:");
+		age = sc.nextInt();
+
+		System.out.println();
+	}
+	System.out.println();
+
+	void Display()
+	{
+		System.out.println("Person ID	:" + pid);
+		System.out.println("Person Name	:" + pname);
+		System.out.println("Person Age	:" + age);
+	}
+	System.out.println();
+}
+
+//Main Program ........
+class Testop1
+{
+	public static void main(String[]args)
+	{
+		Person p1;
+		p1 = new Person(); //Object Creation
+		Person p2,p3; //Object Declaration
+		p2 = new Person(); //Object Creation
+		p3 = new Person(); //Object Creation
+
+		p1.accept();
+		p2.accept();
+		p3.accept();
+
+		p1.Display();
+		p2.Display();
+		p3.Display();
+	}
+}

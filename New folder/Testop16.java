@@ -1,0 +1,30 @@
+class Student
+{
+	private int sno;
+	private String sname;
+
+	public Student()
+	{
+		sno = 0;
+		sname = "  ";
+	}
+	public Student(int sno, String sname)
+	{
+		this.sno = sno;
+		this.sname = sname;
+	}
+	public void putStudent()
+	{
+		System.out.println("Student Number : " + sno);
+		System.out.println("Student Name : " + sname);
+	}
+}
+
+class Testop16 
+{
+	public static void main(String[] args) 
+	{
+		Student s1 = new Student(1, "Elena");
+		s1.putStudent();
+	}
+}

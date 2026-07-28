@@ -1,0 +1,27 @@
+import java.io.*;
+class StrTest11
+{
+	public static void main(String[] args) throws Exception
+	{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		String str;
+		System.out.println("Enter the String : ");
+		str = br.readLine();
+		char ch;
+
+		System.out.print("Enter the Searching Character:");
+		ch = (char) System.in.read();
+
+		int x;
+		x = str.indexOf(ch);
+		if ( x == -1)
+		{
+			System.out.println("The given Searching Character is NOT FOUND in a String");
+		}
+		else
+		{
+			System.out.println("The given Searching Character is FOUND in a String");
+		}
+	}
+}

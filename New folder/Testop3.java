@@ -1,0 +1,59 @@
+import java.util.*;
+class Student
+{
+	int sno,m,p,c;
+	String sname;
+
+	void getStudent()
+	{
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter the Student ID	:");
+		sno = sc.nextInt();
+
+		System.out.print("Enter the Student Name	:");
+		sname = sc.next();
+
+		System.out.print("Enter the Student Maths Marks:");
+		m = sc.nextInt();
+
+		System.out.print("Enter the Student Physics Marks:");
+		p = sc.nextInt();
+
+		System.out.print("Enter the Student Chemistry Marks:");
+		c = sc.nextInt();
+
+		System.out.println();
+	}
+
+	void putStudent()
+	{
+		System.out.println(sno + "\t" + sname + "\t\t\t" + m + "\t" + p + "\t" + c);
+		
+		System.out.println();
+	}
+}
+
+class Testop3
+{
+	public static void main(String[]args)
+	{
+		//Student s1,s2,s3,s4,s5;
+		Student[] s; //Array Declaration
+		//Array of Reference Object
+
+		s = new Student[5]; //Object Declaration...........
+		int i;
+		for ( i = 0 ; i < 3 ; i++ ) //How many we want add
+		{
+			s[i] = new Student(); //Object Creation
+			s[i].getStudent();
+		}
+
+		System.out.println("sno  \tsname \t\t\tm  \t  p  \t  c");
+		for ( i = 0 ; i < 3 ; i++ )
+		{
+			s[i].putStudent();
+		}
+	}
+}

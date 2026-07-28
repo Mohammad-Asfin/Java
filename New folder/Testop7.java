@@ -1,0 +1,42 @@
+class Sample
+{
+	void sum()
+	{
+		int a =10, b = 20; //Method Local Variable..........
+		System.out.println("Sum : "+ (a + b));
+	}
+
+	void sub( int a , int b )
+	{
+		System.out.println("Difference : " + (a - b));
+	}
+
+	int mul( int a , int b)
+	{
+		int c;
+		c = a * b;
+		return c;
+	}
+
+	float div()
+	{
+		int a = 7, b = 5;
+		float c = (float) a/b;
+		return c;
+	}
+}
+
+class Testop7
+{
+	public static void main(String[]args)
+	{
+		Sample s = new Sample();
+
+		s.sum();
+		s.sub(5,2);
+		int x = s.mul(4,5);
+
+		System.out.println("Result :" + x);
+		System.out.println("Division :" + s.div());
+	}
+}

@@ -1,0 +1,30 @@
+import java.io.*;
+class Test22 
+{
+	public static void main(String[] args) throws IOException
+	{
+		InputStreamReader x = new InputStreamReader(System.in);
+		BufferedReader y = new Bufferedreader(x);
+
+		String eno;
+		System.out.print("Enter the Employee no:");
+		eno = y.readLine();
+
+		String ename;
+		System.out.print("Enter the Employee name:");
+		ename = y.readLine();
+
+		String sal;
+		System.out.print("Enter the Employee salary:");
+		sal = y.readLine();
+
+		int n;
+		float s;
+		n = Integer.parseInt(eno);
+		s = Float.parseFloat(sal);
+
+		System.out.println("Employee no		:"+n);
+		System.out.println("Employee name		:"+ename);
+		System.out.println("Employee salary		:"+s);
+	}
+}

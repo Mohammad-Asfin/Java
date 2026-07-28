@@ -1,0 +1,38 @@
+import java.util.*;
+class Student 
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+
+		String subjects[ ] = {"English","Biology","Maths","Physics","Chemistry"};
+
+		int sno;
+		String sname;
+		int marks[ ] = new int[5];
+		
+		System.out.print("Enter the Student Number:");
+		sno = sc.nextInt();
+
+		System.out.print("Enter the Student Name:");
+		sname = sc.next();
+
+		int i;
+		int total = 0;
+		for (i = 0;i < marks.length;i++)
+		{
+			System.out.print("Enter the " +subjects[i]+ " Marks:");
+			marks[i] = sc.nextInt();
+			total = total + marks[i];
+		}
+		float avg = (float) total/marks.length;
+		System.out.println("Student Number :"+sno);
+		System.out.println("Student Name :"+sname);
+		for (i = 0;i < marks.length;i++)
+		{
+			System.out.println(subjects[i] + " Marks\t: "+marks[i]);
+		}
+		System.out.println("Total Marks :"+total);
+		System.out.println("Average Marks :"+avg);
+	}
+}

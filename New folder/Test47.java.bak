@@ -1,0 +1,18 @@
+import java.util.*;
+class Test47
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+
+		int a,b;
+		System.out.print("Enter the 1st Number:");
+		a = sc.nextInt();
+
+		System.out.print("Enter the 2st Number:");
+		b = sc.nextInt();
+
+		int c = (a > b) ? a : b;
+		System.out.println("Maximum Number:"+C);
+	}
+}

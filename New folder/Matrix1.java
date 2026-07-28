@@ -1,0 +1,17 @@
+class Matrix1
+{
+	public static void main(String[] args) 
+	{
+		int[ ][ ] A = { {1,2,3},{4,5,6},{7,8,9}};
+		int r,c;
+		System.out.println("The given 3X3 Matrix is:");
+		for ( r = 0 ; r < 3 ; r++ ) //Outer Loop
+		{
+			for ( c = 0 ; c < 3 ; c++ ) //Inner Loop
+			{
+				System.out.print(A[r][c] + " ");
+			}
+			System.out.println();
+		}
+	}
+}

@@ -1,0 +1,27 @@
+import java.util.*;
+public class Palindrome
+{
+	public static void main (String[]args)
+	{
+		Scanner sc = new Scanner(System.in);
+		String str;
+		System.out.print("Enter the String:");
+		str = sc.nextLine();
+
+		StringBuffer sb = new StringBuffer(str); //Convert String to StringBuffer
+
+		sb.reverse();
+
+		String temp;
+		temp = sb.toString(); //Convert StringBuffer to String
+
+		if (str.equals(temp) == true)
+		{
+			System.out.println("The given String is Palindrome ");
+		}
+		else
+			{
+			System.out.println("The given String is Not A Palindrome ");
+			}
+	}
+}

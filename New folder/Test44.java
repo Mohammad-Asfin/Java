@@ -1,0 +1,31 @@
+import java.util.*;
+class Test44
+{
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+
+		int isMember,amount;
+		System.out.print("Are you a member ? (1 for YES,0 for NO):");
+		isMember = sc.nextInt();
+
+		System.out.print("Enter your Purchase Amount:");
+		amount = sc.nextInt();
+
+		if(isMember == 1)
+		{
+			if (amount >= 1000)
+			{
+				System.out.println("You get a 20%% discount");
+			}
+			else
+			{
+				System.out.println("You get a 10%% discount");
+			}
+		}
+		else
+		{
+			System.out.println("No discount Available!");
+		}
+	}
+}

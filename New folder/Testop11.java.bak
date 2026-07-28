@@ -1,0 +1,25 @@
+class Sample
+{
+	//Method.......
+	Sample()//Special Method(Constructor)
+	{
+		System.out.println("Welcome to Sample Class !");
+	}
+	void show1()
+	{
+		System.out.println("Sample Class Show1() Called");
+	}
+	void show2()
+	{
+		System.out.println("Sample Class Show2() called");
+	}
+}
+
+class Testop11 
+{
+	public static void main(String[] args) 
+	{
+		Sample s1 = new Sample;
+		Sample s2 = new Sample;
+	}
+}

@@ -1,0 +1,12 @@
+class TestArray6
+{
+	public static void main(String[] args) 
+	{
+		int a[ ];
+		a = new int[5];
+		System.out.println("Array Length:"+a.length);
+
+		int b = new int[ ];
+		System.out.println("Array Length(b):"+b.length);
+	}
+}

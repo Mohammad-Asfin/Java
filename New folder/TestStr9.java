@@ -1,0 +1,35 @@
+import java.io.*;
+class TestStr9 
+{
+	public static void main(String[] args) 
+	{
+		Console cn = System.console();
+		String name = "Roy";
+		String p1 = "Roy123";
+
+		String uname;
+		System.out.print("Enter User Name :");
+		uname = cn.readLine();
+		System.out.print("Enter Password:");
+		char[ ] p = cn.readPassword();
+		String pwd = new String(p);
+
+		if ( uname.equals(name) )
+		{
+			System.out.println("User Name is Valid");
+
+			if ( pwd.equals(p1) )
+			{
+				System.out.println("Password is Valid");
+			}
+			else
+			{
+				System.out.println("Invalid Password !");
+			}
+		}
+		else
+		{
+			System.out.println("Invalid User Name !");
+		}
+	}
+}

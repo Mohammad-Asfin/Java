@@ -1,0 +1,60 @@
+import java.util.*;
+class Item
+{
+	int ino,qty;
+	String iname;
+	Float price;
+
+	void getItem()
+	{
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("Enter the Item Number	:");
+		ino = sc.nextInt();
+
+		System.out.print("Enter the Item Name	:");
+		iname = sc.next();
+
+		System.out.print("Enter the Number Item's:");
+		qty = sc.nextInt();
+
+		System.out.print("Enter the Item Price:");
+		price = sc.nextFloat();
+
+		System.out.println();
+	}
+
+	void putItem()
+	{
+		System.out.println(ino + "\t" + iname + "\t\t" + qty + "\t" + price);
+		
+		System.out.println();
+	}
+}
+
+class Testop4
+{
+	public static void main(String[]args)
+	{
+		Scanner sc =new Scanner(System.in);
+		
+		int n;
+		System.out.print("How many Items:?");
+		n = sc.nextInt();
+		
+		Item[] x = new Item[n];
+		
+		int i;
+		for ( i = 0 ; i < n ; i++ )
+		{
+			x[i] = new Item();
+			x[i].getItem();
+		}
+
+		System.out.println("ino \t iname \t\t qty \t price");
+		for ( i = 0 ; i < n ; i++ )
+		{
+			x[i].putItem();
+		}
+	}
+}
