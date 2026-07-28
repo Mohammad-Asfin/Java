@@ -88,26 +88,20 @@ Java is a **high-level, class-based, object-oriented programming language** desi
 
 ### 🌟 Key Features of Java
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                        JAVA FEATURES                                │
-├──────────────────┬──────────────────────────────────────────────────┤
-│ Feature          │ Description                                      │
-├──────────────────┼──────────────────────────────────────────────────┤
-│ Simple           │ Clean syntax, close to C/C++ but simpler         │
-│ Object-Oriented  │ Everything is an object (class-based)            │
-│ Platform Indep.  │ Bytecode runs on any JVM (WORA)                  │
-│ Secure           │ No pointers, sandbox execution, bytecode verifier│
-│ Robust           │ Strong memory management, exception handling      │
-│ Multithreaded    │ Built-in support for concurrent programming       │
-│ Architecture-Neutral│ Compiled to bytecode, not machine code        │
-│ Portable         │ Same behavior on any OS/hardware                 │
-│ High Performance │ JIT compiler optimizes runtime execution         │
-│ Distributed      │ Supports TCP/IP, RMI, EJB for network apps       │
-│ Dynamic          │ Dynamically loads classes at runtime             │
-│ Interpreted      │ JVM interprets bytecode at runtime               │
-└──────────────────┴──────────────────────────────────────────────────┘
-```
+| Feature | Description |
+| :--- | :--- |
+| **Simple** | Clean syntax, close to C/C++ but simpler |
+| **Object-Oriented** | Everything is an object (class-based) |
+| **Platform Independent** | Bytecode runs on any JVM (WORA - Write Once, Run Anywhere) |
+| **Secure** | No pointers, sandbox execution, bytecode verifier |
+| **Robust** | Strong memory management, automatic garbage collection, exception handling |
+| **Multithreaded** | Built-in support for concurrent programming |
+| **Architecture-Neutral** | Compiled to bytecode, not machine-specific code |
+| **Portable** | Same behavior on any OS/hardware combination |
+| **High Performance** | JIT (Just-In-Time) compiler optimizes runtime execution |
+| **Distributed** | Built-in support for TCP/IP, RMI, and EJB for network applications |
+| **Dynamic** | Dynamically loads classes at runtime as needed |
+| **Interpreted** | JVM interprets and executes bytecode at runtime |
 
 ---
 
@@ -261,20 +255,9 @@ jshell> /exit
 > It is a **temporary memory location** used for assigning values or data to it.
 > A variable **must be declared with a datatype**.
 
-```
-┌─────────────────────────────────────────────────┐
-│                 VARIABLE SYNTAX                 │
-│                                                 │
-│    datatype  variableName  =  value;            │
-│       ↑           ↑            ↑                │
-│    int x          x           10                │
-│                                                 │
-│  ┌────────┐  ┌──────────┐  ┌────────────────┐  │
-│  │  Type  │  │  Name    │  │  Memory Box    │  │
-│  │  int   │  │    x     │  │     [ 10 ]     │  │
-│  └────────┘  └──────────┘  └────────────────┘  │
-└─────────────────────────────────────────────────┘
-```
+* **Datatype:** Defines the type of data (e.g. `int`).
+* **VariableName:** Name assigned to reference the value (e.g. `x`).
+* **Value:** The data stored in memory (e.g. `10`).
 
 ```java
 // Variable Declaration
@@ -351,29 +334,16 @@ Java has **8 primitive datatypes**:
 
 ![Java Primitive Datatypes Hierarchy](./assets/java_primitive_datatypes_hierarchy.png)
 
-```
-┌──────────────────────────────────────────────────────────────────────────────────────┐
-│                        JAVA PRIMITIVE DATA TYPES                                     │
-├──────────┬──────────────┬────────────────┬────────────────────────────────────────── │
-│ Type     │ Size         │ Default Value  │ Range / Description                        │
-├──────────┼──────────────┼────────────────┼────────────────────────────────────────── │
-│ byte     │ 1 byte (8b)  │ 0              │ -128 to 127                                │
-│ short    │ 2 bytes(16b) │ 0              │ -32,768 to 32,767                          │
-│ int      │ 4 bytes(32b) │ 0              │ -2,147,483,648 to 2,147,483,647            │
-│ long     │ 8 bytes(64b) │ 0L             │ -9,223,372,036,854,775,808 to max          │
-│ float    │ 4 bytes(32b) │ 0.0f           │ ~3.4e-038 to 3.4e+038 (6-7 decimals)      │
-│ double   │ 8 bytes(64b) │ 0.0d           │ ~1.7e-308 to 1.7e+308 (15 decimals)       │
-│ char     │ 2 bytes(16b) │ '\u0000'       │ 0 to 65,535 (Unicode characters)          │
-│ boolean  │ 1 bit        │ false          │ true or false only                         │
-└──────────┴──────────────┴────────────────┴────────────────────────────────────────── ┘
-```
-
-
-```
-Memory Hierarchy (smallest to largest):
-byte → short → int → long → float → double
- 1B      2B     4B    8B      4B      8B
-```
+| Type | Size | Default Value | Range / Description |
+| :--- | :--- | :--- | :--- |
+| **byte** | 1 byte | 0 | -128 to 127 |
+| **short** | 2 bytes | 0 | -32,768 to 32,767 |
+| **int** | 4 bytes | 0 | -2,147,483,648 to 2,147,483,647 |
+| **long** | 8 bytes | 0L | -9,223,372,036,854,775,808 to max |
+| **float** | 4 bytes | 0.0f | ~3.4e-038 to 3.4e+038 (6-7 decimals) |
+| **double** | 8 bytes | 0.0d | ~1.7e-308 to 1.7e+308 (15 decimals) |
+| **char** | 2 bytes | '\u0000' | 0 to 65,535 (Unicode characters) |
+| **boolean** | 1 bit | false | true or false only |
 
 ```java
 // Primitive Datatype Examples
@@ -447,22 +417,16 @@ byte result = (byte)(b2 * 2);  // Expression promoted to int, must cast back
 
 Wrapper classes provide an object representation of primitive types. Needed for Collections, Generics, and utility methods.
 
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                      WRAPPER CLASS TABLE                                │
-├─────────────┬─────────────────┬────────────────────────────────────────│
-│ Primitive   │ Wrapper Class   │ Useful Method                          │
-├─────────────┼─────────────────┼────────────────────────────────────────│
-│ byte        │ Byte            │ Byte.parseByte("10")                   │
-│ short       │ Short           │ Short.parseShort("20")                 │
-│ int         │ Integer         │ Integer.parseInt("42")                 │
-│ long        │ Long            │ Long.parseLong("100")                  │
-│ float       │ Float           │ Float.parseFloat("3.14")               │
-│ double      │ Double          │ Double.parseDouble("3.14")             │
-│ char        │ Character       │ Character.isDigit('5')                 │
-│ boolean     │ Boolean         │ Boolean.parseBoolean("true")           │
-└─────────────┴─────────────────┴────────────────────────────────────────┘
-```
+| Primitive | Wrapper Class | Useful Method |
+| :--- | :--- | :--- |
+| **byte** | Byte | Byte.parseByte("10") |
+| **short** | Short | Short.parseShort("20") |
+| **int** | Integer | Integer.parseInt("42") |
+| **long** | Long | Long.parseLong("100") |
+| **float** | Float | Float.parseFloat("3.14") |
+| **double** | Double | Double.parseDouble("3.14") |
+| **char** | Character | Character.isDigit('5') |
+| **boolean** | Boolean | Boolean.parseBoolean("true") |
 
 **Autoboxing & Unboxing (Java 5+):**
 ```java
@@ -505,25 +469,15 @@ System.out.printf("Name: %s, Age: %d%n", "Asfin", 20); // formatted
 
 **Import:** `import java.util.Scanner;`
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                       SCANNER CLASS METHODS                                 │
-├─────────────────────────┬───────────────────────────────────────────────── │
-│ Method                  │ Description                                        │
-├─────────────────────────┼───────────────────────────────────────────────── │
-│ nextByte()              │ Reads a byte value                                 │
-│ nextShort()             │ Reads a short value                                │
-│ nextInt()               │ Reads an integer value                             │
-│ nextLong()              │ Reads a long value                                 │
-│ nextFloat()             │ Reads a float value                                │
-│ nextDouble()            │ Reads a double value                               │
-│ nextBoolean()           │ Reads a boolean value                              │
-│ next()                  │ Reads a single word (stops at space)               │
-│ nextLine()              │ Reads a full line of text including spaces         │
-│ hasNext()               │ Returns true if there is another token             │
-│ close()                 │ Closes the scanner                                 │
-└─────────────────────────┴───────────────────────────────────────────────── ┘
-```
+| Method | Description |
+| :--- | :--- |
+| **nextByte()** | Reads a byte value |
+| **nextInt()** | Reads an integer value |
+| **nextDouble()** | Reads a double value |
+| **next()** | Reads a single word (stops at space) |
+| **nextLine()** | Reads a full line of text including spaces |
+| **hasNext()** | Returns true if there is another token |
+| **close()** | Closes the scanner |
 
 ```java
 import java.util.Scanner;
@@ -646,22 +600,16 @@ Operators are special symbols that perform operations on operands (values/variab
 
 ### Types of Operators
 
-```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                          JAVA OPERATORS                                       │
-├──────────────────┬───────────────────────────────────────────────────────── │
-│ Type             │ Operators                                                  │
-├──────────────────┼───────────────────────────────────────────────────────── │
-│ Arithmetic       │ +  -  *  /  %                                             │
-│ Assignment       │ =  +=  -=  *=  /=  %=  &=  |=  ^=  <<=  >>=             │
-│ Relational       │ ==  !=  >  <  >=  <=                                     │
-│ Logical          │ &&  ||  !                                                 │
-│ Bitwise          │ &  |  ^  ~  <<  >>  >>>                                  │
-│ Unary            │ +  -  ++  --  !  ~                                       │
-│ Ternary          │ condition ? valueIfTrue : valueIfFalse                   │
-│ instanceof       │ obj instanceof ClassName                                 │
-└──────────────────┴───────────────────────────────────────────────────────── ┘
-```
+| Type | Operators |
+| :--- | :--- |
+| **Arithmetic** | + - * / % |
+| **Assignment** | = += -= *= /= %= &= |= ^= <<= >>= |
+| **Relational** | == != > < >= <= |
+| **Logical** | && || ! |
+| **Bitwise** | & | ^ ~ << >> >>> |
+| **Unary** | + - ++ -- ! ~ |
+| **Ternary** | condition ? valueIfTrue : valueIfFalse |
+| **instanceof** | obj instanceof ClassName |
 
 ```java
 public class OperatorsDemo {
@@ -729,17 +677,11 @@ public class OperatorsDemo {
 
 Control statements determine the **flow of execution** in a Java program.
 
-```
-┌────────────────────────────────────────────────────────────┐
-│                  CONTROL STATEMENTS                         │
-├─────────────────────┬──────────────────────────────────── │
-│ Category            │ Types                                │
-├─────────────────────┼──────────────────────────────────── │
-│ Conditional         │ if, if-else, if-else-if, switch      │
-│ Looping             │ for, while, do-while, enhanced-for   │
-│ Jumping             │ break, continue, return              │
-└─────────────────────┴──────────────────────────────────── ┘
-```
+| Category | Types |
+| :--- | :--- |
+| **Conditional** | if, if-else, if-else-if, switch |
+| **Looping** | for, while, do-while, enhanced-for |
+| **Jumping** | break, continue, return |
 
 ### Conditional Statements
 
@@ -784,20 +726,6 @@ switch (day) {
 
 ### Looping Statements
 
-```
-Flow Diagram for a Loop:
-                     Start
-                       |
-                  Condition?
-               Yes /          \ No
-              /                 End
-         Loop Body
-              |
-           Update
-              |
-          back to Condition
-```
-
 ```java
 // 1. while Loop — condition checked BEFORE execution
 int i = 1;
@@ -839,16 +767,12 @@ for (int nn = 1; nn <= 10; nn++) {
 
 **When to use which loop:**
 
-```
-┌───────────────┬────────────────────────────────────────────────────┐
-│ Loop          │ Best When...                                        │
-├───────────────┼────────────────────────────────────────────────────┤
-│ for           │ You know the exact number of iterations            │
-│ while         │ Number of iterations is unknown (condition-based)  │
-│ do-while      │ Loop must execute at least once                    │
-│ enhanced-for  │ Iterating over arrays or collections               │
-└───────────────┴────────────────────────────────────────────────────┘
-```
+| Loop | Best When... |
+| :--- | :--- |
+| **for** | You know the exact number of iterations |
+| **while** | Number of iterations is unknown (condition-based) |
+| **do-while** | Loop must execute at least once |
+| **enhanced-for** | Iterating over arrays or collections |
 
 ---
 
@@ -856,22 +780,6 @@ for (int nn = 1; nn <= 10; nn++) {
 
 > **Array:** An array is a collection of elements of the **same datatype** in **contiguous memory locations**.
 > It is a set of variables with the same datatype referred by a **common name**.
-
-```
-┌────────────────────────────────────────────────────────────────┐
-│                    ARRAY MEMORY LAYOUT                          │
-│                                                                 │
-│  int[] arr = {10, 20, 30, 40, 50};                            │
-│                                                                 │
-│  Index:   [0]  [1]  [2]  [3]  [4]                             │
-│           ┌───┬───┬───┬───┬───┐                                │
-│  Values:  │10 │20 │30 │40 │50 │                                │
-│           └───┴───┴───┴───┴───┘                                │
-│                                                                 │
-│  arr[0] = 10   arr.length = 5                                  │
-│  arr[4] = 50   Last index = length - 1 = 4                     │
-└────────────────────────────────────────────────────────────────┘
-```
 
 ### Types of Arrays
 
@@ -1029,18 +937,12 @@ a.equals(c) → true (same content)
 
 Both are **mutable** alternatives to `String` (can be modified without creating new objects).
 
-```
-┌───────────────────────────────────────────────────────────┐
-│       String vs StringBuffer vs StringBuilder             │
-├───────────────┬───────────────┬─────────────────────────  │
-│ Feature       │ StringBuffer  │ StringBuilder             │
-├───────────────┼───────────────┼─────────────────────────  │
-│ Mutable?      │ Yes           │ Yes                       │
-│ Thread-safe?  │ Yes (sync)    │ No (not sync)             │
-│ Performance   │ Slower        │ Faster                    │
-│ Use when      │ Multi-thread  │ Single-thread             │
-└───────────────┴───────────────┴───────────────────────────┘
-```
+| Feature | StringBuffer | StringBuilder |
+| :--- | :--- | :--- |
+| **Mutable?** | Yes | Yes |
+| **Thread-safe?** | Yes (sync) | No (not sync) |
+| **Performance** | Slower | Faster |
+| **Use when** | Multi-thread | Single-thread |
 
 ```java
 // StringBuffer — Thread-safe
@@ -1071,42 +973,21 @@ sb2.setCharAt(0, 'j');         // Replace char at index 0
 
 ![OOP vs POP Programming Paradigm](./assets/oop_vs_pop_paradigm.png)
 
-```
-┌──────────────────────────────────────────────────────────────────────────────────┐
-│              Programming Paradigm Comparison                                      │
-├─────────────────────────────────────┬────────────────────────────────────────── │
-│   POP (Procedure Oriented           │   OOP (Object Oriented                    │
-│   Programming)                      │   Programming)                            │
-├─────────────────────────────────────┼────────────────────────────────────────── │
-│ Uses FUNCTIONS as building blocks   │ Uses CLASSES & OBJECTS as building blocks │
-│ Program divided into functions      │ Program divided into objects              │
-│ Top-down design approach            │ Bottom-up design approach                 │
-│ Data flows between functions        │ Data is encapsulated in objects           │
-│ Less secure (global data)           │ More secure (data hiding)                 │
-│ Difficult to reuse                  │ Easy code reuse via inheritance           │
-│ e.g., C, Pascal, COBOL              │ e.g., Java, C++, Python                  │
-└─────────────────────────────────────┴────────────────────────────────────────── ┘
-```
+| Topic | POP (Procedure Oriented) | OOP (Object Oriented) |
+| :--- | :--- | :--- |
+| **Approach** | Top-down design | Bottom-up design |
+| **Focus** | Functions / Algorithms | Data / Object entities |
+| **Data Flow** | Data flows globally between functions | Data encapsulated within objects |
+| **Security** | Low security (global data variables) | High security (access specifiers/data hiding) |
+| **Reusability** | Difficult; functions tightly coupled | High reusability (via class Inheritance) |
+| **Examples** | C, Pascal, COBOL | Java, C++, Python |
 
 **Four Pillars of OOP:**
-```
-        ┌─────────────────────────────────────┐
-        │         PILLARS OF OOP              │
-        │                                     │
-        │   ┌─────────────┐                  │
-        │   │Encapsulation│  Data Hiding      │
-        │   └─────────────┘                  │
-        │   ┌─────────────┐                  │
-        │   │ Abstraction │  Hide Complexity  │
-        │   └─────────────┘                  │
-        │   ┌─────────────┐                  │
-        │   │ Inheritance │  Code Reuse       │
-        │   └─────────────┘                  │
-        │   ┌─────────────┐                  │
-        │   │Polymorphism │  Many Forms       │
-        │   └─────────────┘                  │
-        └─────────────────────────────────────┘
-```
+
+1. **Encapsulation:** Wrapping attributes and methods together, protecting state via private visibility and public getters/setters.
+2. **Abstraction:** Expressing only essential behaviors and operations, hiding internal implementation details using abstract classes and interfaces.
+3. **Inheritance:** Enabling hierarchical class designs to reuse common code patterns via `extends` and `implements`.
+4. **Polymorphism:** Adapting multiple implementations under a common method/interface name via overloading (static) and overriding (dynamic).
 
 ---
 
@@ -1115,16 +996,9 @@ sb2.setCharAt(0, 'j');         // Replace char at index 0
 > **Class:** A blueprint/template for creating objects. It defines attributes (fields) and behaviors (methods).
 > **Object:** A real-world instance of a class. Each object has its own state and behavior.
 
-```
-Class (Blueprint)                   Objects (Instances)
-┌─────────────────┐                 ┌─────────────────────┐
-│  class Car {    │    creates →    │ car1: Toyota, Red   │
-│    String brand │                 │ car2: Honda, Blue   │
-│    String color │                 │ car3: BMW, Black    │
-│    void start() │                 └─────────────────────┘
-│  }              │
-└─────────────────┘
-```
+* **Class (Blueprint):** Declares variables and methods (e.g. `class Car { String brand; void start(); }`).
+* **Object (Instance):** The physical memory copy instantiated using the `new` keyword (e.g. `Car myCar = new Car();`).
+
 
 ```java
 // Class Definition
@@ -1173,18 +1047,13 @@ public class Main {
 
 Access specifiers control the **visibility / accessibility** of classes, methods, and fields.
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────┐
-│                        ACCESS SPECIFIERS IN JAVA                                │
-├──────────────┬──────────────┬──────────────┬──────────────┬──────────────────── │
-│ Modifier     │ Same Class   │ Same Package │ Subclass     │ Other Packages      │
-├──────────────┼──────────────┼──────────────┼──────────────┼──────────────────── │
-│ private      │     Yes      │     No       │     No       │      No             │
-│ default      │     Yes      │     Yes      │     No       │      No             │
-│ protected    │     Yes      │     Yes      │     Yes      │      No             │
-│ public       │     Yes      │     Yes      │     Yes      │      Yes            │
-└──────────────┴──────────────┴──────────────┴──────────────┴────────────────────┘
-```
+| Modifier | Same Class | Same Package | Subclass | Other Packages |
+| :--- | :---: | :---: | :---: | :---: |
+| **private** | Yes | No | No | No |
+| **default** | Yes | Yes | No | No |
+| **protected** | Yes | Yes | Yes | No |
+| **public** | Yes | Yes | Yes | Yes |
+
 
 ```java
 class AccessDemo {
@@ -1204,18 +1073,14 @@ class AccessDemo {
 > **Constructor** is a **special method** that is automatically called when an object is created.
 > It has the **same name as the class** and **no return type** (not even `void`).
 
-```
-CONSTRUCTOR vs METHOD:
-┌──────────────────────────────────┬──────────────────────────────────┐
-│ Constructor                      │ Method                           │
-├──────────────────────────────────┼──────────────────────────────────┤
-│ Same name as class               │ Any name                         │
-│ No return type (not even void)   │ Has return type (or void)        │
-│ Called automatically on new      │ Called explicitly                │
-│ Used to initialize objects       │ Used for any functionality       │
-│ Cannot be abstract/static/final  │ Can be abstract/static/final     │
-└──────────────────────────────────┴──────────────────────────────────┘
-```
+| Constructor | Method |
+| :--- | :--- |
+| Same name as class | Any name |
+| No return type (not even `void`) | Has return type (or `void`) |
+| Called automatically on `new` | Called explicitly |
+| Used to initialize objects | Used for any functionality |
+| Cannot be `abstract`/`static`/`final` | Can be `abstract`/`static`/`final` |
+
 
 #### Types of Constructors
 
