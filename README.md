@@ -1,19 +1,41 @@
 <div align="center">
 
-# ☕ Java Full Stack — Complete Study Notes
+# ☕ Complete Java Full Stack Handbook
 
-<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java">
-<img src="https://img.shields.io/badge/JDK-21-orange?style=for-the-badge&logo=oracle&logoColor=white" alt="JDK">
-<img src="https://img.shields.io/badge/OOP-Concepts-blue?style=for-the-badge" alt="OOP">
-<img src="https://img.shields.io/badge/JDBC-Database-green?style=for-the-badge" alt="JDBC">
-<img src="https://img.shields.io/badge/Servlets-JSP-red?style=for-the-badge" alt="Servlets">
-<img src="https://img.shields.io/badge/Maven-Gradle-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white" alt="Maven">
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-21-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Version">
+  <img src="https://img.shields.io/badge/Status-Complete-success?style=for-the-badge" alt="Status">
+  <img src="https://img.shields.io/badge/Focus-Interview%20Prep%20%26%20Practical-blue?style=for-the-badge" alt="Focus">
+  <img src="https://img.shields.io/badge/Roadmap-Full%20Stack-orange?style=for-the-badge" alt="Roadmap">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
+</p>
 
-**Author: Mohammad Asfin &nbsp;|&nbsp; Stack: Java Full Stack &nbsp;|&nbsp; Level: Beginner to Advanced**
+### 🚀 Transform from a Beginner to an Industry-Ready Java Developer
 
-[🚀 Get Started](#-java-introduction--features) · [📚 OOP Concepts](#-oop-object-oriented-programming) · [🔗 JDBC](#-jdbc-java-database-connectivity) · [🌐 REST API](#-rest-api--web-services) · [📦 Maven & Gradle](#-maven) · [🧵 Multithreading](#-multithreading)
+📘 **Beginner Friendly** · 🎯 **Interview Focused** · 💻 **Hands-on Examples** · 🧠 **Concept First** · 📚 **Complete Reference** · 📈 **Progressive Learning**
 
 </div>
+
+---
+
+### 📊 Repository Quick Info
+
+| 📖 Estimated Reading Time | 🎯 Target Audience | 🛠️ Technology Stack |
+| :--- | :--- | :--- |
+| ~12 Hours (Comprehensive) | Students, Interview Candidates, Professionals | Java 21, JDBC, Servlets, Spring Boot, Maven, Git |
+
+| 📈 Difficulty Levels | 🛑 Prerequisites | 🧠 Learning Mode |
+| :--- | :--- | :--- |
+| Beginner to Advanced | None (Starting from absolute scratch) | Hands-on, Code-first, Output-verified |
+
+---
+
+### 🌟 What You Will Learn
+* **Core Java Syntax & Fundamentals**: Variables, data types, control flow, loops, and memory execution modeling.
+* **Object-Oriented Programming (OOP)**: Absolute mastery over Encapsulation, Inheritance, Polymorphism, and Abstraction.
+* **Modern Java Features**: Lambdas, functional interfaces, stream API pipelining, records, switch expressions, and sealing.
+* **Advanced Mechanics**: Custom Exception Handling design, Multithreaded lifecycle controls, synchronization, and safe memory sharing.
+* **Database & Enterprise Tools**: Type-4 JDBC drivers, servlet request pipelines, Spring REST API design, Maven/Gradle, and Git workflows.
 
 ---
 
@@ -168,11 +190,15 @@ graph TD
     end
 ```
 
-| Component | Definition | Purpose / Role |
-| :--- | :--- | :--- |
-| **JVM** | Java Virtual Machine | Runs the compiled bytecode (`.class` files) on the local processor. |
-| **JRE** | Java Runtime Environment | Contains JVM + Java libraries required to run pre-compiled Java applications. |
-| **JDK** | Java Development Kit | JRE + Dev Tools (compiler `javac`, packager `jar`). Required to develop Java code. |
+| Feature | JVM (Java Virtual Machine) | JRE (Java Runtime Environment) | JDK (Java Development Kit) |
+| :--- | :--- | :--- | :--- |
+| **Full Form** | Java Virtual Machine | Java Runtime Environment | Java Development Kit |
+| **Definition** | Abstract engine that executes Java bytecode | Implementation of JVM + core platform libraries | Software development environment for Java apps |
+| **Core Role** | Converts bytecode to native machine code | Provides the environment to execute bytecode | Contains toolchain to write, compile, and run code |
+| **Components** | JIT, interpreter, garbage collector, class loader | JVM + runtime libraries + configuration files | JRE + tools (javac, jar, javadoc, jdb, jshell) |
+| **Installation**| Part of JRE and JDK | Installed standalone to run compiled Java apps | Installed by developers to code and compile |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 #### JVM Internal Architecture
 
@@ -301,6 +327,8 @@ public class VariableDemo {
 | **Enum** | PascalCase | `DayOfWeek`, `TrafficLight` |
 
 
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
 ---
 
 ### 🗃️ Primitive Data Types
@@ -382,6 +410,18 @@ Integer ageObj = 25; // compiler translates to Integer.valueOf(25)
 // Unboxing
 int age = ageObj;    // compiler translates to ageObj.intValue()
 ```
+
+### Primitive vs. Wrapper Classes
+
+| Aspect | Primitive Data Types | Wrapper Classes |
+| :--- | :--- | :--- |
+| **Storage Type** | Value stored directly in stack memory | Reference object stored on heap |
+| **Nullability** | ❌ Cannot be `null` (has default value like `0`) |  Can be `null` (represents absence of value) |
+| **Generics Usage** | ❌ Cannot use in Collections (`List<int>` fails) |  Can be used in Collections (`List<Integer>`) |
+| **Methods** | Does not have built-in methods (no dot operator) | Has utilities (`Integer.parseInt()`, `Double.valueOf()`) |
+| **Performance** | Faster operations, lower memory overhead | Slower operations due to object instantiation/lookup overhead |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 > [!TIP]
 > **Integer Caching Mechanism:**
@@ -675,6 +715,8 @@ for (int nn = 1; nn <= 10; nn++) {
 | **do-while** | Loop must execute at least once |
 | **enhanced-for** | Iterating over arrays or collections |
 
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
 ---
 
 ## 📦 Arrays
@@ -714,6 +756,8 @@ Car[] garage = new Car[2];
 garage[0] = new Car("Tesla");
 garage[1] = new Car("Ford");
 ```
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
@@ -771,29 +815,28 @@ System.out.println(s1 == s4); // true
 | **Storage Area** | String Constant Pool / Heap | Standard Heap | Standard Heap |
 
 ```java
-// StringBuilder - best for fast single-threaded string manipulations
-StringBuilder builder = new StringBuilder("Java");
-builder.append(" Full Stack");
-System.out.println(builder.toString()); // "Java Full Stack"
+public class StringBuilderDemo {
+    public static void main(String[] args) {
+        // StringBuilder - best for fast single-threaded string manipulations
+        StringBuilder sb = new StringBuilder("Hello");
+        sb.append(", World");          // "Hello, World"
+        sb.insert(5, " Java");         // "Hello Java, World"
+        sb.delete(5, 10);              // "Hello, World"
+        sb.reverse();                  // "dlroW ,olleH"
+        sb.reverse();                  // Back to "Hello, World"
+        sb.replace(0, 5, "Hi");        // "Hi, World"
+        System.out.println("Modified: " + sb.toString());
+        System.out.println("Length: " + sb.length());
+
+        // StringBuffer - thread-safe counterpart with synchronized methods
+        StringBuffer sBuf = new StringBuffer("ThreadSafe");
+        sBuf.append(" Buffer");
+        System.out.println(sBuf.toString());
+    }
+}
 ```
 
-sb.append(", World");          // "Hello, World"
-sb.insert(5, " Java");         // "Hello Java, World"
-sb.delete(5, 10);              // "Hello, World"
-sb.reverse();                  // "dlroW ,olleH"
-sb.replace(0, 5, "Hi");        // Replace index 0-5
-System.out.println(sb.length()); // Length
-System.out.println(sb.toString()); // Convert to String
-
-// StringBuilder — Faster (single-threaded)
-StringBuilder sb2 = new StringBuilder();
-sb2.append("Java ");
-sb2.append("is ");
-sb2.append("awesome!");
-System.out.println(sb2.toString());  // "Java is awesome!"
-sb2.deleteCharAt(4);           // Remove char at index 4
-sb2.setCharAt(0, 'j');         // Replace char at index 0
-```
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
@@ -861,6 +904,18 @@ Access specifiers control the visibility of classes, constructors, methods, and 
 
 #### Definition & Purpose
 A constructor is a special, non-static member method used to initialize a newly created object. It has no return type (not even `void`) and bears the exact name of the declaring class.
+
+### Method vs. Constructor Comparison
+
+| Characteristic | Method | Constructor |
+| :--- | :--- | :--- |
+| **Purpose** | Used to expose object behavior / operations | Used to initialize newly created object state |
+| **Return Type** | Must declare a return type (or `void`) | ❌ No return type allowed (not even `void`) |
+| **Invocation** | Called explicitly using dot operator | Called implicitly via the `new` keyword |
+| **Naming** | Can use camelCase, any valid name | Must match the declaring class name exactly |
+| **Default Provision**| Never provided by the compiler | Provided automatically if no other constructor exists |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 #### Constructor Chaining
 Constructor chaining is the process of calling one constructor from another constructor in the same class (using `this()`) or parent class (using `super()`). `this()` or `super()` must be the very first line of any constructor method.
@@ -1011,6 +1066,25 @@ graph TD
 > **Why doesn't Java support multiple class inheritance?**
 > To avoid the **Diamond Problem**. If Class A has a method `execute()`, and Class B and C both inherit from A and override `execute()`, a subclass D extending both B and C would not know which version of `execute()` to execute. Java resolves this by allowing multiple inheritance *only* through Interfaces (where implementation details were historically absent).
 
+### Aggregation vs. Composition (HAS-A Relationships)
+
+| Aspect | Aggregation | Composition |
+| :--- | :--- | :--- |
+| **Relationship Strength**| Weak HAS-A (Loose binding) | Strong HAS-A (Tight coupling) |
+| **Lifetime Dependency** | Objects have independent lifecycles (e.g. `Department` and `Professor`) | Child lifecycle is bound to parent (e.g. `House` and `Room`) |
+| **Ownership** | Multiple parents can share the child | Child belongs to a single parent object only |
+
+### Composition vs. Inheritance
+
+| Feature | Inheritance (IS-A) | Composition (HAS-A) |
+| :--- | :--- | :--- |
+| **Relationship Type** | Extends code: `Dog extends Animal` | References object: `Car has Engine` |
+| **Coupling Level** | Tight coupling (subclass depends on superclass) | Loose coupling (classes interact via public interfaces) |
+| **Flexibility** | Static binding at compile-time (cannot change superclass) | Dynamic binding at runtime (can switch referenced instances) |
+| **Security** | Breaks encapsulation (subclass accesses protected fields) | Preserves encapsulation (internal states are protected) |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
 ---
 
 ### 🎭 Polymorphism
@@ -1025,6 +1099,18 @@ graph TD
 | **Resolution** | Resolved during compilation | Resolved at execution runtime |
 | **Binding Type** | Early Binding | Late / Dynamic Binding |
 | **Performance** | Faster (no runtime lookup overhead) | Slightly slower (lookup in Virtual Method Table) |
+
+### Method Overloading vs. Method Overriding
+
+| Aspect | Method Overloading | Method Overriding |
+| :--- | :--- | :--- |
+| **Purpose** | To introduce multiple methods with the same name doing different operations | To implement subclass-specific versions of a superclass method |
+| **Method Signature**| Must have different parameters (count, type, or order) | Must have the exact same parameters and signature |
+| **Class Scope** | Done within the same class | Done across parent-child subclass relationships |
+| **Inheritance** | Does not require inheritance | ❌ Requires inheritance |
+| **Polymorphism Type**| Compile-time (static binding) | Run-time (dynamic binding) |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 #### Internal Working of Dynamic Method Dispatch
 When a subclass overrides a parent method, the JVM looks up the target method implementation at runtime using a **Virtual Method Table (VMT)** associated with the concrete instance. This runtime resolution is called **Dynamic Method Dispatch**.
@@ -1274,6 +1360,18 @@ class StaticDemo {
 }
 ```
 
+### Static vs. Instance Comparison
+
+| Aspect | Static Members | Instance Members |
+| :--- | :--- | :--- |
+| **Association** | Associated with the Class itself | Associated with individual object instances |
+| **Memory Allocation**| Allocated once when the class loads | Allocated every time a new object is created |
+| **Storage Area** | JVM Method Area | Heap memory (within the object block) |
+| **Invocation** | ClassName.member (no object reference needed) | objectReference.member |
+| **Access Control** | ❌ Cannot reference non-static members directly |  Can access both static and instance members |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
 ---
 
 ### 🔑 this & super Keywords
@@ -1297,6 +1395,17 @@ class Derived extends Base {
     }
 }
 ```
+
+### this vs. super Comparison
+
+| Aspect | `this` Keyword | `super` Keyword |
+| :--- | :--- | :--- |
+| **Reference Target** | Refers to the current class instance object | Refers to the parent class object instance |
+| **Field Access** | Accesses current class instance variables | Accesses inherited parent class variables |
+| **Method Invocation**| Invokes methods in the current class | Invokes overridden methods of the parent class |
+| **Constructor Call** | `this()` chains overloaded constructors | `super()` invokes parent class constructors |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
@@ -1361,19 +1470,15 @@ Why use Annotations?
   Code documentation
 ```
 
-```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                       COMMON JAVA ANNOTATIONS                                │
-├─────────────────────────────┬─────────────────────────────────────────────── │
-│ Annotation                  │ Description                                    │
-├─────────────────────────────┼─────────────────────────────────────────────── │
-│ @Override                   │ Tells compiler this method overrides a parent  │
-│ @Deprecated                 │ Marks element as outdated; compiler warns      │
-│ @SuppressWarnings           │ Suppresses specific compiler warnings          │
-│ @FunctionalInterface        │ Marks interface as functional (SAM)            │
-│ @SafeVarargs                │ Suppresses varargs safety warnings             │
-└─────────────────────────────┴─────────────────────────────────────────────── ┘
-```
+| Annotation | Description |
+| :--- | :--- |
+| **@Override** | Tells compiler this method overrides a parent method |
+| **@Deprecated** | Marks element as outdated; compiler warns when used |
+| **@SuppressWarnings** | Suppresses specific compiler warnings |
+| **@FunctionalInterface**| Marks interface as functional (SAM) |
+| **@SafeVarargs** | Suppresses varargs safety warnings |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ```java
 class Parent {
@@ -1448,6 +1553,8 @@ graph TD
 | **Typical Cause** | External environment failures (missing file, network down). | Program logic errors (null reference, array out of bounds). |
 | **Example Classes**| `IOException`, `SQLException`, `ClassNotFoundException` | `NullPointerException`, `ArithmeticException` |
 
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
 ---
 
 ### Modern Try-With-Resources (Java 7+)
@@ -1480,28 +1587,40 @@ class InsufficientFundsException extends Exception {
 }
 ```
 
-    }
+// Usage of Custom Exception
+class BankAccount {
+    private double balance = 500;
 
-    double getAmount() { return amount; }
+    public void withdraw(double amount) throws InsufficientFundsException {
+        if (amount > balance) {
+            double deficit = amount - balance;
+            throw new InsufficientFundsException(deficit);
+        }
+        balance -= amount;
+        System.out.println("Withdrawal successful! Remaining: $" + balance);
+    }
 }
-
-// try-with-resources (Java 7+) — auto-closes resources
-try (java.io.FileReader fr    = new java.io.FileReader("file.txt");
-     java.io.BufferedReader br = new java.io.BufferedReader(fr)) {
-    String line;
-    while ((line = br.readLine()) != null) {
-        System.out.println(line);
-    }
-} catch (java.io.IOException e) {
-    e.printStackTrace();
-}   // fr and br are automatically closed here!
 ```
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
 ## 🧵 Multithreading
 
 * **Definition:** Multithreading is a Java feature that allows concurrent execution of two or more parts of a program (threads) to maximize CPU utilization.
+
+### Process vs. Thread Comparison
+
+| Characteristic | Process | Thread |
+| :--- | :--- | :--- |
+| **Definition** | An executing instance of a program (heavyweight) | Path of execution inside a process (lightweight) |
+| **Memory** | Has its own address space & memory | Shares the parent process's memory space |
+| **Communication**| Inter-Process Communication (IPC) is slow | Sharing variables is direct, fast, & easy |
+| **Context Switch**| Expensive; requires swapping memory maps | Cheap; registers and stack state only |
+| **Safety** | If one process crashes, others are unaffected | If a thread crashes (uncaught exception), it can crash the process |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ### Thread Lifecycle (States) & Transitions
 
@@ -1561,6 +1680,8 @@ import java.util.ArrayList; // Single class import
 import java.util.*;        // Package import wildcard
 ```
 
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
 ---
 
 ## 🖼️ Java Swing & GUI
@@ -1580,6 +1701,16 @@ graph LR
 * **Model:** Holds the application data state and structural business rules (no Swing classes).
 * **View:** Draws components on screen (`JButton`, `JLabel`). Delegates interaction inputs.
 * **Controller:** Integrates both. Interprets actions (like mouse clicks) and instructs Model updates.
+
+### AWT vs. Swing Comparison
+| Aspect | AWT (Abstract Window Toolkit) | Swing |
+| :--- | :--- | :--- |
+| **Nature** | Heavyweight (relies on OS native GUI) | Lightweight (written purely in Java) |
+| **Platform** | Platform-dependent appearance | Platform-independent (pluggable look and feel) |
+| **Performance** | Faster (uses OS components) | Slower (draws its own components) |
+| **MVC** | Does not follow MVC pattern | Follows MVC pattern |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
@@ -1654,6 +1785,15 @@ public class FileIODemo {
 }
 ```
 
+### Byte Stream vs. Character Stream
+| Feature | Byte Stream | Character Stream |
+| :--- | :--- | :--- |
+| **Data Handled** | 8-bit bytes (binary data like images, audio, video) | 16-bit Unicode characters (text files) |
+| **Base Classes** | `InputStream` and `OutputStream` | `Reader` and `Writer` |
+| **Example Classes** | `FileInputStream`, `FileOutputStream` | `FileReader`, `FileWriter` |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
 ---
 
 ## 🔄 Serialization & Deserialization
@@ -1702,6 +1842,16 @@ public class SerializationDemo {
     }
 }
 ```
+
+### Serializable vs. Externalizable
+| Aspect | Serializable | Externalizable |
+| :--- | :--- | :--- |
+| **Interface type** | Marker interface (no methods) | Contains methods: `writeExternal()` and `readExternal()` |
+| **Control** | Default serialization process (JVM handles it) | Custom serialization process (developer controls it) |
+| **Performance** | Slower (uses reflection) | Faster (no reflection) |
+| **`transient` keyword**| Supported (ignores fields marked `transient`) | Not needed (you manually choose what to write) |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
@@ -1785,11 +1935,61 @@ public class CollectionsDemo {
 }
 ```
 
+#### HashSet vs. LinkedHashSet vs. TreeSet
+| Characteristic | HashSet | LinkedHashSet | TreeSet |
+| :--- | :--- | :--- | :--- |
+| **Iteration Order** | ❌ Unordered | ✅ Insertion order | ✅ Sorted (natural/comparator) |
+| **Data Structure** | Hash Table | Hash Table + Linked List | Red-Black Tree |
+| **Null Allowed** | ✅ One null | ✅ One null | ❌ No null |
+| **Performance** | O(1) add/remove/contains | O(1) add/remove/contains | O(log N) |
+
+#### Comparable vs. Comparator
+| Aspect | Comparable | Comparator |
+| :--- | :--- | :--- |
+| **Package** | `java.lang` | `java.util` |
+| **Method** | `compareTo(Object o)` | `compare(Object o1, Object o2)` |
+| **Sorting Logic** | Inside the class itself (natural ordering) | External to the class (custom ordering) |
+| **Modification** | Modifies the class being sorted | Does not modify the class |
+| **Multiple Orders** | ❌ Only one natural order | ✅ Multiple custom orderings |
+
+#### == vs. equals() Comparison
+| Aspect | `==` Operator | `.equals()` Method |
+| :--- | :--- | :--- |
+| **Compares** | Reference (memory address) | Content (logical equality) |
+| **Primitives** | Compares values directly | ❌ Cannot use on primitives |
+| **Objects** | Checks if both refer to the same heap object | Checks if two objects are semantically equal |
+| **Override** | Cannot be overridden | Can be overridden in custom classes |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
 ---
 
 ## 🌊 Stream API
 
 * **Definition:** Stream API (introduced in Java 8) processes pipeline operations on sequences of elements in a functional style. Streams do not store elements; they carry values from source collections through pipelined stages.
+
+### Stream Pipeline Architecture
+```mermaid
+graph LR
+    Source["Collection / Array"] -->|.stream()| Pipeline["Intermediate Ops: filter, map, sorted, distinct"]
+    Pipeline -->|Terminal Op| Result["collect, forEach, reduce, count"]
+    style Source fill:#4CAF50,color:#fff
+    style Pipeline fill:#2196F3,color:#fff
+    style Result fill:#FF9800,color:#fff
+```
+
+### Common Stream Operations
+| Operation | Type | Description | Example |
+| :--- | :--- | :--- | :--- |
+| **filter()** | Intermediate | Selects elements matching a predicate | `.filter(n -> n > 5)` |
+| **map()** | Intermediate | Transforms each element | `.map(String::toUpperCase)` |
+| **sorted()** | Intermediate | Sorts elements (natural or comparator) | `.sorted(Comparator.reverseOrder())` |
+| **distinct()** | Intermediate | Removes duplicates | `.distinct()` |
+| **limit()** | Intermediate | Truncates stream to N elements | `.limit(5)` |
+| **forEach()** | Terminal | Performs action on each element | `.forEach(System.out::println)` |
+| **collect()** | Terminal | Gathers results into a collection | `.collect(Collectors.toList())` |
+| **reduce()** | Terminal | Combines elements into a single result | `.reduce(0, Integer::sum)` |
+| **count()** | Terminal | Returns the number of elements | `.count()` |
 
 ```java
 import java.util.*;
@@ -1805,9 +2005,28 @@ public class StreamDemo {
                                        .map(n -> n * n)
                                        .collect(Collectors.toList());
         System.out.println("Even Squares: " + squares); // [4, 16, 36, 64, 100]
+
+        // reduce — sum all numbers
+        int sum = numbers.stream().reduce(0, Integer::sum);
+        System.out.println("Sum: " + sum); // 55
+
+        // count elements
+        long evenCount = numbers.stream().filter(n -> n % 2 == 0).count();
+        System.out.println("Even count: " + evenCount); // 5
+
+        // String stream example
+        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "Ana");
+        List<String> filtered = names.stream()
+                                      .filter(n -> n.startsWith("A"))
+                                      .map(String::toUpperCase)
+                                      .sorted()
+                                      .collect(Collectors.toList());
+        System.out.println("Filtered: " + filtered); // [ALICE, ANA]
     }
 }
 ```
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
@@ -1844,6 +2063,16 @@ public class JDBCDemo {
     }
 }
 ```
+
+### Statement vs. PreparedStatement
+| Aspect | Statement | PreparedStatement |
+| :--- | :--- | :--- |
+| **SQL Injection** | ❌ Vulnerable (string concatenation) | ✅ Protected (parameterized queries) |
+| **Precompilation** | SQL compiled every execution | SQL precompiled once, executed many times |
+| **Performance** | Slower for repeated queries | Faster for repeated queries |
+| **Parameters** | Hardcoded values in SQL string | Dynamic `?` placeholder binding |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
@@ -1883,6 +2112,17 @@ public class HelloServlet extends HttpServlet {
     }
 }
 ```
+
+### Servlet vs. JSP
+| Aspect | Servlet | JSP (JavaServer Pages) |
+| :--- | :--- | :--- |
+| **Nature** | Pure Java class extending `HttpServlet` | HTML page with embedded Java code |
+| **Usage** | Controller logic & request processing | View layer / presentation rendering |
+| **Compilation** | Compiled before deployment | Compiled by the container on first request |
+| **MVC Role** | Controller (handles business logic) | View (renders output to client) |
+| **Syntax** | Java code with HTML embedded via `PrintWriter` | HTML with `<%= %>` Java expressions |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
@@ -1935,6 +2175,17 @@ public class StudentController {
     }
 }
 ```
+
+### HTTP Methods Comparison (REST)
+| Method | Purpose | Idempotent | Request Body | Safe |
+| :--- | :--- | :---: | :---: | :---: |
+| **GET** | Retrieve resource(s) | ✅ Yes | ❌ No | ✅ Yes |
+| **POST** | Create a new resource | ❌ No | ✅ Yes | ❌ No |
+| **PUT** | Update/replace entire resource | ✅ Yes | ✅ Yes | ❌ No |
+| **PATCH** | Partial update of a resource | ❌ No | ✅ Yes | ❌ No |
+| **DELETE** | Remove a resource | ✅ Yes | ❌ No | ❌ No |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
@@ -1994,6 +2245,8 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 }
 ```
 
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
 ---
 
 ## 📦 Maven
@@ -2029,6 +2282,18 @@ graph TD
   </dependencies>
 </project>
 ```
+
+### Maven vs. Gradle Comparison
+| Feature | Maven | Gradle |
+| :--- | :--- | :--- |
+| **Configuration** | XML (`pom.xml`) — verbose | Groovy/Kotlin DSL (`build.gradle`) — concise |
+| **Build Speed** | Slower (no caching) | Faster (incremental builds + build cache) |
+| **Flexibility** | Convention-over-configuration (rigid) | Highly customizable scripting |
+| **Dependency Mgmt**| Central repository (`mvnrepository.com`) | Supports Maven Central + custom repos |
+| **Learning Curve** | Easier for XML-familiar developers | Steeper curve but more powerful |
+| **Industry Usage** | Legacy enterprise projects | Modern Android + Spring Boot projects |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
@@ -2132,6 +2397,8 @@ assertThrows(ExceptionClass, lambda)    // lambda throws exception
 assertArrayEquals(expected, actual)     // arrays are equal
 ```
 
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
 ---
 
 ## 📁 Git & Version Control
@@ -2183,6 +2450,8 @@ git reset --hard HEAD~1          # Undo last commit (discard changes)
 ### Git Workflow
 
 `Working Directory` ➡️ `git add` ➡️ `Staging Area` ➡️ `git commit` ➡️ `Local Repo` ➡️ `git push` ➡️ `Remote (GitHub)`
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
 
 ---
 
@@ -2262,6 +2531,142 @@ while (low <= high) {
 }
 ```
 
+### Sorting Algorithm Complexity
+| Algorithm | Best Case | Average Case | Worst Case | Space | Stable |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Bubble Sort** | O(n) | O(n²) | O(n²) | O(1) | ✅ |
+| **Selection Sort** | O(n²) | O(n²) | O(n²) | O(1) | ❌ |
+| **Insertion Sort** | O(n) | O(n²) | O(n²) | O(1) | ✅ |
+| **Merge Sort** | O(n log n) | O(n log n) | O(n log n) | O(n) | ✅ |
+| **Quick Sort** | O(n log n) | O(n log n) | O(n²) | O(log n) | ❌ |
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
+---
+
+## 🎯 Interview Questions Bank
+
+<details>
+<summary><b>☕ Core Java & OOP Interview Questions (Click to expand)</b></summary>
+
+#### Beginner Level
+1. **What is the difference between JDK, JRE, and JVM?**
+   - JDK = Development Kit (compile + run), JRE = Runtime only (run), JVM = Virtual Machine that executes bytecode.
+
+2. **Why is Java platform independent?**
+   - Java compiles to bytecode (`.class`), not native machine code. The JVM on each OS interprets/JIT-compiles this bytecode.
+
+3. **What is the difference between `==` and `.equals()`?**
+   - `==` compares memory references (are they the same object?). `.equals()` compares content (are they semantically equal?).
+
+4. **What are the 4 pillars of OOP?**
+   - Encapsulation (data hiding), Abstraction (hiding complexity), Inheritance (code reuse), Polymorphism (many forms).
+
+5. **What is the difference between `String`, `StringBuilder`, and `StringBuffer`?**
+   - `String` is immutable. `StringBuilder` is mutable and fast (not thread-safe). `StringBuffer` is mutable and thread-safe (synchronized).
+
+#### Intermediate Level
+6. **What is the Diamond Problem in Java?**
+   - When a class inherits from two classes that have the same method, ambiguity arises. Java prevents this by disallowing multiple class inheritance — only interfaces.
+
+7. **Explain method overloading vs. method overriding.**
+   - Overloading: Same name, different parameters, same class, compile-time. Overriding: Same name+params, subclass, runtime.
+
+8. **What is autoboxing and unboxing?**
+   - Autoboxing: `int` → `Integer` (primitive to wrapper). Unboxing: `Integer` → `int` (wrapper to primitive). Done automatically by the compiler.
+
+9. **What is the difference between `abstract class` and `interface`?**
+   - Abstract class: partial abstraction, can have state/constructors, single inheritance. Interface: full contract, no state, multiple inheritance.
+
+10. **What is a functional interface? Give examples.**
+    - An interface with exactly one abstract method. Examples: `Runnable`, `Comparator`, `Predicate`, `Function`, `Consumer`, `Supplier`.
+
+#### Advanced / Tricky
+11. **Can we override a static method?**
+    - No. Static methods are resolved at compile-time (method hiding, not overriding). The method from the reference type is called.
+
+12. **What happens if `main()` is not declared as `static`?**
+    - The program compiles but throws `NoSuchMethodError` at runtime because the JVM looks for `public static void main`.
+
+13. **What is the difference between `throw` and `throws`?**
+    - `throw`: Used inside a method body to explicitly throw an exception object. `throws`: Declared in method signature to indicate checked exceptions.
+
+14. **What is the String Constant Pool?**
+    - A special memory area in the heap where string literals are cached. `"Hello"` creates one pool entry; `new String("Hello")` creates a heap object.
+
+15. **Explain `transient` and `volatile` keywords.**
+    - `transient`: Excludes a field from serialization. `volatile`: Ensures a variable is read from main memory (not CPU cache) — visibility guarantee across threads.
+
+</details>
+
+<details>
+<summary><b>📚 Collections & Streams Interview Questions (Click to expand)</b></summary>
+
+1. **What is the difference between `ArrayList` and `LinkedList`?**
+   - ArrayList: backed by array, O(1) random access, O(n) insert/delete. LinkedList: doubly-linked nodes, O(n) access, O(1) insert/delete.
+
+2. **What is the difference between `HashMap` and `Hashtable`?**
+   - HashMap: not synchronized, allows one null key. Hashtable: synchronized (legacy), no null keys/values.
+
+3. **What is the difference between `Comparable` and `Comparator`?**
+   - Comparable: `compareTo()` inside the class (natural ordering). Comparator: `compare()` external (custom ordering, multiple strategies).
+
+4. **What is the internal working of HashMap?**
+   - Uses an array of buckets. `hashCode()` determines the bucket index. Collisions are resolved via linked list (or tree after 8 nodes in Java 8+).
+
+5. **What is the difference between `Stream.map()` and `Stream.flatMap()`?**
+   - `map()`: one-to-one transformation. `flatMap()`: one-to-many — flattens nested streams into a single stream.
+
+6. **What are intermediate vs. terminal operations in Stream API?**
+   - Intermediate: lazy, return new stream (`filter`, `map`, `sorted`). Terminal: trigger processing, produce result (`collect`, `forEach`, `reduce`).
+
+</details>
+
+<details>
+<summary><b>🧵 Multithreading & Exception Handling Interview Questions (Click to expand)</b></summary>
+
+1. **What is the difference between `Thread` class and `Runnable` interface?**
+   - `Thread`: extend (single inheritance consumed). `Runnable`: implement (preferred, allows extending another class).
+
+2. **What is a race condition?**
+   - When multiple threads access shared mutable state concurrently without proper synchronization, causing unpredictable data corruption.
+
+3. **What is the difference between `wait()` and `sleep()`?**
+   - `wait()`: releases the monitor lock, must be in synchronized block. `sleep()`: does NOT release the lock, pauses the thread for specified time.
+
+4. **What is the difference between checked and unchecked exceptions?**
+   - Checked: compile-time enforcement (`IOException`, `SQLException`). Unchecked: runtime (`NullPointerException`, `ArithmeticException`).
+
+5. **Can we have a `try` block without `catch`?**
+   - Yes, with a `finally` block: `try { } finally { }`. Also, try-with-resources doesn't require explicit catch.
+
+6. **What is a deadlock?**
+   - When two or more threads are blocked forever, each waiting for the other's lock. Avoided by consistent lock ordering.
+
+</details>
+
+<details>
+<summary><b>🔗 JDBC, Servlets & Spring Interview Questions (Click to expand)</b></summary>
+
+1. **What is the difference between `Statement` and `PreparedStatement`?**
+   - Statement: SQL compiled every time, vulnerable to SQL injection. PreparedStatement: precompiled, parameterized, safe and faster.
+
+2. **What is the Servlet lifecycle?**
+   - `init()` → `service()` (calls `doGet`/`doPost`) → `destroy()`. Container manages instantiation and destruction.
+
+3. **What is the difference between `GET` and `POST`?**
+   - GET: data in URL, cacheable, idempotent, limited size. POST: data in body, not cached, not idempotent, unlimited size.
+
+4. **What is dependency injection in Spring?**
+   - A design pattern where the framework provides object dependencies instead of the class creating them. Achieved via constructor, setter, or field injection.
+
+5. **What is the difference between `@Controller` and `@RestController`?**
+   - `@Controller`: returns view names (for MVC). `@RestController`: combines `@Controller` + `@ResponseBody` — returns data (JSON/XML) directly.
+
+</details>
+
+<p align="right"><a href="#-complete-java-full-stack-handbook">⬆ Back to Top</a></p>
+
 ---
 
 <div align="center">
@@ -2285,12 +2690,18 @@ while (low <= high) {
 
 ---
 
-### Happy Learning Java!
+<div align="center">
 
-**Author:** Mohammad Asfin &nbsp;|&nbsp; **Version:** 1.0.0 &nbsp;|&nbsp; **Last Updated:** July 2026
+### 📖 Continue your Java journey.
+🎯 *Master Java one concept at a time.*
 
-[![GitHub](https://img.shields.io/badge/GitHub-Mohammad--Asfin-black?style=flat-square&logo=github)](https://github.com/Mohammad-Asfin)
+⭐ **If this repository helped you, consider giving it a Star!**
 
-> *"The best way to learn programming is to write programs."* — Brian Kernighan
+🤝 **Contributions are welcome.**  
+📚 **Keep Learning.** · 💻 **Happy Coding.** · 🚀 **Never Stop Building.**
+
+🌍 **Learn · Build · Practice · Grow**
+
+❤️ *Made with passion for Java learners.*
 
 </div>
