@@ -1190,25 +1190,14 @@ public class Main {
 
 **Key Concept: Data Hiding** — Make fields `private`, provide `public` getters and setters.
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│                     ENCAPSULATION                            │
-│                                                              │
-│  ┌───────────────────────────────────┐                      │
-│  │         Class (Capsule)           │                      │
-│  │   ┌───────────────────────────┐   │                      │
-│  │   │  private data members     │   │  Hidden from outside │
-│  │   │  (fields / attributes)    │   │                      │
-│  │   └───────────────────────────┘   │                      │
-│  │   ┌───────────────────────────┐   │                      │
-│  │   │  public methods           │   │  Controlled access   │
-│  │   │  (getters / setters)      │   │                      │
-│  │   └───────────────────────────┘   │                      │
-│  └───────────────────────────────────┘                      │
-│                                                              │
-│  Benefits: Data Security, Flexibility, Maintainability       │
-└──────────────────────────────────────────────────────────────┘
-```
+### 🔒 Encapsulation
+
+> **Encapsulation** is the process of wrapping data (fields) and methods together into a single unit (class), restricting direct access to some of the object's components.
+
+* **Data Hiding:** Declaring variables of the class as `private`.
+* **Controlled Access:** Providing public setter and getter methods to modify and view the variables.
+* **Benefits:** Data security, flexibility, easy maintenance, and testing.
+
 
 ```java
 class BankAccount {
@@ -1378,21 +1367,16 @@ class Car extends Vehicle {
 > **Polymorphism** (Greek: *poly* = many, *morphism* = forms) — The ability of an object to take **many forms**.
 > One interface, multiple implementations.
 
-```
-TYPES OF POLYMORPHISM:
-┌──────────────────────────────────────────────────────────────────────┐
-│                        POLYMORPHISM                                  │
-│                              │                                       │
-│         ┌────────────────────┴────────────────────┐                 │
-│         ▼                                         ▼                 │
-│  Compile-Time (Static)                   Run-Time (Dynamic)         │
-│  Method Overloading                      Method Overriding           │
-│                                                                     │
-│  Same name, different params             Same name + params          │
-│  Resolved at compile time                in parent and child         │
-│                                          Resolved at runtime         │
-└──────────────────────────────────────────────────────────────────────┘
-```
+### Types of Polymorphism
+
+| Compile-Time Polymorphism (Static) | Run-Time Polymorphism (Dynamic) |
+| :--- | :--- |
+| **Method Overloading** | **Method Overriding** |
+| Same method name with different parameters/signatures. | Same method name and parameter signature in subclass. |
+| Resolved at Compile Time. | Resolved at Run Time. |
+| Handled by compiler. | Handled by Java Virtual Machine (JVM). |
+| Dynamic binding is not required. | Employs Dynamic Method Dispatch. |
+
 
 ```java
 // 1. COMPILE-TIME POLYMORPHISM — Method Overloading
@@ -1589,19 +1573,11 @@ INHERITANCE RELATIONSHIPS:
 
 ### Types of Interfaces
 
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                      TYPES OF INTERFACE                                │
-├───────────────────────┬───────────────────────────────────────────────│
-│ Type                  │ Description                                    │
-├───────────────────────┼───────────────────────────────────────────────│
-│ Normal Interface      │ Has MORE than one abstract method              │
-│ Functional Interface  │ Has EXACTLY ONE abstract method (SAM)          │
-│   (SAM Interface)     │ Used with Lambda expressions                   │
-│ Marker Interface      │ EMPTY — has no methods, just "marks" a class   │
-│                       │ e.g., Serializable, Cloneable, Remote          │
-└───────────────────────┴───────────────────────────────────────────────┘
-```
+| Type | Description |
+| :--- | :--- |
+| **Normal Interface** | Has more than one abstract method. |
+| **Functional Interface (SAM)** | Has exactly one abstract method (Single Abstract Method). Marked with `@FunctionalInterface`. |
+| **Marker Interface** | Completely empty (blank) interface with no methods. Used to tag/mark classes (e.g. `Serializable`, `Cloneable`). |
 
 ```java
 // Normal Interface
@@ -1633,23 +1609,18 @@ class Duck implements Flyable, Swimmable {
 
 ### Abstract Class vs Interface
 
-```
-┌──────────────────────────────────────────────────────────────────────────────┐
-│              ABSTRACT CLASS  vs  INTERFACE                                   │
-├─────────────────────────────┬────────────────────────────────────────────── │
-│ Abstract Class              │ Interface                                      │
-├─────────────────────────────┼────────────────────────────────────────────── │
-│ abstract keyword            │ interface keyword                              │
-│ Can have abstract + concrete│ Only abstract (Java 7), default/static (8+)   │
-│ Can have instance variables │ Only public static final constants             │
-│ Can have constructors       │ Cannot have constructors                       │
-│ Single inheritance only     │ Multiple interfaces implementable              │
-│ Can have access modifiers   │ All methods public by default                  │
-│ 0 to 100% abstraction       │ 100% abstraction (traditionally)               │
-│ use when: IS-A + shared code│ use when: CAN-DO / capability contract         │
-│ extends keyword             │ implements keyword                             │
-└─────────────────────────────┴────────────────────────────────────────────── ┘
-```
+| Abstract Class | Interface |
+| :--- | :--- |
+| Declared using `abstract` keyword. | Declared using `interface` keyword. |
+| Can have both abstract and concrete methods. | Only abstract methods (before Java 8); can have `default` & `static` methods (Java 8+). |
+| Can have instance variables (non-static fields). | Fields are implicitly `public static final` constants. |
+| Can have constructors. | Cannot have constructors. |
+| Subclass can extend only one abstract class (single inheritance). | A class can implement multiple interfaces (multiple inheritance). |
+| Can have access modifiers for variables/methods. | All variables/methods are implicitly `public` by default. |
+| Provides 0 to 100% abstraction. | Provides 100% abstraction (before default methods). |
+| Used when there is an **IS-A** relationship & shared code. | Used to define a contract/capability (**CAN-DO** relationship). |
+| Extended using `extends` keyword. | Implemented using `implements` keyword. |
+
 
 ---
 
@@ -1825,18 +1796,14 @@ System.out.println(g.sayHello("Asfin"));  // "Hello, Asfin!"
 
 **Built-in Functional Interfaces (java.util.function):**
 
-```
-┌──────────────────┬────────────────────┬───────────────────────────────────── │
-│ Interface        │ Method             │ Description                           │
-├──────────────────┼────────────────────┼───────────────────────────────────── │
-│ Runnable         │ run()              │ No input, no output                   │
-│ Supplier<T>      │ get()              │ No input, returns T                   │
-│ Consumer<T>      │ accept(T)          │ Takes T, no output                    │
-│ Function<T,R>    │ apply(T)           │ Takes T, returns R                    │
-│ Predicate<T>     │ test(T)            │ Takes T, returns boolean              │
-│ BiFunction<T,U,R>│ apply(T,U)         │ Takes T and U, returns R              │
-└──────────────────┴────────────────────┴───────────────────────────────────── ┘
-```
+| Interface | Method | Description |
+| :--- | :--- | :--- |
+| **Runnable** | `run()` | No input, no output. |
+| **Supplier<T>** | `get()` | No input, returns an object of type `T`. |
+| **Consumer<T>** | `accept(T)` | Takes an object of type `T`, returns no output. |
+| **Function<T,R>** | `apply(T)` | Takes an object of type `T`, returns an object of type `R`. |
+| **Predicate<T>** | `test(T)` | Takes an object of type `T`, returns a `boolean` (checks a condition). |
+| **BiFunction<T,U,R>** | `apply(T,U)` | Takes two objects (`T` and `U`), returns an object of type `R`. |
 
 ---
 
@@ -1844,28 +1811,16 @@ System.out.println(g.sayHello("Asfin"));  // "Hello, Asfin!"
 
 > **Exception** is an unwanted or unexpected event during program execution, disrupting normal flow.
 
-```
-EXCEPTION HIERARCHY:
-                     ┌──────────────────┐
-                     │    Throwable     │
-                     └────────┬─────────┘
-            ┌─────────────────┴────────────────────┐
-            ▼                                       ▼
-       ┌──────────┐                          ┌──────────┐
-       │  Error   │  (unrecoverable)          │Exception │
-       └──────────┘                          └──────┬───┘
-  OutOfMemoryError                    ┌─────────────┴────────────┐
-  StackOverflowError                  ▼                          ▼
-                             ┌──────────────────┐    ┌─────────────────────┐
-                             │ RuntimeException  │    │ Checked Exception   │
-                             │ (Unchecked)       │    │ (must handle)       │
-                             └──────────────────┘    └─────────────────────┘
-                       NullPointerException           IOException
-                       ArrayIndexOutOfBounds          FileNotFoundException
-                       ClassCastException             SQLException
-                       NumberFormatException          InterruptedException
-                       ArithmeticException
-```
+### Exception Hierarchy
+
+| Category | Type | Description / Example |
+| :--- | :--- | :--- |
+| **Throwable** | Superclass of all errors & exceptions | Parent class of the hierarchy. |
+| **Error** | Unchecked & Unrecoverable | `OutOfMemoryError`, `StackOverflowError`, `VirtualMachineError` |
+| **Exception** | Base class for recoverable cases | Has two main sub-categories: Checked & Unchecked. |
+| **RuntimeException (Unchecked)** | Excluded from compile checks | `NullPointerException`, `ArithmeticException`, `ArrayIndexOutOfBoundsException` |
+| **Checked Exception** | Compiler forces catch/declare checks | `IOException`, `SQLException`, `FileNotFoundException`, `InterruptedException` |
+
 
 ```java
 // Basic try-catch
@@ -1940,15 +1895,11 @@ try (java.io.FileReader fr    = new java.io.FileReader("file.txt");
 > **Thread** is the smallest unit of execution within a process.
 > **Multithreading** allows multiple tasks to run simultaneously.
 
-```
-SINGLE THREADING vs MULTITHREADING:
+### Single Threading vs Multithreading
 
-Single-Threaded:               Multi-Threaded:
-  Task 1 ──────────►             Task 1 ─────────────────────►
-  Task 2      ──────►            Task 2 ───────────────────►
-  Task 3           ─►            Task 3 ────────────────────────────►
-  (Sequential)                   (Concurrent/Parallel)
-```
+* **Single-Threaded Execution:** Tasks execute sequentially (one after another). If Task 1 blocks, all subsequent tasks must wait.
+* **Multi-Threaded Execution:** Tasks run concurrently or in parallel. Threads share processor slices to yield faster execution performance.
+
 
 ### Thread Lifecycle (States)
 
@@ -2084,22 +2035,15 @@ import java.util.*;
 java.util.Scanner sc = new java.util.Scanner(System.in);
 ```
 
-**Types of Packages:**
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                       PACKAGE TYPES                                 │
-├─────────────────────────┬─────────────────────────────────────────  │
-│ Built-in Packages       │ User-defined Packages                      │
-├─────────────────────────┼─────────────────────────────────────────  │
-│ java.lang  (auto-import)│ Packages you create for your project       │
-│ java.util               │ e.g., com.mycompany.myapp.model            │
-│ java.io                 │                                            │
-│ java.net                │ Step 1: declare: package com.example;      │
-│ java.sql                │ Step 2: compile: javac -d . File.java      │
-│ java.awt                │ Step 3: run: java com.example.ClassName    │
-│ javax.swing             │                                            │
-└─────────────────────────┴─────────────────────────────────────────  ┘
-```
+### Types of Packages
+
+| Built-in Packages (Auto-Imported/Provided) | User-defined Packages (Custom created) |
+| :--- | :--- |
+| **java.lang:** Core types (String, Math, Thread, System). | Created by developers to match directory structure. |
+| **java.util:** Collection framework & utilities (Scanner, List). | Declared at start: `package com.example.project;` |
+| **java.io / java.nio:** File operation streams. | Compiled with: `javac -d . ClassName.java` |
+| **java.sql:** JDBC database classes. | Executed with: `java com.example.project.ClassName` |
+| **javax.swing / java.awt:** Graphical layout components. | |
 
 ---
 
@@ -2107,19 +2051,11 @@ java.util.Scanner sc = new java.util.Scanner(System.in);
 
 > **Java Swing** is a GUI toolkit for building desktop applications. Built on top of AWT.
 
-**MVC Architecture (Model-View-Controller):**
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                         MVC Architecture                                    │
-│                                                                             │
-│  ┌─────────┐   User Input    ┌────────────┐   Updates    ┌──────────────┐  │
-│  │  VIEW   │  ────────────►  │ CONTROLLER │  ──────────► │   MODEL      │  │
-│  │  (GUI)  │                 │  (Logic)   │              │   (Data)     │  │
-│  │  JFrame │  ◄────────────  │            │  ◄──────────  │   Objects    │  │
-│  │  JPanel │   Renders       └────────────┘   Notifies   └──────────────┘  │
-│  └─────────┘                                                                │
-└─────────────────────────────────────────────────────────────────────────────┘
-```
+### MVC Architecture (Model-View-Controller)
+
+* **View (GUI Interface):** Consists of Swing components (`JFrame`, `JPanel`, `JButton`) showing data to the user. Reads event actions.
+* **Controller (Logic Handler):** Receives user input (e.g. via an `ActionListener` Lambda) and updates data inside the Model.
+* **Model (Data Objects):** Plain Java Classes holding data structures and DB operations. Notifies the View of updates.
 
 ```java
 import javax.swing.*;
@@ -2162,47 +2098,35 @@ public class SwingDemo {
 }
 ```
 
-**Common Swing Components:**
+### Common Swing Components
 
-```
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                        SWING COMPONENTS                                     │
-├────────────────┬──────────────────────────────────────────────────────────  │
-│ Component      │ Description                                                │
-├────────────────┼──────────────────────────────────────────────────────────  │
-│ JFrame         │ Main application window                                    │
-│ JPanel         │ Container for grouping components                          │
-│ JLabel         │ Displays text or image                                     │
-│ JButton        │ Clickable button                                           │
-│ JTextField     │ Single-line text input                                     │
-│ JTextArea      │ Multi-line text input                                      │
-│ JCheckBox      │ Toggle on/off                                              │
-│ JRadioButton   │ Select one from group (with ButtonGroup)                   │
-│ JComboBox      │ Dropdown list                                              │
-│ JList          │ Scrollable list of items                                   │
-│ JTable         │ Tabular data display                                       │
-│ JMenuBar       │ Top menu bar                                               │
-│ JDialog        │ Dialog box (popup)                                         │
-│ JScrollPane    │ Adds scrollbars to components                              │
-│ JProgressBar   │ Shows progress percentage                                  │
-└────────────────┴──────────────────────────────────────────────────────────  ┘
-```
+| Component | Description |
+| :--- | :--- |
+| **JFrame** | Main application window. |
+| **JPanel** | Container for grouping components. |
+| **JLabel** | Displays text or image. |
+| **JButton** | Clickable button. |
+| **JTextField** | Single-line text input. |
+| **JTextArea** | Multi-line text input. |
+| **JCheckBox** | Toggle on/off options. |
+| **JRadioButton** | Select one option from a group (used with ButtonGroup). |
+| **JComboBox** | Dropdown choice list. |
+| **JTable** | Tabular data grids. |
+| **JScrollPane** | Adds scrollbars to components. |
 
 ---
 
 ## 🗂️ File I/O (Input & Output Streams)
 
-```
-JAVA I/O STREAM HIERARCHY:
+### Java I/O Stream Hierarchy
 
-Byte Streams (binary data):
-  InputStream  → FileInputStream, BufferedInputStream, DataInputStream
-  OutputStream → FileOutputStream, BufferedOutputStream, PrintStream
+* **Byte Streams (Handles Binary Data):**
+  * **Input:** `InputStream` ➡️ `FileInputStream`, `BufferedInputStream`, `DataInputStream`
+  * **Output:** `OutputStream` ➡️ `FileOutputStream`, `BufferedOutputStream`, `PrintStream`
+* **Character Streams (Handles Unicode Text Data):**
+  * **Reader:** `Reader` ➡️ `FileReader`, `BufferedReader`, `InputStreamReader`
+  * **Writer:** `Writer` ➡️ `FileWriter`, `BufferedWriter`, `PrintWriter`
 
-Character Streams (text data):
-  Reader → FileReader, BufferedReader, InputStreamReader
-  Writer → FileWriter, BufferedWriter, PrintWriter
-```
 
 ```java
 import java.io.*;
@@ -2305,27 +2229,27 @@ public class SerializationDemo {
 
 > **Collections Framework** provides classes and interfaces for storing and manipulating groups of objects.
 
-```
-COLLECTIONS HIERARCHY:
-                     ┌──────────────┐
-                     │  Collection  │
-                     └──────┬───────┘
-       ┌───────────────────┼────────────────────┐
-       ▼                   ▼                     ▼
-    ┌──────┐           ┌──────┐             ┌────────┐
-    │ List │           │  Set │             │ Queue  │
-    └──┬───┘           └──┬───┘             └────────┘
-  ┌────┴────┐         ┌───┴────┐
-ArrayList  LinkedList HashSet  TreeSet
-  Vector   Stack      LinkedHashSet
+### Collections Hierarchy
 
-                     ┌──────────┐
-                     │   Map    │  (key-value pairs)
-                     └────┬─────┘
-                 ┌────────┴──────────┐
-              HashMap           TreeMap
-            LinkedHashMap      Hashtable
-```
+| Interface / Class | Category | Key Characteristics |
+| :--- | :--- | :--- |
+| **Collection** | Root Interface | Parent of List, Set, Queue. |
+| **List** | Ordered Sequence | Allows duplicates. Index-based access. |
+| ↳ `ArrayList` | List Impl. | Fast random access, slow insert/delete. |
+| ↳ `LinkedList` | List Impl. | Fast insert/delete, slow random access. |
+| ↳ `Vector` / `Stack` | List Impl. | Thread-safe legacy classes. |
+| **Set** | Unique Elements | Does not allow duplicates. |
+| ↳ `HashSet` | Set Impl. | Unordered, fastest lookups (O(1)). |
+| ↳ `LinkedHashSet` | Set Impl. | Maintains insertion order. |
+| ↳ `TreeSet` | Set Impl. | Sorted ascending order. |
+| **Queue** | FIFO Collection | First-in, first-out access. |
+| ↳ `LinkedList` | Queue Impl. | Standard FIFO queue. |
+| ↳ `PriorityQueue` | Queue Impl. | Sorted by priority. |
+| **Map** | Key-Value Pairs | Separate from Collection hierarchy. |
+| ↳ `HashMap` | Map Impl. | Unordered, fastest (O(1) avg). |
+| ↳ `LinkedHashMap` | Map Impl. | Maintains insertion order. |
+| ↳ `TreeMap` | Map Impl. | Sorted by key ascending. |
+| ↳ `Hashtable` | Map Impl. | Legacy, thread-safe. |
 
 ```java
 import java.util.*;
@@ -2402,18 +2326,14 @@ Optional<Integer> max = numbers.stream().max(Integer::compareTo);
 
 > **JDBC** is a Java API that enables Java applications to interact with relational databases.
 
-```
-JDBC ARCHITECTURE:
-┌──────────────────────────────────────────────────────────────┐
-│                    JAVA APPLICATION                           │
-│                                                              │
-│  ┌──────────┐  SQL Query   ┌─────────────┐  native call    │
-│  │  JDBC    │  ──────────► │ JDBC Driver │  ─────────────► │
-│  │   API    │              │  (Type 4)   │   Database       │
-│  └──────────┘  Result Set  └─────────────┘   (MySQL etc.)  │
-│                ◄──────────                                   │
-└──────────────────────────────────────────────────────────────┘
-```
+### JDBC Architecture
+
+| Layer | Component | Role |
+| :--- | :--- | :--- |
+| **Java Application** | Your program | Writes JDBC calls using the JDBC API. |
+| **JDBC API** | `java.sql` package | Provides standard interfaces (`Connection`, `Statement`, `ResultSet`). |
+| **JDBC Driver** | Type-4 Driver (e.g., MySQL Connector/J) | Translates JDBC calls into database-specific native protocol. |
+| **Database** | MySQL, PostgreSQL, Oracle, etc. | Executes SQL and returns results via the driver. |
 
 **JDBC Steps:**
 ```java
@@ -2471,17 +2391,20 @@ public class JDBCDemo {
 > **Servlet** is a Java class that handles HTTP requests/responses on a web server.
 > **JSP (JavaServer Pages)** creates dynamic web pages using Java embedded in HTML.
 
-```
-CLIENT-SERVER FLOW:
-Browser → HTTP Request → Web Server (Tomcat) → Servlet/JSP
-Browser ← HTTP Response ← Web Server ← Servlet/JSP
-```
+### Client-Server Request Flow
 
-**Servlet Lifecycle:**
-```
-init() once  →  service() per request  →  doGet()/doPost()  →  destroy()
-(startup)       (for each request)        (handle request)     (shutdown)
-```
+**Request:** `Browser` ➡️ HTTP Request ➡️ `Web Server (Tomcat)` ➡️ `Servlet/JSP`
+
+**Response:** `Browser` ⬅️ HTTP Response ⬅️ `Web Server` ⬅️ `Servlet/JSP`
+
+### Servlet Lifecycle
+
+| Phase | Method | When it runs |
+| :--- | :--- | :--- |
+| **Initialization** | `init()` | Once when the servlet is first loaded. |
+| **Request Handling** | `service()` | Every incoming HTTP request. |
+| **HTTP Method Dispatch** | `doGet()` / `doPost()` | Delegated from `service()` based on HTTP method. |
+| **Destruction** | `destroy()` | Once when the servlet is unloaded/server shuts down. |
 
 ```java
 import javax.servlet.*;
@@ -2520,24 +2443,24 @@ public class HelloServlet extends HttpServlet {
 
 > **REST (Representational State Transfer)** is an architectural style for designing web APIs using HTTP.
 
-```
-REST API HTTP METHODS:
-┌──────────────────────────────────────────────────────────────────┐
-│  Method   │ CRUD       │ Description           │ URL Example     │
-├───────────┼────────────┼───────────────────────┼─────────────────┤
-│  GET      │ Read       │ Retrieve resource     │ /api/users      │
-│  POST     │ Create     │ Create new resource   │ /api/users      │
-│  PUT      │ Update     │ Update whole resource │ /api/users/1    │
-│  PATCH    │ Update     │ Partial update        │ /api/users/1    │
-│  DELETE   │ Delete     │ Remove resource       │ /api/users/1    │
-└──────────────────────────────────────────────────────────────────┘
+### REST API HTTP Methods
 
-HTTP Status Codes:
-  2xx Success:  200 OK, 201 Created, 204 No Content
-  3xx Redirect: 301 Moved, 302 Found
-  4xx Client:   400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found
-  5xx Server:   500 Internal Server Error, 503 Service Unavailable
-```
+| Method | CRUD Operation | Description | URL Example |
+| :--- | :--- | :--- | :--- |
+| **GET** | Read | Retrieve a resource or list. | `GET /api/users` |
+| **POST** | Create | Create a new resource. | `POST /api/users` |
+| **PUT** | Update | Replace entire resource. | `PUT /api/users/1` |
+| **PATCH** | Update | Partially update a resource. | `PATCH /api/users/1` |
+| **DELETE** | Delete | Remove a resource. | `DELETE /api/users/1` |
+
+### HTTP Status Codes
+
+| Range | Category | Common Codes |
+| :--- | :--- | :--- |
+| **2xx** | ✅ Success | `200 OK`, `201 Created`, `204 No Content` |
+| **3xx** | 🔀 Redirect | `301 Moved Permanently`, `302 Found` |
+| **4xx** | ❌ Client Error | `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found` |
+| **5xx** | 💥 Server Error | `500 Internal Server Error`, `503 Service Unavailable` |
 
 ```java
 // Spring Boot REST Controller
@@ -2580,19 +2503,15 @@ public class StudentController {
 
 > **ORM (Object Relational Mapping)** maps Java objects to database tables automatically, eliminating raw SQL.
 
-```
-WITHOUT ORM (JDBC — Manual):        WITH ORM (Hibernate/JPA):
-  String sql =                         @Entity
-  "INSERT INTO users                   @Table(name = "users")
-   (name, age)                         class User {
-   VALUES (?, ?)";           VS          @Id @GeneratedValue
-  ps.setString(1, name);                 Long id;
-  ps.setInt(2, age);                     String name;
-  ps.executeUpdate();                    int age;
-                                       }
-                                       // Just call:
-                                       repo.save(user);
-```
+### ORM vs. Raw JDBC Comparison
+
+| Aspect | Without ORM (Raw JDBC) | With ORM (Hibernate / JPA) |
+| :--- | :--- | :--- |
+| **SQL Writing** | You write all SQL manually. | SQL is auto-generated from annotations. |
+| **Code Volume** | Verbose: `setString`, `setInt`, `executeUpdate`… | Concise: `repository.save(entity)` |
+| **Mapping** | Manually map `ResultSet` columns to fields. | Auto-mapped via `@Entity`, `@Column` annotations. |
+| **Maintainability** | Hard to maintain for large schemas. | Easy to refactor (rename class = rename table). |
+| **Performance Control** | Full control over every query. | Less control; requires tuning for complex queries. |
 
 ```java
 import javax.persistence.*;
@@ -2811,10 +2730,9 @@ git reset --soft HEAD~1          # Undo last commit (keep changes)
 git reset --hard HEAD~1          # Undo last commit (discard changes)
 ```
 
-**Git Workflow:**
-```
-Working Dir → git add → Staging Area → git commit → Local Repo → git push → Remote (GitHub)
-```
+### Git Workflow
+
+`Working Directory` ➡️ `git add` ➡️ `Staging Area` ➡️ `git commit` ➡️ `Local Repo` ➡️ `git push` ➡️ `Remote (GitHub)`
 
 ---
 
@@ -2822,18 +2740,22 @@ Working Dir → git add → Staging Area → git commit → Local Repo → git p
 
 > **DSA** is the study of organizing and processing data efficiently.
 
-```
-DATA STRUCTURES:
-  Linear:    Array, LinkedList, Stack, Queue
-  Non-Linear: Tree, Graph
-  Hash-Based: HashMap, HashSet
+### Data Structures
 
-ALGORITHMS:
-  Sorting:   Bubble, Selection, Insertion, Merge, Quick Sort
-  Searching: Linear Search, Binary Search
-  Traversal: DFS, BFS (Graph/Tree)
-  Other:     Dynamic Programming, Greedy, Divide & Conquer
-```
+| Category | Structures | Description |
+| :--- | :--- | :--- |
+| **Linear** | Array, LinkedList, Stack, Queue | Elements arranged sequentially. |
+| **Non-Linear** | Tree, Graph | Elements with hierarchical or network relationships. |
+| **Hash-Based** | HashMap, HashSet | Key-based O(1) average-time lookups. |
+
+### Algorithms
+
+| Category | Algorithms |
+| :--- | :--- |
+| **Sorting** | Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort |
+| **Searching** | Linear Search, Binary Search |
+| **Graph/Tree Traversal** | DFS (Depth First Search), BFS (Breadth First Search) |
+| **Design Paradigms** | Dynamic Programming, Greedy, Divide & Conquer |
 
 ```java
 // LinkedList implementation
