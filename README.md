@@ -11,9 +11,24 @@
 
 **Author: Mohammad Asfin &nbsp;|&nbsp; Stack: Java Full Stack &nbsp;|&nbsp; Level: Beginner to Advanced**
 
-[🚀 Get Started](#-java-introduction--installation) · [📚 OOP Concepts](#-oop-object-oriented-programming) · [🔗 JDBC](#-jdbc-java-database-connectivity) · [🌐 REST API](#-rest-api--web-services) · [📦 Maven & Gradle](#-maven) · [🧵 Multithreading](#-multithreading)
+[🚀 Get Started](#-java-introduction--features) · [📚 OOP Concepts](#-oop-object-oriented-programming) · [🔗 JDBC](#-jdbc-java-database-connectivity) · [🌐 REST API](#-rest-api--web-services) · [📦 Maven & Gradle](#-maven) · [🧵 Multithreading](#-multithreading)
 
 </div>
+
+---
+
+## 🗺️ Java Full Stack Learning Roadmap
+
+```mermaid
+graph TD
+    A[Core Java Fundamentals] --> B[Object-Oriented Programming - OOP]
+    B --> C[Advanced Java & Collections API]
+    C --> D[Database & JDBC]
+    D --> E[Build Tools: Maven / Gradle]
+    E --> F[Web Tech: Servlets, JSP & MVC]
+    F --> G[Enterprise Frameworks: Spring Boot & JPA/Hibernate]
+    G --> H[Microservices & REST APIs]
+```
 
 ---
 
@@ -82,70 +97,54 @@
 
 ## ☕ Java Introduction & Features
 
-Java is a **high-level, class-based, object-oriented programming language** designed to have as few implementation dependencies as possible. Developed by **James Gosling** at **Sun Microsystems** (now owned by **Oracle**) in **1995**.
+### Definition & Core Philosophy
+Java is a **high-level, class-based, object-oriented programming language** designed by **James Gosling** at **Sun Microsystems** (now owned by **Oracle**) in **1995**. The core philosophy of Java is summarized as **"Write Once, Run Anywhere" (WORA)**.
 
-> **"Write Once, Run Anywhere" (WORA)** — Java code compiled to bytecode runs on any platform with a JVM.
+### Why It Exists & Why We Use It
+Before Java, languages like C and C++ compiled directly to target machine architectures, creating platform-dependent binaries. If you compiled a program on Windows, it would not run on a Macintosh without rewriting or recompiling the code. Java solved this by compiling source code to a standardized intermediary format called **Bytecode**, which runs on any hardware environment containing a **Java Virtual Machine (JVM)**.
 
 ### 🌟 Key Features of Java
+* **Simple:** Removes complex, unsafe features like explicit pointers, operator overloading, and multiple inheritance.
+* **Object-Oriented:** Follows class-based designs where everything (except primitives) is modeled as objects.
+* **Platform Independent:** Bytecode is architecture-neutral and executes on any JVM.
+* **Secure:** Operates inside a security sandbox, avoiding direct pointer allocation or memory leakage exploits.
+* **Robust:** Employs strong type checking, automatic garbage collection (GC), and structured Exception Handling.
+* **Multithreaded:** Allows concurrent execution of threads using integrated threading classes.
 
-| Feature | Description |
-| :--- | :--- |
-| **Simple** | Clean syntax, close to C/C++ but simpler |
-| **Object-Oriented** | Everything is an object (class-based) |
-| **Platform Independent** | Bytecode runs on any JVM (WORA - Write Once, Run Anywhere) |
-| **Secure** | No pointers, sandbox execution, bytecode verifier |
-| **Robust** | Strong memory management, automatic garbage collection, exception handling |
-| **Multithreaded** | Built-in support for concurrent programming |
-| **Architecture-Neutral** | Compiled to bytecode, not machine-specific code |
-| **Portable** | Same behavior on any OS/hardware combination |
-| **High Performance** | JIT (Just-In-Time) compiler optimizes runtime execution |
-| **Distributed** | Built-in support for TCP/IP, RMI, and EJB for network applications |
-| **Dynamic** | Dynamically loads classes at runtime as needed |
-| **Interpreted** | JVM interprets and executes bytecode at runtime |
+### Advantages & Disadvantages
+* **Advantages:** Great community support, extreme portability, highly scalable, enterprise-grade frameworks.
+* **Disadvantages:** Uses more memory and runs slower compared to native compiled languages (like C/Rust) because of JVM translation and Garbage Collection pauses.
+
+### Real-World Use Case
+* Enterprise backends (Spring Boot, banking apps)
+* Android application development
+* High-frequency trading and transaction engines
 
 ---
 
-## ⬇️ Java Installation
+## ⬇️ Java Installation & Configuration
 
 ### Step 1 — Download JDK
+1. Go to [Oracle JDK Downloads](https://www.oracle.com/java/technologies/downloads/) or [Eclipse Adoptium](https://adoptium.net/).
+2. Select your Operating System version (Windows, macOS, or Linux).
 
-1. Visit the official Oracle JDK page: **https://www.oracle.com/java/technologies/downloads/**
-2. Or use **OpenJDK**: **https://adoptium.net/**
-3. Download the installer for your OS (Windows/macOS/Linux)
-
-### Step 2 — Install JDK
-
-- Run the installer
-- Default install path: `C:\Program Files\Java\jdk-21` (Windows)
-
-### Step 3 — Set Environment Variables (Windows)
-
-```
-System Properties → Advanced → Environment Variables
-
-JAVA_HOME = C:\Program Files\Java\jdk-21
-PATH      = %JAVA_HOME%\bin
-```
-
-### Step 4 — Verify Installation
-
-Open **Command Prompt / Terminal** and run:
+### Step 2 — Environment Setup
+Add JDK binary path to system environment variables so you can execute `javac` and `java` globally.
 
 ```bash
-# Check Java runtime version
+# Windows
+JAVA_HOME = C:\Program Files\Java\jdk-21
+PATH      = %JAVA_HOME%\bin
+
+# macOS / Linux (.bashrc or .zshrc)
+export JAVA_HOME=/usr/lib/jvm/jdk-21
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+Verify the environment configuration:
+```bash
 java --version
-
-# Check Java compiler version
 javac --version
-```
-
-**Expected Output:**
-```
-java 21.0.x 2024-xx-xx LTS
-Java(TM) SE Runtime Environment (build 21.0.x+xx-LTS)
-Java HotSpot(TM) 64-Bit Server VM (build 21.0.x+xx-LTS, mixed mode)
-
-javac 21.0.x
 ```
 
 ---
@@ -154,350 +153,293 @@ javac 21.0.x
 
 ### 🏗️ JDK · JRE · JVM Architecture
 
-![JDK JRE JVM Architecture Diagram](./assets/jdk_jre_jvm_architecture.png)
+```mermaid
+graph TD
+    subgraph JDK [Java Development Kit]
+        subgraph JRE [Java Runtime Environment]
+            subgraph JVM [Java Virtual Machine]
+                Classloader[Class Loader]
+                Memory[JVM Memory Areas Stack/Heap]
+                Execution[Execution Engine JIT/Interpreter/GC]
+            end
+            Libraries[Core Libraries & APIs]
+        end
+        DevelopmentTools[Dev Tools: javac, jshell, jdb, jar]
+    end
+```
 
+| Component | Definition | Purpose / Role |
+| :--- | :--- | :--- |
+| **JVM** | Java Virtual Machine | Runs the compiled bytecode (`.class` files) on the local processor. |
+| **JRE** | Java Runtime Environment | Contains JVM + Java libraries required to run pre-compiled Java applications. |
+| **JDK** | Java Development Kit | JRE + Dev Tools (compiler `javac`, packager `jar`). Required to develop Java code. |
 
-| Component | Full Form | Role |
-|-----------|-----------|------|
-| **JDK** | Java Development Kit | Complete package for developing + running Java apps |
-| **JRE** | Java Runtime Environment | Environment to run (not develop) Java programs |
-| **JVM** | Java Virtual Machine | Executes Java bytecode on any platform |
+#### JVM Internal Architecture
+
+```mermaid
+graph TD
+    ClassFiles[.class Files] --> Loading[Class Loader Subsystem]
+    subgraph Memory [Runtime Data Areas]
+        MethodArea[Method Area]
+        HeapArea[Heap Area]
+        StackArea[JVM Stacks]
+        PC[PC Registers]
+        NativeStack[Native Stacks]
+    end
+    subgraph Engine [Execution Engine]
+        Interpreter[Interpreter]
+        JIT[JIT Compiler]
+        GC[Garbage Collector]
+    end
+    Loading --> Memory
+    Memory --> Engine
+```
+
+* **Class Loader:** Loads, links, and initializes compiled binary `.class` bytecode files.
+* **Method Area:** Stores class structure definitions, constant pools, metadata, and static fields.
+* **Heap Area:** Stores all run-time instantiated Java objects and arrays.
+* **JVM Stack:** Stores local variables, frame structures, and method parameters for execution.
+* **JIT Compiler:** Optimizes hot segments of bytecode into native machine instructions for direct speedups.
 
 ---
 
-### 🔄 How Java Works
+### 🔄 How Java Works: Compilation to Execution
 
-![Java Compilation and Execution Process Flow](./assets/java_compilation_execution_flow.png)
+```mermaid
+sequenceDiagram
+    participant Developer as Source Code (Hello.java)
+    participant Compiler as Compiler (javac)
+    participant Bytecode as Compiled Bytecode (Hello.class)
+    participant JVM as JVM (java)
+    participant HW as Hardware / Operating System
 
-
-**Compile and Run a Java Program:**
-
-```bash
-# Step 1: Write your code in a .java file
-# Step 2: Compile it
-javac Hello.java        # Creates Hello.class (bytecode)
-
-# Step 3: Run it
-java Hello              # JVM reads Hello.class and executes
+    Developer->>Compiler: Compiles Source Code
+    Compiler->>Bytecode: Generates architecture-neutral code
+    Bytecode->>JVM: Reads class & verification checks
+    JVM->>HW: Execution via Interpreter / JIT compiler
 ```
 
-**Your First Java Program:**
-
-```java
-// Hello.java
-public class Hello {
-    public static void main(String[] args) {
-        System.out.println("Hello, World!");
-    }
-}
-```
-
-> **Important:** The filename MUST match the public class name. `Hello.java` → `public class Hello`
+1. **Compilation Phase:** The compiler (`javac`) processes the human-readable `.java` file into platform-independent `.class` files containing JVM bytecode instructions.
+2. **Execution Phase:** The launcher (`java`) starts the JVM, loads the compiled class, verifies the instruction constraints, and interprets/compiles the bytecode into local machine operations.
 
 ---
 
 ### 💻 JShell — Java REPL
 
-**JShell** is an interactive **Read-Eval-Print Loop (REPL)** tool introduced in **Java 9** that lets you execute Java code snippets directly without creating a full class.
+**JShell** (introduced in Java 9) is a **Read-Eval-Print Loop** CLI tool used to test code snippets, declarations, and loops dynamically.
 
 ```bash
-# Open JShell in Command Prompt / Terminal
+# Open JShell
 jshell
 
-# You will see:
-|  Welcome to JShell -- Version 21
-|  For an introduction type: /help intro
-jshell>
-```
+# Type any code statement
+jshell> System.out.println("Hello, JShell!");
+Hello, JShell!
 
-**Using JShell:**
-```java
-jshell> System.out.println("Hello from JShell!")
-Hello from JShell!
+# Declare variables without explicit wrapping classes
+jshell> int count = 5
+count ==> 5
 
-jshell> int x = 10
-x ==> 10
-
-jshell> int y = 20
-y ==> 20
-
-jshell> x + y
-$3 ==> 30
-
-jshell> String name = "Mohammad Asfin"
-name ==> "Mohammad Asfin"
-```
-
-**JShell Commands:**
-
-| Command | Description |
-|---------|-------------|
-| `/exit` | Exit JShell |
-| `/list` | List all snippets entered |
-| `/vars` | List all variables |
-| `/methods` | List all defined methods |
-| `/help` | Display help |
-| `/reset` | Reset JShell state |
-
-```bash
 # Exit JShell
 jshell> /exit
-|  Goodbye
 ```
 
 ---
 
 ### 📌 Variables, Identifiers & Name Conventions
 
-#### Variable
-
-> **Variable** is a container that stores data value during execution of a program.
-> It is a **temporary memory location** used for assigning values or data to it.
-> A variable **must be declared with a datatype**.
-
-* **Datatype:** Defines the type of data (e.g. `int`).
-* **VariableName:** Name assigned to reference the value (e.g. `x`).
-* **Value:** The data stored in memory (e.g. `10`).
+#### Variables
+* **Definition:** A variable is a named container that represents a dedicated memory location allocated to store values during program execution.
+* **Why it exists:** Variables allow programmers to write reusable and dynamic algorithms. Without variables, all data values would have to be hardcoded, making dynamic runtime processing impossible.
+* **Types of Variables:**
+  1. **Local Variables:** Declared inside a method body, block, or constructor. They are created when the block is entered and destroyed when exiting the block. They do not get default values and must be initialized before use.
+  2. **Instance Variables:** Declared inside the class but outside any method. They belong to instances (objects) of the class. They are initialized with default values (e.g., `0` for int, `null` for objects).
+  3. **Static (Class) Variables:** Declared with the `static` keyword inside a class. Only one copy exists per class, shared across all instantiated objects.
 
 ```java
-// Variable Declaration
-int age;           // declared but not initialized
-int age2 = 25;     // declared and initialized
-
-// Types of Variables
 public class VariableDemo {
-    static int classVar = 100;      // Class/Static variable
+    // 1. Static (Class) Variable - shared by all instances
+    static int staticCounter = 0;
 
-    int instanceVar = 50;           // Instance variable
+    // 2. Instance Variable - unique to each object instance
+    String studentName;
 
-    void method() {
-        int localVar = 10;          // Local variable
-        System.out.println(localVar);
+    // Constructor to initialize instance variable
+    public VariableDemo(String name) {
+        this.studentName = name;
+        staticCounter++; // increment shared counter
+    }
+
+    public void displayDetails() {
+        // 3. Local Variable - scope limited to this method
+        int localScore = 95; 
+        System.out.println("Name: " + studentName + ", Score: " + localScore);
     }
 }
 ```
 
-#### Identifier
+#### Identifiers
+* **Definition:** An identifier is a user-defined name given to program elements such as classes, variables, methods, packages, or interfaces.
+* **Difference between Variables and Identifiers:** An identifier is the *name* itself, whereas a variable is the *storage container* referenced by that name. For example, in `int score = 100;`, `score` is both an identifier (the name) and a variable (the memory container).
 
-> **Identifier** is a name assigned to any programming elements (class, method, variable, etc.).
-> An identifier does **NOT** have a datatype.
-
-```
-NOTE:
- Identifier → a NAME given to classes, methods, variables, interfaces etc.
- Variable   → a specific memory location container that stores a value during execution.
-
- An identifier is a broader term; a variable is a specific type of identifier
- that has a datatype and holds a value.
-```
-
-#### Rules for Java Identifiers
-
-```
-VALID Rules:
-   • Can contain letters (A-Z, a-z), digits (0-9), underscore (_), dollar sign ($)
-   • Must BEGIN with a letter, underscore, or dollar sign (NOT a digit)
-   • Cannot use Java reserved keywords (int, class, public, etc.)
-   • Case-sensitive: myVar ≠ MyVar ≠ MYVAR
-   • No spaces allowed
-
-INVALID Examples:
-   • 2name     → starts with digit
-   • my-name   → contains hyphen (-)
-   • class     → reserved keyword
-   • my name   → contains space
-```
+#### Rules for Declaring Identifiers
+* Must begin with a letter (`A-Z`, `a-z`), an underscore (`_`), or a dollar sign (`$`). It cannot start with a digit.
+* Cannot contain spaces or special symbols (except `_` and `$`).
+* Cannot be a reserved Java keyword (like `class`, `public`, `int`).
+* Case-sensitive: `myVariable` and `myvariable` are treated as distinct identifiers.
 
 #### Java Naming Conventions
 
-```
-┌──────────────────┬──────────────────────────┬───────────────────────────┐
-│ Element          │ Convention               │ Example                   │
-├──────────────────┼──────────────────────────┼───────────────────────────┤
-│ Class            │ PascalCase               │ StudentDetails, BankAcc   │
-│ Interface        │ PascalCase               │ Runnable, Serializable    │
-│ Method           │ camelCase                │ getName(), calculateTotal │
-│ Variable         │ camelCase                │ firstName, totalAmount    │
-│ Constant         │ UPPER_SNAKE_CASE         │ MAX_SIZE, PI              │
-│ Package          │ lowercase                │ com.company.project       │
-│ Enum             │ PascalCase               │ DayOfWeek, Season         │
-└──────────────────┴──────────────────────────┴───────────────────────────┘
-```
+| Element | Convention | Example |
+| :--- | :--- | :--- |
+| **Class** | PascalCase | `StudentDetails`, `BankAccount` |
+| **Interface** | PascalCase | `Runnable`, `Serializable` |
+| **Method** | camelCase | `calculateTax()`, `getName()` |
+| **Variable** | camelCase | `totalScore`, `studentAge` |
+| **Constant** | UPPER_SNAKE_CASE | `MAX_VALUE`, `DEFAULT_PI` |
+| **Package** | lowercase | `com.example.myproject` |
+| **Enum** | PascalCase | `DayOfWeek`, `TrafficLight` |
+
 
 ---
 
 ### 🗃️ Primitive Data Types
 
-> **Datatype:** Type of the data is called a datatype.
+#### Definition & Memory Design
+Java is a statically-typed language, meaning every variable must be declared with a data type before compilation. Java supports **8 primitive data types** that represent raw values. Primitives are stored directly in the thread's execution stack memory, which makes accessing them extremely fast.
 
-Java has **8 primitive datatypes**:
-
-![Java Primitive Datatypes Hierarchy](./assets/java_primitive_datatypes_hierarchy.png)
-
-| Type | Size | Default Value | Range / Description |
-| :--- | :--- | :--- | :--- |
-| **byte** | 1 byte | 0 | -128 to 127 |
-| **short** | 2 bytes | 0 | -32,768 to 32,767 |
-| **int** | 4 bytes | 0 | -2,147,483,648 to 2,147,483,647 |
-| **long** | 8 bytes | 0L | -9,223,372,036,854,775,808 to max |
-| **float** | 4 bytes | 0.0f | ~3.4e-038 to 3.4e+038 (6-7 decimals) |
-| **double** | 8 bytes | 0.0d | ~1.7e-308 to 1.7e+308 (15 decimals) |
-| **char** | 2 bytes | '\u0000' | 0 to 65,535 (Unicode characters) |
-| **boolean** | 1 bit | false | true or false only |
-
-```java
-// Primitive Datatype Examples
-byte   age      = 25;
-short  year     = 2024;
-int    salary   = 75000;
-long   bigNum   = 9876543210L;   // 'L' suffix for long
-float  price    = 19.99f;        // 'f' suffix for float
-double pi       = 3.14159265358;
-char   grade    = 'A';
-boolean isPassed = true;
+```mermaid
+graph TD
+    DataTypes[Java Data Types] --> Primitives[Primitive Types]
+    DataTypes --> Reference[Reference Types: Classes, Interfaces, Arrays]
+    Primitives --> Numeric[Numeric Types]
+    Primitives --> Boolean[Boolean Type: boolean]
+    Numeric --> IntegerTypes[Integer Types: byte, short, int, long]
+    Numeric --> FloatingTypes[Floating-point: float, double]
+    Numeric --> CharacterType[Character Type: char]
 ```
+
+| Type | Size (Bytes) | Default Value | Min Value / Max Value | Range / Description |
+| :--- | :--- | :--- | :--- | :--- |
+| **byte** | 1 | `0` | `-128` to `127` | Useful for saving memory in large arrays. |
+| **short** | 2 | `0` | `-32,768` to `32,767` | Half the size of `int`. |
+| **int** | 4 | `0` | `-2^31` to `2^31 - 1` | Default type for integer literals. |
+| **long** | 8 | `0L` | `-2^63` to `2^63 - 1` | Used when `int` is insufficient. Must end with `L`. |
+| **float** | 4 | `0.0f` | IEEE 754 float | 6-7 decimal places of precision. Must end with `f`. |
+| **double** | 8 | `0.0d` | IEEE 754 double | Default type for decimals. 15-16 decimal places. |
+| **char** | 2 | `'\u0000'` | `0` to `65,535` | Holds a single 16-bit Unicode character. |
+| **boolean**| 1 bit (JVM dependent)| `false` | `true` or `false` | Represents logical states. |
 
 ---
 
 ### 🔢 Literals & Type Conversion
 
-**Literals** are fixed values assigned directly to variables.
+#### Literals
+A literal is a fixed value represented directly in code.
+```java
+int decimal = 100;           // Decimal literal
+int octal   = 0144;          // Octal literal (prefix '0')
+int hex     = 0x64;          // Hexadecimal literal (prefix '0x')
+int binary  = 0b01100100;    // Binary literal (prefix '0b') - Java 7+
+long largeVal = 10_000_000L; // Underscores for readability - Java 7+
+```
+
+#### Type Conversion
+There are two types of conversion:
+1. **Widening (Implicit):** Automatically promoted by the compiler from a smaller datatype to a larger one. No data loss can occur.
+   `byte` ➡️ `short` ➡️ `char` ➡️ `int` ➡️ `long` ➡️ `float` ➡️ `double`
+2. **Narrowing (Explicit Cast):** Manually casting a larger type to a smaller type. Can lead to fractional truncation or bit-level overflow.
 
 ```java
-// Integer Literals
-int decimal = 100;           // Decimal
-int octal   = 0144;         // Octal (prefix 0)
-int hex     = 0x64;         // Hexadecimal (prefix 0x)
-int binary  = 0b01100100;   // Binary (prefix 0b) — Java 7+
+// Widening (Implicit)
+int number = 100;
+double doubleNumber = number; // Automatic conversion
 
-// Floating-point Literals
-float  f = 3.14f;
-double d = 3.14;
+// Narrowing (Explicit)
+double val = 9.78;
+int truncatedVal = (int) val; // truncatedVal becomes 9 (fractional loss)
 
-// Character Literals
-char c1 = 'A';
-char c2 = '\n';   // newline escape sequence
-char c3 = '\t';   // tab
-
-// String Literal
-String s = "Hello Java";
-
-// Boolean Literal
-boolean b = true;
-```
-
-#### Type Conversion (Widening & Narrowing)
-
-```
-WIDENING (Implicit / Automatic — safe, no data loss):
-byte → short → int → long → float → double
-
-NARROWING (Explicit / Manual — possible data loss, needs cast):
-double → float → long → int → short → byte
-```
-
-```java
-// Widening (Automatic)
-int i = 100;
-long l = i;       // int → long (automatic)
-double d2 = l;    // long → double (automatic)
-
-// Narrowing (Manual Cast)
-double d3 = 9.99;
-int i2 = (int) d3;   // double → int, loses decimal → i2 = 9
-
-// Type Promotion in expressions
-byte b2 = 10;
-byte result = (byte)(b2 * 2);  // Expression promoted to int, must cast back
+// Overflow Example
+int largeInt = 130;
+byte overflowedByte = (byte) largeInt; // overflowedByte becomes -126 due to sign bit wrap
 ```
 
 ---
 
 ### 🎁 Wrapper Classes
 
-Wrapper classes provide an object representation of primitive types. Needed for Collections, Generics, and utility methods.
+#### Definition & Purpose
+Wrapper classes wrap primitive types in objects. This enables primitives to interact with Java's Object-oriented architecture, such as Collections (e.g. `ArrayList<Integer>`), Generics, and reflection.
 
-| Primitive | Wrapper Class | Useful Method |
-| :--- | :--- | :--- |
-| **byte** | Byte | Byte.parseByte("10") |
-| **short** | Short | Short.parseShort("20") |
-| **int** | Integer | Integer.parseInt("42") |
-| **long** | Long | Long.parseLong("100") |
-| **float** | Float | Float.parseFloat("3.14") |
-| **double** | Double | Double.parseDouble("3.14") |
-| **char** | Character | Character.isDigit('5') |
-| **boolean** | Boolean | Boolean.parseBoolean("true") |
+#### Autoboxing & Unboxing
+* **Autoboxing:** Automatic conversion of primitives into their corresponding wrapper classes (e.g., `int` to `Integer`).
+* **Unboxing:** Automatic conversion of wrapper objects back into their corresponding primitives.
 
-**Autoboxing & Unboxing (Java 5+):**
 ```java
-// Autoboxing — primitive to Wrapper (automatic)
-int x = 50;
-Integer obj = x;        // autoboxing
+// Autoboxing
+Integer ageObj = 25; // compiler translates to Integer.valueOf(25)
 
-// Unboxing — Wrapper to primitive (automatic)
-Integer obj2 = 100;
-int y = obj2;           // unboxing
-
-// Useful Integer Methods
-int max  = Integer.MAX_VALUE;     // 2147483647
-int min  = Integer.MIN_VALUE;     // -2147483648
-String s = Integer.toString(42);  // "42"
-int n    = Integer.parseInt("42"); // 42
-String bin = Integer.toBinaryString(10); // "1010"
-String hex = Integer.toHexString(255);   // "ff"
+// Unboxing
+int age = ageObj;    // compiler translates to ageObj.intValue()
 ```
+
+> [!TIP]
+> **Integer Caching Mechanism:**
+> For performance optimization, Java caches Integer objects for values in the range `-128` to `127`.
+> ```java
+> Integer a = 127;
+> Integer b = 127;
+> System.out.println(a == b); // Prints true (points to cached instance)
+> 
+> Integer c = 128;
+> Integer d = 128;
+> System.out.println(c == d); // Prints false (new instances created on heap)
+> ```
+
 
 ---
 
 ## 🖨️ Input & Output Statements
 
-> **Input Statement:** To accept data from a user using an input device (keyboard) which is called input.
-> **Output Statement:** To display data to the user on a screen.
+Java provides multiple ways to capture input from users and print outputs.
 
-### Output Methods
-```java
-System.out.println("Hello");   // prints with newline
-System.out.print("Hello");     // prints without newline
-System.out.printf("Name: %s, Age: %d%n", "Asfin", 20); // formatted
-```
+### Comparison: Input Reading Mechanisms
+
+| Mechanism | Speed | Stream Source | Best Used For | Notes |
+| :--- | :--- | :--- | :--- | :--- |
+| **Scanner** | Slower (performs parsing) | `System.in`, files | Quick interactive CLI parsing | Easy to read primitives (`nextInt`, `nextDouble`). |
+| **BufferedReader** | Very Fast (buffers input) | `InputStreamReader` | Reading large blocks of text | Only returns Strings; must manually parse values. |
+| **Console** | Fast | System Console | Secure credential prompts | Doesn't work inside GUI IDE run consoles; shields inputs. |
 
 ---
 
 ### 🔍 Scanner Class
+* **Definition:** Part of the `java.util` package, used to parse primitive types and strings using regular expressions.
+* **Why it exists:** Introduced in Java 5 to simplify reading input without using verbose BufferedReader configurations.
 
-`Scanner` is the most common class for reading user input in Java programs.
-
-**Import:** `import java.util.Scanner;`
-
-| Method | Description |
-| :--- | :--- |
-| **nextByte()** | Reads a byte value |
-| **nextInt()** | Reads an integer value |
-| **nextDouble()** | Reads a double value |
-| **next()** | Reads a single word (stops at space) |
-| **nextLine()** | Reads a full line of text including spaces |
-| **hasNext()** | Returns true if there is another token |
-| **close()** | Closes the scanner |
+> [!WARNING]
+> **The Scanner buffer pitfall:**
+> When calling `nextInt()` or `nextDouble()`, the numeric value is consumed but the trailing newline character `\n` remains in the stream buffer. A subsequent call to `nextLine()` immediately consumes this newline and returns an empty string instead of waiting for user input.
+> 
+> **How to fix:** Call an extra `sc.nextLine()` to clear the buffer before reading strings.
 
 ```java
 import java.util.Scanner;
 
-public class ScannerDemo {
+public class ScannerPitfallDemo {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);  // Create Scanner with System.in
+        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter your name: ");
-        String name = sc.nextLine();
+        System.out.print("Enter your Age: ");
+        int age = sc.nextInt(); // Leaves '\n' in the input stream buffer
 
-        System.out.print("Enter your age: ");
-        int age = sc.nextInt();
+        sc.nextLine(); // Clear the buffer!
 
-        System.out.print("Enter your GPA: ");
-        double gpa = sc.nextDouble();
+        System.out.print("Enter your Full Name: ");
+        String name = sc.nextLine(); // Successfully waits for input
 
-        System.out.println("Name: " + name + ", Age: " + age + ", GPA: " + gpa);
-
-        sc.close(); // Always close scanner
+        System.out.println("Name: " + name + ", Age: " + age);
+        sc.close();
     }
 }
 ```
@@ -505,92 +447,67 @@ public class ScannerDemo {
 ---
 
 ### 🖥️ Console Class
-
-`System.console()` returns a `Console` object for reading from and writing to the system console.
+* **Definition:** `java.io.Console` provides secure character-based console input methods.
+* **Security Benefit:** `readPassword()` disables echoing of password characters on screen, preventing shoulder-surfing.
 
 ```java
 public class ConsoleDemo {
     public static void main(String[] args) {
         java.io.Console console = System.console();
-
         if (console == null) {
-            System.out.println("Console not available (run from terminal)");
+            System.out.println("Console is not available in non-interactive environment.");
             return;
         }
 
-        // Read a line
         String username = console.readLine("Enter username: ");
+        char[] password = console.readPassword("Enter password: "); // Securely reads password
 
-        // Read password (hides input — great for passwords)
-        char[] password = console.readPassword("Enter password: ");
-
-        console.printf("Welcome, %s!%n", username);
+        console.printf("Authentication successful for %s.%n", username);
     }
 }
 ```
-
-| Method | Description |
-|--------|-------------|
-| `readLine(prompt)` | Reads a line of text |
-| `readPassword(prompt)` | Reads password (input hidden) |
-| `printf(format, args)` | Formatted output |
-| `writer()` | Returns PrintWriter for output |
 
 ---
 
 ### 📟 Command Line Arguments
-
-Arguments passed to the `main` method when running a Java program.
-
-```bash
-# Pass arguments at runtime
-java MyProgram Asfin 25
-```
+* **Definition:** Array of strings passed to the `main(String[] args)` method at execution runtime.
+* **Best practice:** Always check the `args.length` before attempting to access array elements to avoid raising an `ArrayIndexOutOfBoundsException`.
 
 ```java
-public class CommandLineDemo {
+public class CommandLineArgsDemo {
     public static void main(String[] args) {
-        // args[0] = "Asfin", args[1] = "25"
-        System.out.println("Number of arguments: " + args.length);
-
-        for (int i = 0; i < args.length; i++) {
-            System.out.println("args[" + i + "] = " + args[i]);
+        if (args.length < 2) {
+            System.out.println("Usage: java CommandLineArgsDemo <name> <age>");
+            return;
         }
-
-        // Convert string argument to int
-        if (args.length >= 2) {
-            String name = args[0];
-            int age = Integer.parseInt(args[1]);
-            System.out.println("Name: " + name + ", Age: " + age);
-        }
+        String name = args[0];
+        int age = Integer.parseInt(args[1]); // Parse string argument
+        System.out.println("Hello " + name + ", age " + age);
     }
 }
 ```
 
 ---
 
-### 📥 DataInputStream
-
-`DataInputStream` lets you read primitive data types from an underlying input stream.
+### 📥 BufferedReader & DataInputStream
+Historically, `DataInputStream` was used to read primitives directly from a system pipeline, but it is deprecated for text console reading. Instead, we use `BufferedReader` for fast line-by-line character input.
 
 ```java
 import java.io.*;
 
-public class DataInputStreamDemo {
+public class BufferedReaderDemo {
     public static void main(String[] args) throws IOException {
-        // Reading from keyboard using BufferedReader
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        // BufferedReader uses a character buffer to read inputs efficiently
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.print("Enter your name: ");
-        String name = br.readLine();
+        System.out.print("Enter product price: ");
+        double price = Double.parseDouble(reader.readLine()); // parse readLine string
 
-        System.out.print("Enter your age: ");
-        int age = Integer.parseInt(br.readLine());
-
-        System.out.println("Hello " + name + ", you are " + age + " years old.");
+        System.out.println("Price read: " + price);
     }
 }
 ```
+
 
 ---
 
@@ -637,36 +554,30 @@ public class OperatorsDemo {
         System.out.println(p != q);   // true
         System.out.println(p > q);    // false
         System.out.println(p < q);    // true
-        System.out.println(p >= q);   // false
-        System.out.println(p <= q);   // true
 
-        // 4. LOGICAL OPERATORS
-        boolean t = true, f = false;
-        System.out.println(t && f);   // false (AND — both must be true)
-        System.out.println(t || f);   // true  (OR  — at least one true)
-        System.out.println(!t);       // false (NOT — reverses value)
+        // 4. LOGICAL OPERATORS (Short-circuit Evaluation)
+        // && (AND) and || (OR) evaluate left-to-right. If the result is decided by the first operand, the second is skipped.
+        int val = 10;
+        if (val > 5 || (val++ > 15)) {
+            System.out.println("Condition met, val is: " + val); // Prints 10 (val++ was never evaluated because first condition was true)
+        }
 
         // 5. UNARY OPERATORS
         int n = 5;
         System.out.println(n++);   // 5 (post-increment: use then increment)
         System.out.println(++n);   // 7 (pre-increment: increment then use)
-        System.out.println(n--);   // 7 (post-decrement)
-        System.out.println(--n);   // 5 (pre-decrement)
 
         // 6. TERNARY OPERATOR
         int age = 18;
         String status = (age >= 18) ? "Adult" : "Minor";
-        System.out.println(status);   // "Adult"
 
-        // 7. BITWISE OPERATORS
-        int m = 5;   // 0101
-        int k = 3;   // 0011
-        System.out.println(m & k);   // 1  (AND)
-        System.out.println(m | k);   // 7  (OR)
-        System.out.println(m ^ k);   // 6  (XOR)
-        System.out.println(~m);      // -6 (NOT)
-        System.out.println(m << 1);  // 10 (Left shift)
-        System.out.println(m >> 1);  // 2  (Right shift)
+        // 7. BITWISE OPERATORS (Evaluates all operands)
+        // Bitwise operators do not short-circuit.
+        int m = 5;   // 0101 in binary
+        int k = 3;   // 0011 in binary
+        System.out.println(m & k);   // 1  (Bitwise AND: 0001)
+        System.out.println(m | k);   // 7  (Bitwise OR:  0111)
+        System.out.println(m ^ k);   // 6  (Bitwise XOR: 0110)
     }
 }
 ```
@@ -675,75 +586,65 @@ public class OperatorsDemo {
 
 ## 🔀 Control Statements
 
-Control statements determine the **flow of execution** in a Java program.
+Control statements determine the execution flow of a program.
 
 | Category | Types |
 | :--- | :--- |
-| **Conditional** | if, if-else, if-else-if, switch |
+| **Conditional** | if, if-else, if-else-if, switch, switch expressions |
 | **Looping** | for, while, do-while, enhanced-for |
-| **Jumping** | break, continue, return |
+| **Jumping** | break, continue, return, labeled break/continue |
 
-### Conditional Statements
+### Conditional Statements & Modern Switch Expressions
+
+Java 14 introduced **Switch Expressions** which allow returning values from switch blocks, using the arrow operator `->` (eliminating the need for manual `break` statements) or the `yield` keyword.
 
 ```java
-// 1. if Statement
-int marks = 75;
-if (marks >= 60) {
-    System.out.println("Passed!");
-}
-
-// 2. if-else Statement
-if (marks >= 60) {
-    System.out.println("Passed!");
-} else {
-    System.out.println("Failed!");
-}
-
-// 3. if-else-if Ladder
-if (marks >= 90) {
-    System.out.println("Grade: A");
-} else if (marks >= 80) {
-    System.out.println("Grade: B");
-} else if (marks >= 70) {
-    System.out.println("Grade: C");
-} else if (marks >= 60) {
-    System.out.println("Grade: D");
-} else {
-    System.out.println("Grade: F");
-}
-
-// 4. switch Statement
+// Traditional Switch
 int day = 3;
 switch (day) {
-    case 1: System.out.println("Monday");    break;
-    case 2: System.out.println("Tuesday");   break;
-    case 3: System.out.println("Wednesday"); break;
-    case 4: System.out.println("Thursday");  break;
-    case 5: System.out.println("Friday");    break;
-    default: System.out.println("Weekend");  break;
+    case 1: System.out.println("Monday"); break;
+    case 2: System.out.println("Tuesday"); break;
+    default: System.out.println("Other day"); break;
 }
+
+// Modern Switch Expression (Java 14+)
+String dayType = switch (day) {
+    case 1, 2, 3, 4, 5 -> "Weekday";
+    case 6, 7         -> "Weekend";
+    default           -> {
+        System.out.println("Invalid day index");
+        yield "Unknown"; // Return value from block using yield
+    }
+};
+System.out.println(dayType);
 ```
 
-### Looping Statements
+### Looping & Jump Control
 
 ```java
-// 1. while Loop — condition checked BEFORE execution
+// 1. while Loop - pre-test condition check
 int i = 1;
 while (i <= 5) {
-    System.out.print(i + " ");   // 1 2 3 4 5
+    System.out.print(i + " ");
     i++;
 }
 
-// 2. do-while Loop — condition checked AFTER execution (runs at least once)
+// 2. do-while Loop - post-test condition check (guaranteed to execute at least once)
 int j = 1;
 do {
-    System.out.print(j + " ");   // 1 2 3 4 5
+    System.out.print(j + " ");
     j++;
 } while (j <= 5);
 
-// 3. for Loop — compact; when you know iteration count
-for (int k = 1; k <= 5; k++) {
-    System.out.print(k + " ");   // 1 2 3 4 5
+// 3. Labeled break/continue (For nested loop exit control)
+outerLoop:
+for (int row = 1; row <= 3; row++) {
+    for (int col = 1; col <= 3; col++) {
+        if (row == 2 && col == 2) {
+            break outerLoop; // breaks parent loop labeled outerLoop
+        }
+        System.out.println(row + "," + col);
+    }
 }
 
 // 4. Enhanced for Loop (for-each) — for arrays/collections
@@ -778,175 +679,104 @@ for (int nn = 1; nn <= 10; nn++) {
 
 ## 📦 Arrays
 
-> **Array:** An array is a collection of elements of the **same datatype** in **contiguous memory locations**.
-> It is a set of variables with the same datatype referred by a **common name**.
+### Definition & Memory Allocation
+An array is a fixed-size, homogeneous container that stores elements of the same data type in contiguous memory locations. In Java, arrays are treated as **objects** and are dynamically allocated on the **heap**.
 
-### Types of Arrays
+* **1D Array Memory Layout:** For `int[] arr = new int[5]`, a single contiguous block of memory is allocated on the heap to store 5 integers. The reference variable `arr` resides on the stack, storing the heap memory address of the first array element.
+* **Jagged Array Memory Layout:** Multi-dimensional arrays in Java are represented as "arrays of arrays". For jagged arrays, the parent array contains memory references pointing to separate single-dimensional arrays of varying sizes.
 
-```java
-// 1. SINGLE-DIMENSIONAL ARRAY
-int[] arr1 = new int[5];             // Declaration + allocation
-int[] arr2 = {10, 20, 30, 40, 50};  // Declaration + initialization
-int[] arr3;                          // Declaration only
-arr3 = new int[]{1, 2, 3};          // Late initialization
-
-// Accessing elements
-System.out.println(arr2[0]);         // 10 (first element)
-System.out.println(arr2[arr2.length - 1]); // 50 (last element)
-
-// Iterating
-for (int i = 0; i < arr2.length; i++) {
-    System.out.println("arr[" + i + "] = " + arr2[i]);
-}
-
-// 2. MULTI-DIMENSIONAL ARRAY (2D Array — Matrix)
-int[][] matrix = new int[3][3];      // 3 rows, 3 columns
-
-int[][] grid = {
-    {1, 2, 3},
-    {4, 5, 6},
-    {7, 8, 9}
-};
-System.out.println(grid[1][2]);      // 6 (row 1, col 2)
-
-// Traverse 2D Array
-for (int row = 0; row < grid.length; row++) {
-    for (int col = 0; col < grid[row].length; col++) {
-        System.out.print(grid[row][col] + " ");
-    }
-    System.out.println();
-}
-
-// 3. JAGGED ARRAY (rows with different column counts)
-int[][] jagged = new int[3][];
-jagged[0] = new int[]{1, 2};
-jagged[1] = new int[]{3, 4, 5};
-jagged[2] = new int[]{6, 7, 8, 9};
-
-// 4. ARRAY OF OBJECTS
-class Student {
-    String name;
-    int age;
-    Student(String n, int a) { name = n; age = a; }
-}
-
-Student[] students = new Student[3];
-students[0] = new Student("Asfin", 20);
-students[1] = new Student("Riya", 22);
-students[2] = new Student("John", 21);
-
-for (Student s : students) {
-    System.out.println(s.name + " - " + s.age);
-}
+```mermaid
+graph TD
+    Stack[Stack Variable: arr] -->|Reference| HeapParent[Parent Array: Length 3]
+    HeapParent -->|Index 0| HeapRow0[Row 0 Array: Length 2]
+    HeapParent -->|Index 1| HeapRow1[Row 1 Array: Length 3]
+    HeapParent -->|Index 2| HeapRow2[Row 2 Array: Length 4]
 ```
 
-### Key Array Methods (java.util.Arrays)
+### Types of Arrays & Implementation
 
 ```java
-import java.util.Arrays;
+// 1. Single-Dimensional Array
+int[] scores = {90, 85, 78, 92, 88};
 
-int[] arr = {5, 3, 1, 4, 2};
+// 2. Jagged Array Example (Rows of varying columns)
+int[][] jaggedMatrix = new int[3][];
+jaggedMatrix[0] = new int[]{1, 2};
+jaggedMatrix[1] = new int[]{3, 4, 5};
+jaggedMatrix[2] = new int[]{6, 7, 8, 9};
 
-Arrays.sort(arr);                           // Sort array: [1,2,3,4,5]
-System.out.println(Arrays.toString(arr));   // [1, 2, 3, 4, 5]
-
-int idx  = Arrays.binarySearch(arr, 3);     // Search (returns index)
-int[] copy = Arrays.copyOf(arr, 3);         // Copy first 3 elements
-Arrays.fill(arr, 0);                        // Fill all with 0
-boolean equal = Arrays.equals(arr, copy);   // Compare arrays
+// 3. Array of Objects
+class Car {
+    String model;
+    Car(String m) { this.model = m; }
+}
+Car[] garage = new Car[2];
+garage[0] = new Car("Tesla");
+garage[1] = new Car("Ford");
 ```
 
 ---
 
 ## 🔡 Strings
 
-> **String** is a sequence of characters. In Java, String is an **immutable** class in the `java.lang` package.
+### Definition & Immutability
+A `String` represents a sequence of characters. In Java, String is a final class in the `java.lang` package, and all String objects are **immutable** (cannot be modified once created).
+
+#### Why is String Immutable in Java?
+1. **String Pool Caching:** Different string reference variables can point to the same string literal in the String Pool, saving memory. If Strings were mutable, changing the value of one reference would silently corrupt all other variables pointing to that same value.
+2. **Security:** Strings are widely used as database connection URLs, usernames, passwords, and file paths. If mutable, these values could be dynamically altered outside the application's security checks.
+3. **Thread Safety:** Immutability automatically guarantees thread safety, as multiple threads can read the same string without synchronization conflicts.
+4. **Caching Hashcode:** Since strings cannot change, their hashcode value is calculated once and cached, making them extremely fast key objects for HashMaps.
+
+### The String Constant Pool (SCP)
+```mermaid
+graph TD
+    subgraph Heap
+        subgraph SCP [String Constant Pool]
+            strLiteral["Hello"]
+        end
+        strObject["Hello (Heap Object)"]
+    end
+    s1[Stack Variable: s1] -->|Points to| strLiteral
+    s2[Stack Variable: s2] -->|Points to| strLiteral
+    s3[Stack Variable: s3] -->|Points to| strObject
+```
+
+* When you declare a string literal: `String s1 = "Hello";`, Java checks the String Constant Pool. If it exists, `s1` points to it. If not, it is created.
+* When you declare using `new`: `String s3 = new String("Hello");`, Java bypasses the SCP check (unless interned) and allocates a new String object on the standard heap.
 
 ```java
-// String Creation
-String s1 = "Hello";                     // String literal (stored in String Pool)
-String s2 = new String("Hello");         // String object (stored in Heap)
+String s1 = "Hello";
+String s2 = "Hello";
+String s3 = new String("Hello");
 
-// String Concatenation
-String name = "Mohammad" + " " + "Asfin";
+System.out.println(s1 == s2); // true (same reference in String Pool)
+System.out.println(s1 == s3); // false (different objects: Pool vs Heap)
+System.out.println(s1.equals(s3)); // true (contents are identical)
 
-// String Comparison
-System.out.println(s1 == s2);                    // false (different references)
-System.out.println(s1.equals(s2));               // true  (same content)
-System.out.println(s1.equalsIgnoreCase("hello")); // true (ignore case)
-```
-
-### String Methods
-
-```java
-String str = "Hello, World!";
-
-// Length
-str.length()                    // 13
-
-// Case
-str.toUpperCase()               // "HELLO, WORLD!"
-str.toLowerCase()               // "hello, world!"
-
-// Search
-str.charAt(0)                   // 'H'
-str.indexOf('o')                // 4
-str.lastIndexOf('o')            // 8
-str.contains("World")          // true
-str.startsWith("Hello")        // true
-str.endsWith("!")               // true
-
-// Extract
-str.substring(7)                // "World!"
-str.substring(7, 12)           // "World"
-
-// Modify
-str.replace('l', 'r')          // "Herro, Worrd!"
-str.replace("World", "Java")   // "Hello, Java!"
-str.trim()                      // removes leading/trailing spaces
-str.toCharArray()               // char array
-
-// Split
-String[] parts = "a,b,c".split(",");  // ["a", "b", "c"]
-
-// Format
-String.format("Name: %s, Age: %d", "Asfin", 20)  // "Name: Asfin, Age: 20"
-
-// String.valueOf()
-String.valueOf(42)              // "42"
-String.valueOf(true)           // "true"
-```
-
-### String Pool (Interning)
-
-```
-String Pool (Heap memory area):
-
-String a = "Java";    Both a and b point to SAME object in the pool
-String b = "Java";
-a == b  → true  (same reference in pool)
-
-String c = new String("Java");   Creates NEW object in Heap (outside pool)
-a == c  → false (different references)
-a.equals(c) → true (same content)
+// String Interning manually forces a Heap String to point to the SCP
+String s4 = s3.intern();
+System.out.println(s1 == s4); // true
 ```
 
 ---
 
-### 📝 StringBuffer & StringBuilder
+### 📝 String vs. StringBuilder vs. StringBuffer
 
-Both are **mutable** alternatives to `String` (can be modified without creating new objects).
-
-| Feature | StringBuffer | StringBuilder |
-| :--- | :--- | :--- |
-| **Mutable?** | Yes | Yes |
-| **Thread-safe?** | Yes (sync) | No (not sync) |
-| **Performance** | Slower | Faster |
-| **Use when** | Multi-thread | Single-thread |
+| Feature | String | StringBuilder | StringBuffer |
+| :--- | :--- | :--- | :--- |
+| **Mutability** | ❌ Immutable |  Mutable |  Mutable |
+| **Thread Safety** |  Yes (automatic) | ❌ No |  Yes (synchronized methods) |
+| **Performance** | Fast for read-only | Very Fast | Slower (locks overhead) |
+| **Storage Area** | String Constant Pool / Heap | Standard Heap | Standard Heap |
 
 ```java
-// StringBuffer — Thread-safe
-StringBuffer sb = new StringBuffer("Hello");
+// StringBuilder - best for fast single-threaded string manipulations
+StringBuilder builder = new StringBuilder("Java");
+builder.append(" Full Stack");
+System.out.println(builder.toString()); // "Java Full Stack"
+```
+
 sb.append(", World");          // "Hello, World"
 sb.insert(5, " Java");         // "Hello Java, World"
 sb.delete(5, 10);              // "Hello, World"
@@ -971,19 +801,29 @@ sb2.setCharAt(0, 'j');         // Replace char at index 0
 
 ### 🔄 OOP vs POP
 
-![OOP vs POP Programming Paradigm](./assets/oop_vs_pop_paradigm.png)
+```mermaid
+graph TD
+    subgraph POP [Procedure Oriented - Top Down]
+        FuncA[Main Program] --> FuncB[Function 1]
+        FuncA --> FuncC[Function 2]
+        FuncB --> FuncD[Sub-Function A]
+    end
+    subgraph OOP [Object Oriented - Bottom Up]
+        ObjA[Object A: Data + Methods] <--> ObjB[Object B: Data + Methods]
+        ObjB <--> ObjC[Object C: Data + Methods]
+    end
+```
 
 | Topic | POP (Procedure Oriented) | OOP (Object Oriented) |
 | :--- | :--- | :--- |
 | **Approach** | Top-down design | Bottom-up design |
 | **Focus** | Functions / Algorithms | Data / Object entities |
 | **Data Flow** | Data flows globally between functions | Data encapsulated within objects |
-| **Security** | Low security (global data variables) | High security (access specifiers/data hiding) |
+| **Security** | Low security (global variables) | High security (access specifiers/data hiding) |
 | **Reusability** | Difficult; functions tightly coupled | High reusability (via class Inheritance) |
 | **Examples** | C, Pascal, COBOL | Java, C++, Python |
 
 **Four Pillars of OOP:**
-
 1. **Encapsulation:** Wrapping attributes and methods together, protecting state via private visibility and public getters/setters.
 2. **Abstraction:** Expressing only essential behaviors and operations, hiding internal implementation details using abstract classes and interfaces.
 3. **Inheritance:** Enabling hierarchical class designs to reuse common code patterns via `extends` and `implements`.
@@ -993,141 +833,64 @@ sb2.setCharAt(0, 'j');         // Replace char at index 0
 
 ### 🏗️ Classes & Objects
 
-> **Class:** A blueprint/template for creating objects. It defines attributes (fields) and behaviors (methods).
-> **Object:** A real-world instance of a class. Each object has its own state and behavior.
+* **Class:** A logical template/blueprint containing field attributes and method behaviors. It consumes no physical memory space.
+* **Object:** A physical instance of a class allocated on the **heap** using the `new` keyword.
 
-* **Class (Blueprint):** Declares variables and methods (e.g. `class Car { String brand; void start(); }`).
-* **Object (Instance):** The physical memory copy instantiated using the `new` keyword (e.g. `Car myCar = new Car();`).
-
-
-```java
-// Class Definition
-class Car {
-    // Fields (Attributes / Instance variables)
-    String brand;
-    String color;
-    int speed;
-
-    // Methods (Behaviors)
-    void start() {
-        System.out.println(brand + " is starting...");
-    }
-
-    void accelerate(int s) {
-        speed += s;
-        System.out.println("Speed: " + speed + " km/h");
-    }
-
-    void displayInfo() {
-        System.out.println("Brand: " + brand + ", Color: " + color);
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        // Creating Objects using 'new' keyword
-        Car car1 = new Car();
-        car1.brand = "Toyota";
-        car1.color = "Red";
-
-        Car car2 = new Car();
-        car2.brand = "Honda";
-        car2.color = "Blue";
-
-        car1.start();           // "Toyota is starting..."
-        car1.displayInfo();     // "Brand: Toyota, Color: Red"
-        car2.start();           // "Honda is starting..."
-    }
-}
-```
+#### Memory allocation of Objects
+When `Car myCar = new Car();` is executed:
+1. `new Car()` allocates space on the heap for all instance variables.
+2. The `Car()` constructor initializes the memory fields.
+3. The reference variable `myCar` is created on the execution stack and is assigned the memory address of the heap object.
 
 ---
 
 ### 🔐 Access Specifiers (Visibility Modes)
 
-Access specifiers control the **visibility / accessibility** of classes, methods, and fields.
+Access specifiers control the visibility of classes, constructors, methods, and variables.
 
-| Modifier | Same Class | Same Package | Subclass | Other Packages |
+| Modifier | Same Class | Same Package | Subclass (diff package) | World (diff package) |
 | :--- | :---: | :---: | :---: | :---: |
-| **private** | Yes | No | No | No |
-| **default** | Yes | Yes | No | No |
-| **protected** | Yes | Yes | Yes | No |
-| **public** | Yes | Yes | Yes | Yes |
-
-
-```java
-class AccessDemo {
-    private   int a = 10;   // only within this class
-    int       b = 20;       // default: within same package
-    protected int c = 30;   // same package + subclasses
-    public    int d = 40;   // accessible everywhere
-
-    public int getA() { return a; }  // getter for private field
-}
-```
+| **private** |  Yes | ❌ No | ❌ No | ❌ No |
+| **default** (no modifier) |  Yes |  Yes | ❌ No | ❌ No |
+| **protected** |  Yes |  Yes |  Yes | ❌ No |
+| **public** |  Yes |  Yes |  Yes |  Yes |
 
 ---
 
-### 🏗️ Constructors
+### 🏗️ Constructors & Constructor Chaining
 
-> **Constructor** is a **special method** that is automatically called when an object is created.
-> It has the **same name as the class** and **no return type** (not even `void`).
+#### Definition & Purpose
+A constructor is a special, non-static member method used to initialize a newly created object. It has no return type (not even `void`) and bears the exact name of the declaring class.
 
-| Constructor | Method |
-| :--- | :--- |
-| Same name as class | Any name |
-| No return type (not even `void`) | Has return type (or `void`) |
-| Called automatically on `new` | Called explicitly |
-| Used to initialize objects | Used for any functionality |
-| Cannot be `abstract`/`static`/`final` | Can be `abstract`/`static`/`final` |
+#### Constructor Chaining
+Constructor chaining is the process of calling one constructor from another constructor in the same class (using `this()`) or parent class (using `super()`). `this()` or `super()` must be the very first line of any constructor method.
 
-
-#### Types of Constructors
+#### Constructor Execution flow:
+```mermaid
+graph TD
+    Start[new SubClass()] --> SubParam[SubClass Parameterized Constructor]
+    SubParam -->|super() call| ParentParam[Parent Parameterized Constructor]
+    ParentParam -->|implicit super()| ObjectConstructor[java.lang.Object Constructor]
+    ObjectConstructor --> ParentInit[Parent instance fields & block initialization]
+    ParentInit --> SubInit[SubClass instance fields & block initialization]
+    SubInit --> End[Execution Completes]
+```
 
 ```java
-class Student {
-    String name;
-    int age;
-    String course;
-
-    // 1. DEFAULT CONSTRUCTOR (no parameters)
-    Student() {
-        name   = "Unknown";
-        age    = 0;
-        course = "N/A";
-    }
-
-    // 2. PARAMETERIZED CONSTRUCTOR (with parameters)
-    Student(String name, int age, String course) {
-        this.name   = name;   // 'this' refers to current object
-        this.age    = age;
-        this.course = course;
-    }
-
-    // 3. COPY CONSTRUCTOR (copies another object)
-    Student(Student other) {
-        this.name   = other.name;
-        this.age    = other.age;
-        this.course = other.course;
-    }
-
-    void display() {
-        System.out.println("Name: " + name + ", Age: " + age + ", Course: " + course);
+class Parent {
+    Parent() {
+        System.out.println("Parent Constructor Called");
     }
 }
 
-public class Main {
-    public static void main(String[] args) {
-        Student s1 = new Student();                      // default
-        Student s2 = new Student("Asfin", 20, "Java"); // parameterized
-        Student s3 = new Student(s2);                   // copy
-
-        s1.display();  // Name: Unknown, Age: 0, Course: N/A
-        s2.display();  // Name: Asfin, Age: 20, Course: Java
-        s3.display();  // Name: Asfin, Age: 20, Course: Java
+class Child extends Parent {
+    Child() {
+        super(); // Implicitly added by compiler if omitted
+        System.out.println("Child Constructor Called");
     }
 }
 ```
+
 
 ---
 
@@ -1186,62 +949,29 @@ public class Main {
 
 ### 🔒 Encapsulation
 
-> **Encapsulation** is the process of **wrapping data (fields) and methods** together into a single unit (class), and restricting direct access to some components.
-
-**Key Concept: Data Hiding** — Make fields `private`, provide `public` getters and setters.
-
-### 🔒 Encapsulation
-
-> **Encapsulation** is the process of wrapping data (fields) and methods together into a single unit (class), restricting direct access to some of the object's components.
-
-* **Data Hiding:** Declaring variables of the class as `private`.
-* **Controlled Access:** Providing public setter and getter methods to modify and view the variables.
-* **Benefits:** Data security, flexibility, easy maintenance, and testing.
-
+* **Definition:** Encapsulation is the process of binding variable states (data fields) and behaviors (methods) together inside a single structural unit (class), while protecting object internals from unauthorized direct access.
+* **Why it exists:** Without encapsulation, external code can freely modify internal states to invalid values (e.g., setting a bank balance to a negative number).
+* **Implementation (Data Hiding):** Declare variables as `private` and provide validation logic inside `public` getter and setter methods.
 
 ```java
 class BankAccount {
     private String owner;
-    private double balance;     // private — cannot access directly
+    private double balance;
 
-    // Constructor
-    BankAccount(String owner, double initialBalance) {
-        this.owner   = owner;
+    public BankAccount(String owner, double initialBalance) {
+        this.owner = owner;
         this.balance = (initialBalance >= 0) ? initialBalance : 0;
     }
 
-    // Getter
     public double getBalance() {
-        return balance;
+        return this.balance;
     }
 
-    // Setter with validation
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
             System.out.println("Deposited: " + amount);
-        } else {
-            System.out.println("Invalid deposit amount!");
         }
-    }
-
-    public void withdraw(double amount) {
-        if (amount > 0 && amount <= balance) {
-            balance -= amount;
-            System.out.println("Withdrawn: " + amount);
-        } else {
-            System.out.println("Insufficient balance or invalid amount!");
-        }
-    }
-}
-
-public class Main {
-    public static void main(String[] args) {
-        BankAccount acc = new BankAccount("Asfin", 5000.0);
-        // acc.balance = -100;   Cannot access private field
-        acc.deposit(2000);       // controlled via method
-        acc.withdraw(1000);
-        System.out.println("Balance: " + acc.getBalance());
     }
 }
 ```
@@ -1250,94 +980,76 @@ public class Main {
 
 ### 🧬 Inheritance
 
-> **Inheritance** is a mechanism where a **child class** acquires the properties and behaviors of a **parent class**.
-> Promotes **code reuse** and establishes an **IS-A** relationship.
+* **Definition:** A design paradigm where a subclass (child) acquires members, states, and behaviors of an existing superclass (parent), modeling an **IS-A** relationship.
+* **Benefits:** Extreme code reuse and polymorphic subtype behavior.
 
+#### Types of Inheritance Structures
+
+```mermaid
+graph TD
+    subgraph Single [1. Single Inheritance]
+        S_Parent[Animal] -->|extends| S_Child[Dog]
+    end
+
+    subgraph Multilevel [2. Multilevel Inheritance]
+        ML_Grandparent[Animal] -->|extends| ML_Parent[Dog]
+        ML_Parent -->|extends| ML_Child[Puppy]
+    end
+
+    subgraph Hierarchical [3. Hierarchical Inheritance]
+        H_Parent[Animal] -->|extends| H_Child1[Dog]
+        H_Parent -->|extends| H_Child2[Cat]
+    end
+
+    subgraph Multiple [4. Multiple Inheritance via Interfaces]
+        I_A[Interface A] -->|implements| C_Impl[Class C]
+        I_B[Interface B] -->|implements| C_Impl
+    end
 ```
-Syntax:
-class ChildClass extends ParentClass { ... }
-```
 
-#### Types of Inheritance
+> [!IMPORTANT]
+> **Why doesn't Java support multiple class inheritance?**
+> To avoid the **Diamond Problem**. If Class A has a method `execute()`, and Class B and C both inherit from A and override `execute()`, a subclass D extending both B and C would not know which version of `execute()` to execute. Java resolves this by allowing multiple inheritance *only* through Interfaces (where implementation details were historically absent).
 
-```
-1. SINGLE INHERITANCE
-   ┌──────────┐
-   │  Animal  │ (Parent)
-   └────┬─────┘
-        │ extends
-   ┌────▼─────┐
-   │   Dog    │ (Child)
-   └──────────┘
+---
 
-2. MULTILEVEL INHERITANCE
-   ┌──────────┐
-   │  Animal  │
-   └────┬─────┘
-        │
-   ┌────▼─────┐
-   │   Dog    │
-   └────┬─────┘
-        │
-   ┌────▼─────┐
-   │  Puppy   │
-   └──────────┘
+### 🎭 Polymorphism
 
-3. HIERARCHICAL INHERITANCE
-        ┌──────────┐
-        │  Animal  │
-        └────┬─────┘
-       ┌─────┴─────┐
-  ┌────▼─────┐ ┌───▼────┐
-  │   Dog    │ │   Cat  │
-  └──────────┘ └────────┘
+* **Definition:** Polymorphism (meaning "many forms") is the ability of a single interface or parent reference to invoke different underlying class implementations.
 
-4. MULTIPLE INHERITANCE — Not directly in Java
-   Achieved via INTERFACES:
-   ┌───────────┐  ┌────────────┐
-   │Interface A│  │Interface B │
-   └─────┬─────┘  └──────┬─────┘
-         └────────┬───────┘
-              ┌───▼────┐
-              │ ClassC │ implements A, B
-              └────────┘
+#### Compile-Time vs. Run-Time Polymorphism
+
+| Feature | Compile-Time (Static) | Run-Time (Dynamic) |
+| :--- | :--- | :--- |
+| **Mechanism** | Method Overloading | Method Overriding |
+| **Resolution** | Resolved during compilation | Resolved at execution runtime |
+| **Binding Type** | Early Binding | Late / Dynamic Binding |
+| **Performance** | Faster (no runtime lookup overhead) | Slightly slower (lookup in Virtual Method Table) |
+
+#### Internal Working of Dynamic Method Dispatch
+When a subclass overrides a parent method, the JVM looks up the target method implementation at runtime using a **Virtual Method Table (VMT)** associated with the concrete instance. This runtime resolution is called **Dynamic Method Dispatch**.
+
+```mermaid
+graph TD
+    Ref[Reference: Animal myDog] -->|Points to Heap Object| Inst[Concrete Instance: Dog]
+    Inst -->|VMT Lookup| Target[Dog.makeSound]
+    style Target fill:#f9f,stroke:#333,stroke-width:2px
 ```
 
 ```java
-// 1. Single Inheritance
 class Animal {
-    String name;
-    void eat()    { System.out.println(name + " is eating"); }
-    void breathe(){ System.out.println(name + " is breathing"); }
+    void makeSound() { System.out.println("Generic animal sound"); }
 }
 
 class Dog extends Animal {
-    void bark() { System.out.println(name + " says: Woof!"); }
+    @Override
+    void makeSound() { System.out.println("Woof Woof"); }
 }
 
-// 2. Multilevel Inheritance
-class Puppy extends Dog {
-    void play() { System.out.println(name + " is playing!"); }
-}
-
-// 3. Hierarchical Inheritance
-class Cat extends Animal {
-    void meow() { System.out.println(name + " says: Meow!"); }
-}
-
-// Usage
-public class Main {
+public class DispatchDemo {
     public static void main(String[] args) {
-        Dog dog = new Dog();
-        dog.name = "Buddy";
-        dog.eat();    // inherited from Animal
-        dog.bark();   // own method
-
-        Puppy puppy = new Puppy();
-        puppy.name = "Max";
-        puppy.eat();     // from Animal (level 1)
-        puppy.bark();    // from Dog (level 2)
-        puppy.play();    // own method (level 3)
+        Animal myAnimal = new Dog(); // Upcasting
+        myAnimal.makeSound();        // Prints "Woof Woof" at runtime (Dynamic Dispatch)
     }
 }
 ```
@@ -1438,191 +1150,156 @@ if (animal instanceof Dog) {
 
 ### 🎭 Abstraction
 
-> **Abstraction** is hiding the implementation details and showing only the essential features/functionality.
+* **Definition:** Abstraction is the programming practice of hiding internal design and implementation complexities, displaying only the essential operational features of an object.
+* **Why it exists:** It decouples interface contracts from concrete implementations, allowing developers to swap underlying components seamlessly without breaking dependent services.
 
-Java achieves abstraction via:
-1. **Abstract Class** (0 to 100% abstraction)
-2. **Interface** (100% abstraction)
+#### Abstraction Channels in Java
+1. **Abstract Class (Partial Abstraction):** A template class declared with the `abstract` keyword. It can declare both concrete (implemented) and abstract (unimplemented) methods, allowing common state fields and constructor chains.
+2. **Interface (Complete Abstract Contract):** A structural type that defines a contract of behavior. Since Java 8/9, interfaces also support `default`, `static`, and `private` methods.
 
 ```java
-// Abstract Class
-abstract class Shape {
-    String color;
+// Abstract Class Template
+abstract class PaymentProcessor {
+    protected double processingFee = 2.5;
 
-    // Abstract method — no body, must be implemented by subclass
-    abstract double area();
+    // Abstract method (no body)
+    abstract void processPayment(double amount);
 
-    // Concrete method — has body
-    void displayColor() {
-        System.out.println("Color: " + color);
+    // Concrete method (shared behavior)
+    void printReceipt(double amount) {
+        System.out.println("Receipt printed for: $" + amount);
     }
 }
 
-class Circle extends Shape {
-    double radius;
-
-    Circle(double r, String c) {
-        this.radius = r;
-        this.color  = c;
-    }
-
+class PayPalProcessor extends PaymentProcessor {
     @Override
-    double area() {
-        return Math.PI * radius * radius;
+    void processPayment(double amount) {
+        System.out.println("Processing PayPal payment of $" + (amount + processingFee));
     }
-}
-
-class Rectangle extends Shape {
-    double length, width;
-
-    Rectangle(double l, double w, String c) {
-        this.length = l; this.width = w; this.color = c;
-    }
-
-    @Override
-    double area() { return length * width; }
 }
 ```
+
+---
+
+### 🔌 Interfaces & Modern Evolution
+
+An **Interface** defines a behavioral contract that concrete classes agree to implement.
+
+#### Interface Inheritance Relationships
+```mermaid
+graph TD
+    ParentClass[Class A] -->|extends| ChildClass[Class B]
+    InterfaceA[Interface X] -->|extends| InterfaceB[Interface Y]
+    InterfaceA -->|implements| ConcreteClass[Class C]
+    InterfaceB -->|implements| ConcreteClass
+```
+
+* **Class to Class:** `extends` (Single Inheritance)
+* **Class to Interface:** `implements` (Multiple Inheritance)
+* **Interface to Interface:** `extends` (Multiple Inheritance)
+
+#### Java 8/9 Interface Enhancements
+* **Default Methods (Java 8):** Allow adding new methods to interfaces without breaking existing implementing classes.
+* **Static Methods (Java 8):** Utility methods belonging to the interface namespace itself, not instances.
+* **Private Methods (Java 9):** Used to share common helper logic between default methods inside the same interface.
+
+```java
+interface DBConnector {
+    void executeQuery(String sql); // Abstract method
+
+    // Default method (Java 8+)
+    default void logQuery(String sql) {
+        printLog("Executing: " + sql); // Calls private helper
+    }
+
+    // Static helper method (Java 8+)
+    static void printStatus() {
+        System.out.println("Database connector active.");
+    }
+
+    // Private helper method (Java 9+)
+    private void printLog(String message) {
+        System.out.println("[DB-LOG] " + message);
+    }
+}
+```
+
+#### Types of Interfaces
+* **Normal Interface:** Declares multiple abstract behavior methods.
+* **Functional Interface (SAM):** Declares exactly one abstract method. Eligible for Lambda Expressions and marked with `@FunctionalInterface`.
+* **Marker Interface:** Empty interface with no declared variables or methods. Used to tag runtime properties (e.g. `java.io.Serializable`, `java.lang.Cloneable`).
+
+---
+
+### Abstract Class vs. Interface Comparison
+
+| Characteristic | Abstract Class | Interface |
+| :--- | :--- | :--- |
+| **Inheritance** | Single class inheritance (`extends`). | Multiple inheritance support (`implements`). |
+| **State Fields** | Can declare instance fields (non-static, mutable). | Fields are implicitly `public static final` constants. |
+| **Methods** | Can have constructors, final/static/concrete methods. | No constructors. Abstract, `default`, `static`, or `private` only. |
+| **Performance** | Slightly faster (direct invocation). | Slightly slower due to virtual table interface lookups. |
+| **Core Intent** | Models **IS-A** inheritance & shared class code. | Models **CAN-DO** capability contracts. |
+| **Access Specifiers** | Full access control (private, protected, etc.). | Fields and abstract methods are implicitly `public`. |
+| **Abstraction Level** | 0% to 100% abstraction. | 100% abstract contract design. |
+
+
 
 ---
 
 ### ⚡ Static Keyword
 
+* **Definition:** The `static` keyword in Java is used for memory management. It indicates that the annotated member belongs to the **type itself** rather than instance objects.
+* **Static Member Types:**
+  1. **Static Variables:** Single memory allocation in the JVM Method Area shared by all object instances.
+  2. **Static Methods:** Callable directly on the class name (e.g. `Math.sqrt()`). Static methods cannot access instance variables or invoke `this` or `super` references.
+  3. **Static Block:** Executed once when the class is first loaded into memory by the ClassLoader.
+  4. **Static Inner Classes:** Nested classes that do not require an outer class instance reference.
+
 ```java
-class Counter {
-    static int count = 0;    // Static variable — shared by all objects
-    int id;                  // Instance variable — unique per object
+class StaticDemo {
+    static int sharedCounter = 0; // Static variable
+    int instanceValue = 10;       // Instance variable
 
-    Counter() {
-        count++;
-        this.id = count;
-    }
-
-    static void showCount() {  // Static method — called via class name
-        System.out.println("Total objects: " + count);
-    }
-
-    // Static Block — runs once when class is first loaded
+    // Static block
     static {
-        System.out.println("Counter class loaded!");
-        count = 0;
+        System.out.println("StaticDemo class loaded!");
+    }
+
+    // Static method
+    static void incrementCounter() {
+        sharedCounter++;
+        // System.out.println(instanceValue); // COMPILE ERROR: Cannot access non-static instance variable
     }
 }
-
-// Usage
-Counter.showCount();   // 0
-Counter c1 = new Counter();
-Counter c2 = new Counter();
-Counter c3 = new Counter();
-Counter.showCount();   // 3
 ```
 
 ---
 
-### 🔑 this & super Keyword
+### 🔑 this & super Keywords
+
+* **`this`:** Represents the current active instance object reference. Used to resolve variable shadowing or chain local class constructors.
+* **`super`:** Represents the immediate parent object instance. Used to invoke parent methods or delegate to parent class constructors.
 
 ```java
-class Person {
-    String name;
-    int age;
-
-    Person(String name, int age) {
-        this.name = name;   // 'this.name' = field; 'name' = parameter
-        this.age  = age;
-    }
-
-    void display() {
-        System.out.println("Name: " + this.name);
-    }
+class Base {
+    int id = 100;
+    Base(String msg) { System.out.println("Base message: " + msg); }
 }
 
-class Employee extends Person {
-    String company;
+class Derived extends Base {
+    int id = 200; // Variable Shadowing
 
-    Employee(String name, int age, String company) {
-        super(name, age);         // Call parent constructor — MUST be first line
-        this.company = company;
-    }
-
-    void display() {
-        super.display();          // Call parent method
-        System.out.println("Company: " + company);
+    Derived() {
+        super("Calling Base"); // Must be the first statement
+        System.out.println("Derived ID: " + this.id);   // 200
+        System.out.println("Parent ID: " + super.id); // 100
     }
 }
 ```
 
 ---
 
-## 🔌 Interface
-
-> An **Interface** is a completely abstract type that defines a contract of methods a class must implement.
-> All methods are **public abstract** by default.
-> All variables are **public static final** (constants) by default.
-
-```
-Syntax:
-interface InterfaceName { ... }
-class ClassName implements InterfaceName { ... }
-interface B extends A { ... }
-
-INHERITANCE RELATIONSHIPS:
-  class   → class      : extends   (single parent only)
-  class   → interface  : implements (can implement multiple!)
-  interface → interface: extends   (can extend multiple!)
-```
-
-### Types of Interfaces
-
-| Type | Description |
-| :--- | :--- |
-| **Normal Interface** | Has more than one abstract method. |
-| **Functional Interface (SAM)** | Has exactly one abstract method (Single Abstract Method). Marked with `@FunctionalInterface`. |
-| **Marker Interface** | Completely empty (blank) interface with no methods. Used to tag/mark classes (e.g. `Serializable`, `Cloneable`). |
-
-```java
-// Normal Interface
-interface Animal {
-    String NAME = "Animal";    // public static final by default
-    void eat();                // public abstract by default
-    void sleep();
-    void breathe();
-}
-
-// Functional Interface (SAM — Single Abstract Method)
-@FunctionalInterface
-interface Greeting {
-    void greet(String name);   // only ONE abstract method
-}
-
-// Marker Interface (empty)
-interface Printable { }   // marks a class as printable
-
-// Multiple Interface Implementation
-interface Flyable  { void fly(); }
-interface Swimmable { void swim(); }
-
-class Duck implements Flyable, Swimmable {
-    @Override public void fly()  { System.out.println("Duck is flying!"); }
-    @Override public void swim() { System.out.println("Duck is swimming!"); }
-}
-```
-
-### Abstract Class vs Interface
-
-| Abstract Class | Interface |
-| :--- | :--- |
-| Declared using `abstract` keyword. | Declared using `interface` keyword. |
-| Can have both abstract and concrete methods. | Only abstract methods (before Java 8); can have `default` & `static` methods (Java 8+). |
-| Can have instance variables (non-static fields). | Fields are implicitly `public static final` constants. |
-| Can have constructors. | Cannot have constructors. |
-| Subclass can extend only one abstract class (single inheritance). | A class can implement multiple interfaces (multiple inheritance). |
-| Can have access modifiers for variables/methods. | All variables/methods are implicitly `public` by default. |
-| Provides 0 to 100% abstraction. | Provides 100% abstraction (before default methods). |
-| Used when there is an **IS-A** relationship & shared code. | Used to define a contract/capability (**CAN-DO** relationship). |
-| Extended using `extends` keyword. | Implemented using `implements` keyword. |
-
-
----
 
 ## 📊 Enum
 
@@ -1732,145 +1409,77 @@ interface MyFunc {
 ## 🔄 Functional Interface & Lambda Expressions
 
 ### Lambda Expression
-
-> A **Lambda Expression** is a short, nameless function (anonymous function).
-> Introduced in **Java 8**. Used with **Functional Interfaces**.
-
-```
-Lambda Syntax:
-(parameters) -> expression
-(parameters) -> { statements; }
-
-HOW LAMBDA REDUCES CODE:
-
-Without Lambda (Anonymous Inner Class):
-  Runnable r = new Runnable() {
-      @Override
-      public void run() {
-          System.out.println("Running!");
-      }
-  };
-
-With Lambda (Java 8+):
-  Runnable r = () -> System.out.println("Running!");
-```
+* **Definition:** A Lambda Expression is a lightweight, anonymous (nameless) function implementation containing parameters, an arrow operator (`->`), and a statement or expression block.
+* **Why it exists:** Introduced in Java 8 to bring Functional Programming paradigms to the language, enabling clean, declarative code patterns (such as block streams and inline listeners) without creating verbose anonymous inner classes.
 
 ```java
-import java.util.*;
-import java.util.function.*;
-
-// 1. Simple Lambda (no params, no return)
-Runnable r = () -> System.out.println("Hello Lambda!");
-r.run();
-
-// 2. Lambda with one parameter
-Consumer<String> printer = name -> System.out.println("Hello, " + name);
-printer.accept("Asfin");
-
-// 3. Lambda with two parameters and return
-BiFunction<Integer, Integer, Integer> adder = (a, b) -> a + b;
-System.out.println(adder.apply(5, 3));  // 8
-
-// 4. Lambda with block body
-Comparator<String> comp = (s1, s2) -> {
-    return s1.length() - s2.length();
+// Traditional Anonymous Class
+Runnable r1 = new Runnable() {
+    @Override
+    public void run() { System.out.println("Thread running!"); }
 };
 
-// 5. Lambda with collections — sorting
-List<String> names = Arrays.asList("Charlie", "Alice", "Bob");
-names.sort((a, b) -> a.compareTo(b));
-System.out.println(names);  // [Alice, Bob, Charlie]
-
-// 6. Method Reference — even shorter!
-names.forEach(System.out::println);  // :: is method reference
-
-// 7. Custom Functional Interface with Lambda
-@FunctionalInterface
-interface Greet {
-    String sayHello(String name);
-}
-
-Greet g = name -> "Hello, " + name + "!";
-System.out.println(g.sayHello("Asfin"));  // "Hello, Asfin!"
+// Modern Lambda Expression
+Runnable r2 = () -> System.out.println("Thread running!");
 ```
-
-**Built-in Functional Interfaces (java.util.function):**
-
-| Interface | Method | Description |
-| :--- | :--- | :--- |
-| **Runnable** | `run()` | No input, no output. |
-| **Supplier<T>** | `get()` | No input, returns an object of type `T`. |
-| **Consumer<T>** | `accept(T)` | Takes an object of type `T`, returns no output. |
-| **Function<T,R>** | `apply(T)` | Takes an object of type `T`, returns an object of type `R`. |
-| **Predicate<T>** | `test(T)` | Takes an object of type `T`, returns a `boolean` (checks a condition). |
-| **BiFunction<T,U,R>** | `apply(T,U)` | Takes two objects (`T` and `U`), returns an object of type `R`. |
 
 ---
 
 ## ⚠️ Exception Handling
 
-> **Exception** is an unwanted or unexpected event during program execution, disrupting normal flow.
+### Definition & Flow Control
+An exception is an unwanted or unexpected event that occurs during program execution and disrupts the normal flow of program instructions.
 
-### Exception Hierarchy
+```mermaid
+graph TD
+    ExceptionOccurs[Exception Occurs inside try block] --> JVMCheck{JVM checks catch block?}
+    JVMCheck -->|Match Found| CatchExec[Execute catch block code] --> NormalFlow[Continue normal execution]
+    JVMCheck -->|No Match Found| FinallyExists{finally block exists?}
+    FinallyExists -->|Yes| ExecFinally[Execute finally block] --> StackUnwind[Unwind call stack & bubble up to caller]
+    FinallyExists -->|No| StackUnwind
+```
 
-| Category | Type | Description / Example |
+### Checked vs. Unchecked Exceptions
+
+| Feature | Checked Exceptions | Unchecked Exceptions (Runtime) |
 | :--- | :--- | :--- |
-| **Throwable** | Superclass of all errors & exceptions | Parent class of the hierarchy. |
-| **Error** | Unchecked & Unrecoverable | `OutOfMemoryError`, `StackOverflowError`, `VirtualMachineError` |
-| **Exception** | Base class for recoverable cases | Has two main sub-categories: Checked & Unchecked. |
-| **RuntimeException (Unchecked)** | Excluded from compile checks | `NullPointerException`, `ArithmeticException`, `ArrayIndexOutOfBoundsException` |
-| **Checked Exception** | Compiler forces catch/declare checks | `IOException`, `SQLException`, `FileNotFoundException`, `InterruptedException` |
+| **Compiler Check** | Checked at compile-time. Code will not compile unless handled/declared. | Ignored by the compiler at compile-time. |
+| **Parent Class** | Extends `java.lang.Exception` directly. | Extends `java.lang.RuntimeException`. |
+| **Typical Cause** | External environment failures (missing file, network down). | Program logic errors (null reference, array out of bounds). |
+| **Example Classes**| `IOException`, `SQLException`, `ClassNotFoundException` | `NullPointerException`, `ArithmeticException` |
 
+---
+
+### Modern Try-With-Resources (Java 7+)
+Before Java 7, resource cleanup (like closing files or database connections) was manually written inside a `finally` block, which was verbose and prone to exceptions leaking. Java 7 introduced **Try-With-Resources** to automatically close any resource implementing `java.lang.AutoCloseable`.
 
 ```java
-// Basic try-catch
-try {
-    int result = 10 / 0;         // Throws ArithmeticException
-} catch (ArithmeticException e) {
-    System.out.println("Error: " + e.getMessage());  // "/ by zero"
-} finally {
-    System.out.println("This always runs!");  // always executes
+// Resources are automatically closed at the end of the block
+try (FileReader fr = new FileReader("input.txt");
+     BufferedReader br = new BufferedReader(fr)) {
+    System.out.println(br.readLine());
+} catch (IOException e) {
+    System.out.println("File error: " + e.getMessage());
 }
+```
 
-// Multiple catch blocks
-try {
-    int[] arr = {1, 2, 3};
-    System.out.println(arr[10]);   // ArrayIndexOutOfBoundsException
-} catch (ArrayIndexOutOfBoundsException e) {
-    System.out.println("Array index out of range!");
-} catch (NullPointerException e) {
-    System.out.println("Null pointer encountered!");
-} catch (Exception e) {
-    System.out.println("General exception: " + e);  // catch-all
-}
+---
 
-// Multi-catch (Java 7+)
-try {
-    // risky code
-} catch (java.io.IOException | java.sql.SQLException e) {
-    System.out.println("IO or SQL Error: " + e.getMessage());
-}
+### Custom Exceptions
+You can create custom exceptions by extending `Exception` (for checked exceptions) or `RuntimeException` (for unchecked exceptions).
 
-// throw keyword — manually throw an exception
-public static void checkAge(int age) {
-    if (age < 18) {
-        throw new IllegalArgumentException("Age must be 18+");
-    }
-    System.out.println("Access granted!");
-}
-
-// throws keyword — declare exception for caller to handle
-public static void readFile(String path) throws java.io.IOException {
-    java.io.FileReader fr = new java.io.FileReader(path);
-}
-
-// Custom Exception
+```java
+// Custom Checked Exception
 class InsufficientFundsException extends Exception {
-    private double amount;
+    private double deficit;
 
-    InsufficientFundsException(double amount) {
-        super("Insufficient funds! Need " + amount + " more");
-        this.amount = amount;
+    public InsufficientFundsException(double deficit) {
+        super("Transaction failed! Deficit amount: $" + deficit);
+        this.deficit = deficit;
+    }
+}
+```
+
     }
 
     double getAmount() { return amount; }
@@ -1892,112 +1501,38 @@ try (java.io.FileReader fr    = new java.io.FileReader("file.txt");
 
 ## 🧵 Multithreading
 
-> **Thread** is the smallest unit of execution within a process.
-> **Multithreading** allows multiple tasks to run simultaneously.
+* **Definition:** Multithreading is a Java feature that allows concurrent execution of two or more parts of a program (threads) to maximize CPU utilization.
 
-### Single Threading vs Multithreading
+### Thread Lifecycle (States) & Transitions
 
-* **Single-Threaded Execution:** Tasks execute sequentially (one after another). If Task 1 blocks, all subsequent tasks must wait.
-* **Multi-Threaded Execution:** Tasks run concurrently or in parallel. Threads share processor slices to yield faster execution performance.
-
-
-### Thread Lifecycle (States)
-
-![Java Thread Lifecycle State Transition Diagram](./assets/thread_lifecycle_states.png)
-
-
-**Thread States:**
-| State | Description |
-|-------|-------------|
-| **NEW** | Thread created but `start()` not called yet |
-| **RUNNABLE** | Thread ready to run, waiting for CPU |
-| **RUNNING** | Thread currently executing |
-| **BLOCKED** | Thread waiting to acquire a lock |
-| **WAITING** | Thread waiting indefinitely (wait(), join()) |
-| **TIMED_WAITING** | Thread waiting for specified time (sleep(), wait(time)) |
-| **TERMINATED** | Thread has finished execution |
-
-### Creating Threads
-
-```java
-// METHOD 1: Extending Thread class
-class MyThread extends Thread {
-    String threadName;
-
-    MyThread(String name) {
-        this.threadName = name;
-    }
-
-    @Override
-    public void run() {
-        for (int i = 1; i <= 5; i++) {
-            System.out.println(threadName + " — " + i);
-            try { Thread.sleep(500); } catch (InterruptedException e) { }
-        }
-    }
-}
-
-// METHOD 2: Implementing Runnable interface (PREFERRED)
-class MyRunnable implements Runnable {
-    @Override
-    public void run() {
-        for (int i = 1; i <= 5; i++) {
-            System.out.println(Thread.currentThread().getName() + " — " + i);
-        }
-    }
-}
-
-// METHOD 3: Lambda (Java 8+)
-Runnable task = () -> {
-    for (int i = 1; i <= 5; i++) {
-        System.out.println("Lambda Thread — " + i);
-    }
-};
-
-public class Main {
-    public static void main(String[] args) throws InterruptedException {
-        // Method 1
-        MyThread t1 = new MyThread("Thread-A");
-        MyThread t2 = new MyThread("Thread-B");
-        t1.start();
-        t2.start();
-
-        // Method 2
-        Thread t3 = new Thread(new MyRunnable(), "Thread-C");
-        t3.start();
-
-        // Thread Priority
-        t1.setPriority(Thread.MAX_PRIORITY);   // 10
-        t2.setPriority(Thread.MIN_PRIORITY);   // 1
-        t3.setPriority(Thread.NORM_PRIORITY);  // 5 (default)
-
-        t1.join();  // Wait for t1 to finish before continuing
-        System.out.println("All done!");
-    }
-}
+```mermaid
+stateDiagram-v2
+    [*] --> NEW : instantiate Thread
+    NEW --> RUNNABLE : start()
+    RUNNABLE --> RUNNING : Thread Scheduler selects
+    RUNNING --> BLOCKED : waits for monitor lock
+    BLOCKED --> RUNNABLE : lock acquired
+    RUNNING --> WAITING : wait(), join()
+    WAITING --> RUNNABLE : notify(), notifyAll()
+    RUNNING --> TIMED_WAITING : sleep(ms), wait(ms)
+    TIMED_WAITING --> RUNNABLE : timeout expires
+    RUNNING --> TERMINATED : run() completes
+    TERMINATED --> [*]
 ```
 
-### Thread Synchronization
+### Thread Synchronization & Race Conditions
+When multiple threads access shared, mutable memory states concurrently, data corruption can occur (a **Race Condition**). Java resolves this using **Locks (Monitors)**:
+* **Synchronized Method:** Locks the calling object instance (`this`).
+* **Synchronized Block:** Locks a specific target resource, offering finer-grained concurrency control.
 
 ```java
-// Race Condition — problem (multiple threads modifying shared data)
-class Counter {
-    int count = 0;
-    void increment() { count++; }   // NOT thread-safe!
-}
+class Account {
+    private double balance = 1000;
 
-// Solution: synchronized keyword
-class SafeCounter {
-    int count = 0;
-
-    synchronized void increment() {   // only one thread at a time
-        count++;
-    }
-
-    // Synchronized block (finer control)
-    void add(int n) {
-        synchronized (this) {
-            count += n;
+    // Intrinsic lock prevents concurrent balance deduction corruption
+    public synchronized void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
         }
     }
 }
@@ -2007,125 +1542,70 @@ class SafeCounter {
 
 ## 📦 Packages
 
-> A **Package** is a namespace that organizes related classes and interfaces into a directory hierarchy.
+* **Definition:** A package is a namespace namespace that organizes a set of related classes, interfaces, and sub-packages in a directory structure.
+* **Why it exists:** Packages prevent naming conflicts (e.g. you can have two classes named `User` as long as they are in different packages) and control access using visibility modifiers (like package-private default visibility).
 
 ```
-PACKAGE STRUCTURE:
 com/
-└── company/
-    └── project/
+└── asfin/
+    └── myapp/
         ├── model/
         │   └── Student.java
-        ├── service/
-        │   └── StudentService.java
         └── Main.java
 ```
 
 ```java
-// 1. Declare a package (must be first line of file)
-package com.asfin.myapp;
+package com.asfin.myapp; // Must be the first line
 
-// 2. Import specific class
-import java.util.Scanner;
-
-// 3. Import all classes from package
-import java.util.*;
-
-// 4. Fully qualified name (no import needed)
-java.util.Scanner sc = new java.util.Scanner(System.in);
+import java.util.ArrayList; // Single class import
+import java.util.*;        // Package import wildcard
 ```
-
-### Types of Packages
-
-| Built-in Packages (Auto-Imported/Provided) | User-defined Packages (Custom created) |
-| :--- | :--- |
-| **java.lang:** Core types (String, Math, Thread, System). | Created by developers to match directory structure. |
-| **java.util:** Collection framework & utilities (Scanner, List). | Declared at start: `package com.example.project;` |
-| **java.io / java.nio:** File operation streams. | Compiled with: `javac -d . ClassName.java` |
-| **java.sql:** JDBC database classes. | Executed with: `java com.example.project.ClassName` |
-| **javax.swing / java.awt:** Graphical layout components. | |
 
 ---
 
 ## 🖼️ Java Swing & GUI
 
-> **Java Swing** is a GUI toolkit for building desktop applications. Built on top of AWT.
 
-### MVC Architecture (Model-View-Controller)
+Java Swing is a lightweight, platform-independent GUI toolkit built on top of the Abstract Window Toolkit (AWT).
 
-* **View (GUI Interface):** Consists of Swing components (`JFrame`, `JPanel`, `JButton`) showing data to the user. Reads event actions.
-* **Controller (Logic Handler):** Receives user input (e.g. via an `ActionListener` Lambda) and updates data inside the Model.
-* **Model (Data Objects):** Plain Java Classes holding data structures and DB operations. Notifies the View of updates.
-
-```java
-import javax.swing.*;
-import java.awt.*;
-
-public class SwingDemo {
-    public static void main(String[] args) {
-        // 1. JFrame — Main Window
-        JFrame frame = new JFrame("My Java App");
-        frame.setSize(400, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new FlowLayout());
-
-        // 2. JLabel — Text Label
-        JLabel label = new JLabel("Enter your name:");
-
-        // 3. JTextField — Text Input
-        JTextField textField = new JTextField(15);
-
-        // 4. JButton — Clickable Button
-        JButton button = new JButton("Greet");
-
-        // 5. JTextArea — Multi-line text
-        JTextArea area = new JTextArea(5, 20);
-
-        // 6. Event Handling (ActionListener via Lambda)
-        button.addActionListener(e -> {
-            String name = textField.getText();
-            area.setText("Hello, " + name + "!");
-        });
-
-        // 7. Add components to frame
-        frame.add(label);
-        frame.add(textField);
-        frame.add(button);
-        frame.add(new JScrollPane(area));
-
-        frame.setVisible(true);  // Show the window
-    }
-}
+### MVC (Model-View-Controller) Architecture in GUI
+```mermaid
+graph LR
+    User -->|Interacts| View[View: JFrame, JPanel]
+    View -->|Triggers ActionEvent| Controller[Controller: ActionListener]
+    Controller -->|Updates State| Model[Model: Java Data Object]
+    Model -->|Notifies updates| View
 ```
 
-### Common Swing Components
-
-| Component | Description |
-| :--- | :--- |
-| **JFrame** | Main application window. |
-| **JPanel** | Container for grouping components. |
-| **JLabel** | Displays text or image. |
-| **JButton** | Clickable button. |
-| **JTextField** | Single-line text input. |
-| **JTextArea** | Multi-line text input. |
-| **JCheckBox** | Toggle on/off options. |
-| **JRadioButton** | Select one option from a group (used with ButtonGroup). |
-| **JComboBox** | Dropdown choice list. |
-| **JTable** | Tabular data grids. |
-| **JScrollPane** | Adds scrollbars to components. |
+* **Model:** Holds the application data state and structural business rules (no Swing classes).
+* **View:** Draws components on screen (`JButton`, `JLabel`). Delegates interaction inputs.
+* **Controller:** Integrates both. Interprets actions (like mouse clicks) and instructs Model updates.
 
 ---
 
 ## 🗂️ File I/O (Input & Output Streams)
 
-### Java I/O Stream Hierarchy
+### Stream Categories
+All Java I/O operations process sequential pipelines of data called streams.
 
-* **Byte Streams (Handles Binary Data):**
-  * **Input:** `InputStream` ➡️ `FileInputStream`, `BufferedInputStream`, `DataInputStream`
-  * **Output:** `OutputStream` ➡️ `FileOutputStream`, `BufferedOutputStream`, `PrintStream`
-* **Character Streams (Handles Unicode Text Data):**
-  * **Reader:** `Reader` ➡️ `FileReader`, `BufferedReader`, `InputStreamReader`
-  * **Writer:** `Writer` ➡️ `FileWriter`, `BufferedWriter`, `PrintWriter`
+```mermaid
+graph TD
+    Streams[Java I/O Streams] --> Byte[Byte Streams: 8-bit binary]
+    Streams --> Char[Character Streams: 16-bit Unicode]
+    
+    Byte --> InputStream[InputStream]
+    Byte --> OutputStream[OutputStream]
+    
+    InputStream --> FileInputStream[FileInputStream]
+    OutputStream --> FileOutputStream[FileOutputStream]
+    
+    Char --> Reader[Reader]
+    Char --> Writer[Writer]
+    
+    Reader --> FileReader[FileReader]
+    Writer --> FileWriter[FileWriter]
+```
+
 
 
 ```java
@@ -2227,184 +1707,167 @@ public class SerializationDemo {
 
 ## 📚 Collections API
 
-> **Collections Framework** provides classes and interfaces for storing and manipulating groups of objects.
+The Collections Framework provides unified architecture classes to manage and store groups of objects.
 
 ### Collections Hierarchy
 
-| Interface / Class | Category | Key Characteristics |
-| :--- | :--- | :--- |
-| **Collection** | Root Interface | Parent of List, Set, Queue. |
-| **List** | Ordered Sequence | Allows duplicates. Index-based access. |
-| ↳ `ArrayList` | List Impl. | Fast random access, slow insert/delete. |
-| ↳ `LinkedList` | List Impl. | Fast insert/delete, slow random access. |
-| ↳ `Vector` / `Stack` | List Impl. | Thread-safe legacy classes. |
-| **Set** | Unique Elements | Does not allow duplicates. |
-| ↳ `HashSet` | Set Impl. | Unordered, fastest lookups (O(1)). |
-| ↳ `LinkedHashSet` | Set Impl. | Maintains insertion order. |
-| ↳ `TreeSet` | Set Impl. | Sorted ascending order. |
-| **Queue** | FIFO Collection | First-in, first-out access. |
-| ↳ `LinkedList` | Queue Impl. | Standard FIFO queue. |
-| ↳ `PriorityQueue` | Queue Impl. | Sorted by priority. |
-| **Map** | Key-Value Pairs | Separate from Collection hierarchy. |
-| ↳ `HashMap` | Map Impl. | Unordered, fastest (O(1) avg). |
-| ↳ `LinkedHashMap` | Map Impl. | Maintains insertion order. |
-| ↳ `TreeMap` | Map Impl. | Sorted by key ascending. |
-| ↳ `Hashtable` | Map Impl. | Legacy, thread-safe. |
+```mermaid
+graph TD
+    Collection[Collection Interface] --> List[List Interface]
+    Collection --> Set[Set Interface]
+    Collection --> Queue[Queue Interface]
+    
+    List --> ArrayList[ArrayList Class]
+    List --> LinkedList[LinkedList Class]
+    List --> Vector[Vector Class]
+    Vector --> Stack[Stack Class]
+    
+    Set --> HashSet[HashSet Class]
+    Set --> LinkedHashSet[LinkedHashSet Class]
+    Set --> SortedSet[SortedSet Interface]
+    SortedSet --> TreeSet[TreeSet Class]
+    
+    Queue --> PriorityQueue[PriorityQueue Class]
+    Queue --> Deque[Deque Interface]
+    Deque --> LinkedList
+```
+
+### Map Hierarchy
+
+```mermaid
+graph TD
+    Map[Map Interface] --> HashMap[HashMap Class]
+    Map --> Hashtable[Hashtable Legacy]
+    Map --> SortedMap[SortedMap Interface]
+    SortedMap --> TreeMap[TreeMap Class]
+    HashMap --> LinkedHashMap[LinkedHashMap Class]
+```
+
+### Comparison Tables
+
+#### ArrayList vs. LinkedList vs. Vector
+| Characteristic | ArrayList | LinkedList | Vector |
+| :--- | :--- | :--- | :--- |
+| **Data Structure** | Dynamic resizable array | Doubly-linked list | Dynamic array (synchronized) |
+| **Search (Get)** | O(1) (Direct index lookup) | O(N) (Iterates nodes) | O(1) |
+| **Insert / Delete**| O(N) (Requires element shifts) | O(1) (Node pointer updates) | O(N) |
+| **Thread Safety** | ❌ No | ❌ No |  Yes (slow synchronized) |
+
+#### HashMap vs. TreeMap vs. LinkedHashMap
+| Characteristic | HashMap | TreeMap | LinkedHashMap |
+| :--- | :--- | :--- | :--- |
+| **Iteration Order** | ❌ Unordered |  Sorted (natural or comparator) |  Insertion order |
+| **Data Structure** | Hash Table (Node Buckets) | Red-Black Tree | Double-Linked Hash Table |
+| **Search Time** | O(1) average | O(log N) | O(1) |
+| **Null Keys/Values**| Allows 1 null key, many null values | ❌ No null keys allowed | Allows 1 null key, many null values |
 
 ```java
 import java.util.*;
 
-// LIST — ordered, allows duplicates
-List<String> list = new ArrayList<>();
-list.add("Apple"); list.add("Banana"); list.add("Apple");
-System.out.println(list);  // [Apple, Banana, Apple]
+public class CollectionsDemo {
+    public static void main(String[] args) {
+        // List - ordered, permits duplicates
+        List<String> list = new ArrayList<>();
+        list.add("Apple"); list.add("Banana"); list.add("Apple");
+        System.out.println("List: " + list);
 
-// SET — unordered, no duplicates
-Set<String> set = new HashSet<>();
-set.add("Java"); set.add("Python"); set.add("Java");
-System.out.println(set);  // [Python, Java] — no duplicate
+        // Set - unique elements
+        Set<String> set = new HashSet<>();
+        set.add("Java"); set.add("Python"); set.add("Java");
+        System.out.println("Set: " + set);
 
-// MAP — key-value pairs
-Map<String, Integer> map = new HashMap<>();
-map.put("Alice", 90);
-map.put("Bob",   85);
-map.put("Charlie", 92);
-System.out.println(map.get("Bob"));  // 85
-map.forEach((k, v) -> System.out.println(k + " = " + v));
-
-// Sorting
-List<Integer> nums = Arrays.asList(5, 2, 8, 1, 9, 3);
-Collections.sort(nums);               // [1, 2, 3, 5, 8, 9]
-nums.sort(Comparator.reverseOrder()); // [9, 8, 5, 3, 2, 1]
+        // Map - key-value pairs
+        Map<String, Integer> map = new HashMap<>();
+        map.put("Alice", 90);
+        map.put("Bob", 85);
+        System.out.println("Map: " + map);
+    }
+}
 ```
 
 ---
 
 ## 🌊 Stream API
 
-> **Stream API** (Java 8+) provides functional-style operations on sequences of elements.
+* **Definition:** Stream API (introduced in Java 8) processes pipeline operations on sequences of elements in a functional style. Streams do not store elements; they carry values from source collections through pipelined stages.
 
 ```java
 import java.util.*;
 import java.util.stream.*;
 
-List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+public class StreamDemo {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
-// filter — select elements matching condition
-List<Integer> evens = numbers.stream()
-    .filter(n -> n % 2 == 0)
-    .collect(Collectors.toList());
-System.out.println(evens);  // [2, 4, 6, 8, 10]
-
-// map — transform each element
-List<Integer> squares = numbers.stream()
-    .map(n -> n * n)
-    .collect(Collectors.toList());
-System.out.println(squares);  // [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-
-// filter + map + sorted + collect
-List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eve");
-List<String> longNames = names.stream()
-    .filter(name -> name.length() > 4)
-    .map(String::toUpperCase)
-    .sorted()
-    .collect(Collectors.toList());
-System.out.println(longNames);  // [ALICE, CHARLIE, DAVID]
-
-// reduce — combine all elements into one value
-int sum = numbers.stream().reduce(0, Integer::sum);
-System.out.println("Sum: " + sum);  // 55
-
-// count, min, max
-long count = numbers.stream().filter(n -> n > 5).count();  // 5
-Optional<Integer> max = numbers.stream().max(Integer::compareTo);
+        // filter & map pipeline
+        List<Integer> squares = numbers.stream()
+                                       .filter(n -> n % 2 == 0)
+                                       .map(n -> n * n)
+                                       .collect(Collectors.toList());
+        System.out.println("Even Squares: " + squares); // [4, 16, 36, 64, 100]
+    }
+}
 ```
 
 ---
 
 ## 🔗 JDBC — Java Database Connectivity
 
-> **JDBC** is a Java API that enables Java applications to interact with relational databases.
+### JDBC Architecture Flow
+```mermaid
+graph LR
+    App[Java Application] -->|JDBC API Calls| DriverMgr[DriverManager]
+    DriverMgr -->|Delegates to| Driver[Type 4 JDBC Driver]
+    Driver -->|Native Protocol SQL| DB[(Relational Database)]
+```
 
-### JDBC Architecture
-
-| Layer | Component | Role |
-| :--- | :--- | :--- |
-| **Java Application** | Your program | Writes JDBC calls using the JDBC API. |
-| **JDBC API** | `java.sql` package | Provides standard interfaces (`Connection`, `Statement`, `ResultSet`). |
-| **JDBC Driver** | Type-4 Driver (e.g., MySQL Connector/J) | Translates JDBC calls into database-specific native protocol. |
-| **Database** | MySQL, PostgreSQL, Oracle, etc. | Executes SQL and returns results via the driver. |
-
-**JDBC Steps:**
 ```java
 import java.sql.*;
 
 public class JDBCDemo {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/mydb";
+        String user = "root", pass = "password";
 
-        // STEP 1: Load the JDBC Driver
-        Class.forName("com.mysql.cj.jdbc.Driver");
-
-        // STEP 2: Establish Connection
-        String url  = "jdbc:mysql://localhost:3306/mydb";
-        String user = "root";
-        String pass = "password";
-        Connection conn = DriverManager.getConnection(url, user, pass);
-
-        // STEP 3: Create Statement
-        Statement stmt = conn.createStatement();
-
-        // STEP 4: Execute Query
-        stmt.executeUpdate("INSERT INTO students(name,age) VALUES('Asfin',20)");
-
-        ResultSet rs = stmt.executeQuery("SELECT * FROM students");
-        while (rs.next()) {
-            int id      = rs.getInt("id");
-            String name  = rs.getString("name");
-            int age     = rs.getInt("age");
-            System.out.printf("ID: %d, Name: %s, Age: %d%n", id, name, age);
+        try (Connection conn = DriverManager.getConnection(url, user, pass);
+             PreparedStatement ps = conn.prepareStatement("SELECT * FROM students WHERE age > ?")) {
+            
+            ps.setInt(1, 18);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    System.out.println(rs.getString("name"));
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-        // STEP 5: PreparedStatement (PREFERRED — prevents SQL Injection)
-        String sql = "INSERT INTO students(name, age) VALUES(?, ?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setString(1, "Riya");
-        ps.setInt(2, 22);
-        ps.executeUpdate();
-
-        // STEP 6: Close resources
-        rs.close(); stmt.close(); ps.close(); conn.close();
     }
 }
 ```
-
-| Statement | Use When |
-|-----------|----------|
-| `Statement` | Static SQL (no parameters) |
-| `PreparedStatement` | SQL with parameters (safer, faster) |
-| `CallableStatement` | Stored procedures |
 
 ---
 
 ## 🌐 Servlets & JSP
 
-> **Servlet** is a Java class that handles HTTP requests/responses on a web server.
-> **JSP (JavaServer Pages)** creates dynamic web pages using Java embedded in HTML.
+### Servlet Request Lifecycle
+```mermaid
+sequenceDiagram
+    participant Browser as Browser Client
+    participant Container as Servlet Container (Tomcat)
+    participant Servlet as HelloServlet Class
 
-### Client-Server Request Flow
-
-**Request:** `Browser` ➡️ HTTP Request ➡️ `Web Server (Tomcat)` ➡️ `Servlet/JSP`
-
-**Response:** `Browser` ⬅️ HTTP Response ⬅️ `Web Server` ⬅️ `Servlet/JSP`
-
-### Servlet Lifecycle
-
-| Phase | Method | When it runs |
-| :--- | :--- | :--- |
-| **Initialization** | `init()` | Once when the servlet is first loaded. |
-| **Request Handling** | `service()` | Every incoming HTTP request. |
-| **HTTP Method Dispatch** | `doGet()` / `doPost()` | Delegated from `service()` based on HTTP method. |
-| **Destruction** | `destroy()` | Once when the servlet is unloaded/server shuts down. |
+    Browser->>Container: HTTP Request (/hello)
+    opt First Request
+        Container->>Servlet: Load & Instantiate
+        Container->>Servlet: init()
+    end
+    Container->>Servlet: service(request, response)
+    Servlet->>Servlet: doGet() or doPost()
+    Servlet->>Browser: HTTP Response (HTML/JSON)
+    opt Container Shutdown
+        Container->>Servlet: destroy()
+    end
+```
 
 ```java
 import javax.servlet.*;
@@ -2413,26 +1876,10 @@ import java.io.*;
 
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
-
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setContentType("text/html");
-        PrintWriter out = resp.getWriter();
-
-        String name = req.getParameter("name");
-
-        out.println("<html><body>");
-        out.println("<h1>Hello, " + name + "!</h1>");
-        out.println("</body></html>");
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        String data = req.getParameter("data");
-        // Process and respond...
+        resp.getWriter().println("<h1>Hello from Servlet!</h1>");
     }
 }
 ```
@@ -2441,29 +1888,21 @@ public class HelloServlet extends HttpServlet {
 
 ## 🌍 REST API & Web Services
 
-> **REST (Representational State Transfer)** is an architectural style for designing web APIs using HTTP.
-
-### REST API HTTP Methods
-
-| Method | CRUD Operation | Description | URL Example |
-| :--- | :--- | :--- | :--- |
-| **GET** | Read | Retrieve a resource or list. | `GET /api/users` |
-| **POST** | Create | Create a new resource. | `POST /api/users` |
-| **PUT** | Update | Replace entire resource. | `PUT /api/users/1` |
-| **PATCH** | Update | Partially update a resource. | `PATCH /api/users/1` |
-| **DELETE** | Delete | Remove a resource. | `DELETE /api/users/1` |
-
-### HTTP Status Codes
-
-| Range | Category | Common Codes |
-| :--- | :--- | :--- |
-| **2xx** | ✅ Success | `200 OK`, `201 Created`, `204 No Content` |
-| **3xx** | 🔀 Redirect | `301 Moved Permanently`, `302 Found` |
-| **4xx** | ❌ Client Error | `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found` |
-| **5xx** | 💥 Server Error | `500 Internal Server Error`, `503 Service Unavailable` |
+### REST API Architecture Request Flow
+```mermaid
+graph LR
+    Client[Client Browser / Postman] -->|HTTP GET/POST Request| SpringController[REST Controller]
+    SpringController -->|Validates & Parses| Service[Service Layer]
+    Service -->|Business Logic| Repository[Data Access Layer]
+    Repository -->|Returns Entity| Service
+    Service -->|Converts to DTO| SpringController
+    SpringController -->|Serializes to JSON/XML| Client
+```
 
 ```java
-// Spring Boot REST Controller
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/students")
 public class StudentController {
@@ -2501,7 +1940,17 @@ public class StudentController {
 
 ## 🗺️ ORM Tools
 
-> **ORM (Object Relational Mapping)** maps Java objects to database tables automatically, eliminating raw SQL.
+* **Definition:** Object-Relational Mapping (ORM) is a technique that maps database tables to Java object entities, abstracting SQL queries into object methods.
+
+### Hibernate / JPA Architecture
+```mermaid
+graph TD
+    App[Java Application] -->|Configures| SF[SessionFactory / EntityManagerFactory]
+    SF -->|Opens| Session[Session / EntityManager]
+    Session -->|Begins| Tx[Transaction]
+    Session -->|Performs CRUD| PersistentObj[Persistent Entities]
+    PersistentObj -->|Syncs/Flushes| DB[(Database Connection)]
+```
 
 ### ORM vs. Raw JDBC Comparison
 
@@ -2549,50 +1998,43 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
 ## 📦 Maven
 
-> **Maven** is a **build automation and project management tool**. Manages dependencies, compilation, testing, and packaging.
+* **Definition:** Apache Maven is a software project management and build automation tool based on the concept of a Project Object Model (POM).
 
-```
-POM.XML STRUCTURE:
-  <?xml version="1.0" encoding="UTF-8"?>
-  <project>
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.asfin</groupId>       ← your company/group ID
-    <artifactId>myapp</artifactId>     ← project name
-    <version>1.0.0</version>           ← version
-    <packaging>jar</packaging>
-
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-        <version>3.2.0</version>
-      </dependency>
-    </dependencies>
-  </project>
+### Maven Build Lifecycle
+```mermaid
+graph TD
+    validate[validate] --> compile[compile]
+    compile --> test[test]
+    test --> package[package]
+    package --> verify[verify]
+    verify --> install[install]
+    install --> deploy[deploy]
 ```
 
-**Maven Commands:**
-```bash
-mvn clean              # Delete target/ folder
-mvn compile            # Compile source code
-mvn test               # Run unit tests
-mvn package            # Create JAR/WAR
-mvn install            # Install to local repo (~/.m2)
-mvn clean install      # Clean + install (common build)
-mvn spring-boot:run    # Run Spring Boot app
-mvn dependency:tree    # Show dependency hierarchy
-```
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.asfin</groupId>
+  <artifactId>myapp</artifactId>
+  <version>1.0.0</version>
+  <packaging>jar</packaging>
 
-**Maven Lifecycle:**
-```
-validate → compile → test → package → verify → install → deploy
+  <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+  </dependencies>
+</project>
 ```
 
 ---
 
 ## 🐘 Gradle
 
-> **Gradle** is a modern, flexible build tool using **Groovy or Kotlin DSL**. Faster than Maven.
+* **Definition:** Gradle is a build automation tool that builds on the concepts of Apache Ant and Apache Maven, using a Groovy or Kotlin Domain Specific Language (DSL) instead of XML.
 
 **build.gradle (Groovy DSL):**
 ```groovy
@@ -2630,7 +2072,7 @@ dependencies {
 
 ## 🧪 JUnit Testing
 
-> **JUnit** is the standard unit testing framework for Java.
+* **Definition:** JUnit is a unit testing framework for the Java programming language, essential for Test-Driven Development (TDD).
 
 ```java
 import org.junit.jupiter.api.*;
@@ -2694,7 +2136,15 @@ assertArrayEquals(expected, actual)     // arrays are equal
 
 ## 📁 Git & Version Control
 
-> **Git** is a distributed **version control system** for tracking changes in source code.
+* **Definition:** Git is a distributed version control system designed to track changes in source code files.
+
+### Git Staging & Branching Workflow
+```mermaid
+graph LR
+    WS[Working Directory] -->|git add| Index[Staging Area]
+    Index -->|git commit| Local[Local Repository]
+    Local -->|git push| Remote[Remote Repository]
+```
 
 ```bash
 # Initial Setup
