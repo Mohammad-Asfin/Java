@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+org.eclipse.jdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=26
+org.eclipse.jdt.core.compiler.compliance=26
+org.eclipse.jdt.core.compiler.release=enabled
+org.eclipse.jdt.core.compiler.source=26
+org.eclipse.jdt.core.userLibrary.MySQL\ Lib=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<userlibrary systemlibrary\="false" version\="2">\r\n\t<archive path\="C\:/Program Files/JDBC Driver for MySQL (ConnectorJ)/mysql-connector-j-26.7.0/mysql-connector-j-26.7.0.jar"/>\r\n</userlibrary>\r\n

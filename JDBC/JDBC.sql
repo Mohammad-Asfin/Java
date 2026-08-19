@@ -1,0 +1,16 @@
+CREATE DATABASE JDBC;
+USE JDBC;
+
+CREATE TABLE studentInfo (
+	id INT NOT NULL,
+    sname VARCHAR(50) NOT NULL,
+    sage INT NOT NULL,
+    scity VARCHAR(40)  NOT NULL,
+    PRIMARY KEY(id)
+);
+
+SELECT * FROM studentInfo;
+
+DROP TABLE studentInfo;
+
+DROP DATABASE JDBC;

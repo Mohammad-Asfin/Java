@@ -1,0 +1,13 @@
+package JDBCTest;
+import java.sql.*;
+
+public class LaunchApp1 {
+
+	public static void main(String[] args) 
+	{
+		// Load and Register the Driver
+		Class.forName("com.mysql.cl.jdbc.Driver");
+
+	}
+
+}

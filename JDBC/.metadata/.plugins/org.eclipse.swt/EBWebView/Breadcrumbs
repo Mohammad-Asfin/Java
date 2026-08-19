@@ -1,0 +1,61 @@
+0:09:07 Tab2 StartNav33 #typed
+0:09:07 Tab2 FinishNav33 ERR_FILE_NOT_FOUND
+0:09:07 Tab2 PageLoad
+0:09:15 Memory Pressure: Moderate
+0:09:20 Tab2 StartNav34 #typed
+0:09:20 Tab2 FinishNav34 ERR_FILE_NOT_FOUND
+0:09:20 Tab2 PageLoad
+0:09:21 Tab2 StartNav35 #typed
+0:09:21 Tab2 FinishNav35 ERR_FILE_NOT_FOUND
+0:09:21 Tab2 PageLoad
+0:09:25 Memory Pressure: Moderate
+0:09:35 Memory Pressure: Moderate
+0:09:38 Tab2 StartNav36 #typed
+0:09:38 Tab2 FinishNav36 ERR_FILE_NOT_FOUND
+0:09:38 Tab2 PageLoad
+0:09:40 Tab2 StartNav37 #typed
+0:09:40 Tab2 FinishNav37 ERR_FILE_NOT_FOUND
+0:09:40 Tab2 PageLoad
+0:09:40 Tab2 StartNav38 #typed
+0:09:40 Tab2 FinishNav38 ERR_FILE_NOT_FOUND
+0:09:40 Tab2 PageLoad
+0:09:42 Tab2 StartNav39 #typed
+0:09:42 Tab2 FinishNav39 ERR_FILE_NOT_FOUND
+0:09:42 Tab2 PageLoad
+0:09:45 Memory Pressure: Moderate
+0:09:47 Tab2 StartNav40 #typed
+0:09:47 Tab2 FinishNav40 ERR_FILE_NOT_FOUND
+0:09:47 Tab2 PageLoad
+0:09:55 Memory Pressure: Moderate
+0:10:05 Memory Pressure: Moderate
+0:10:15 Memory Pressure: Moderate
+0:10:26 Memory Pressure: Moderate
+0:10:36 Memory Pressure: Moderate
+0:10:38 Tab2 StartNav41 #typed
+0:10:38 Tab2 FinishNav41 ERR_FILE_NOT_FOUND
+0:10:38 Tab2 PageLoad
+0:10:40 Tab2 StartNav42 #typed
+0:10:40 Tab2 FinishNav42 ERR_FILE_NOT_FOUND
+0:10:40 Tab2 PageLoad
+0:10:46 Memory Pressure: Moderate
+0:10:51 Tab2 StartNav43 #typed
+0:10:51 Tab2 FinishNav43 ERR_FILE_NOT_FOUND
+0:10:51 Tab2 PageLoad
+0:10:56 Memory Pressure: Moderate
+0:11:06 Memory Pressure: Moderate
+0:11:16 Memory Pressure: Moderate
+0:11:26 Memory Pressure: Moderate
+0:11:36 Memory Pressure: Moderate
+0:11:41 Memory Pressure: Critical
+0:11:46 Memory Pressure: Moderate
+0:11:56 Memory Pressure: Moderate
+0:12:06 Memory Pressure: Moderate
+0:12:16 Memory Pressure: Moderate
+0:12:24 Tab2 StartNav44 #typed
+0:12:24 Tab2 FinishNav44 ERR_FILE_NOT_FOUND
+0:12:24 Tab2 PageLoad
+0:12:26 Memory Pressure: Moderate
+0:12:29 Tab2 StartNav45 #typed
+0:12:29 Tab2 FinishNav45 ERR_FILE_NOT_FOUND
+0:12:29 Tab2 PageLoad
+0:12:31 Microsoft.UnloadController.IsUnclosableApp_IsNotWebApp
