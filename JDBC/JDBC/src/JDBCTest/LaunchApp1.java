@@ -15,7 +15,7 @@ public class LaunchApp1 {
         // Establish the connection
         String url = "jdbc:mysql://localhost:3306/jdb_Test";
         String user = "root";
-        String password = "MySQL#1234#@";
+        String password = "YOUR_PASSWORD";
 
         Connection connect = DriverManager.getConnection(url, user, password);
 
@@ -24,7 +24,7 @@ public class LaunchApp1 {
 
         // Execute query
         String sql = "INSERT INTO studentinfo(id, sname, sage, scity) " +
-                     "VALUES(1, 'Rohan', 17, 'Bengaluru')";
+                "VALUES(1, 'Rohan', 17, 'Bengaluru')";
 
         int rowAffected = statement.executeUpdate(sql);
 

@@ -2,42 +2,56 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
+/**
+ * Example: Problems with basic Statement (SQL Injection Risk)
+ *
+ * Concept:
+ * Using a regular Statement requires string concatenation to insert dynamic data.
+ * This is extremely error-prone (quotes, plus signs) and highly vulnerable 
+ * to SQL Injection attacks if the variables come from user input.
+ *
+ * Database Schema:
+ * CREATE DATABASE java_jdbc;
+ * USE java_jdbc;
+ * CREATE TABLE student (
+ *     id INT PRIMARY KEY AUTO_INCREMENT,
+ *     name VARCHAR(100),
+ *     age INT,
+ *     course VARCHAR(100)
+ * );
+ */
 public class DemoJdbc {
     public static void main(String[] args) throws Exception {
 
-/*
-import package
-load and register
-create connection
-create statement
-execute statement
-process the results
-close
+        // Dynamic data
+        int sid = 103;
+        String sname = "Max";
+        int age = 22;
+        String course = "Chemistry";
 
-
-*/
-
-        int sid=101;
-        String sname="Max";
-        int marks=48;
-
-        String url = "jdbc:postgresql://localhost:5432/demo";
+        String url = "jdbc:postgresql://localhost:5432/java_jdbc";
         String uname = "postgres";
-        String pass = "6031";
+        String pass = "YOUR_PASSWORD";
 
-        String sql = "insert into student values ("+sid+",'"+sname+"',"+marks+")";
-        // Class.forName("org.postgresql.Driver");
+        // PROBLEM: Ugly string concatenation
+        // Very easy to miss a single quote or plus sign
+        String sql = "INSERT INTO student (id, name, age, course) VALUES (" + sid + ", '" + sname + "', " + age + ", '" + course + "')";
+        
+        /*
+         * SQL INJECTION VULNERABILITY:
+         * If sname was user input like: "Max', 22, 'Chem'); DROP TABLE student; --"
+         * The resulting SQL would execute a drop table command!
+         */
+
         Connection con = DriverManager.getConnection(url, uname, pass);
-        System.out.println("Connection established");
         Statement st = con.createStatement();
+        
+        System.out.println("Executing messy SQL: " + sql);
         st.execute(sql);
 
+        System.out.println("Record inserted, but this approach is NOT recommended!");
 
-
-
+        st.close();
         con.close();
-        System.out.println("Connection closed");
-
-
     }
 }
